@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GamesList.unity
+    guid: dce50c48ef9794bc78c94670204d1b04
+  - enabled: 1
+    path: Assets/Scenes/GameSettingsPage.unity
+    guid: 06c40e0bfa9b64ca0ba7156ff3b451ff
+  - enabled: 0
+    path: Assets/Scenes/PlayGame.unity
+    guid: 15a3d3ae4ec104c2187823ab3777750e
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/TargetTapGame.unity
+    guid: 9b50489ed8bfb4bff9f35c17dd25accd
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_UseUCBPForAssetBundles: 0

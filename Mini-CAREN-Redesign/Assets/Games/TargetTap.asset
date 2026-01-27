@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa550478733544418e4b01518e90169, type: 3}
+  m_Name: TargetTap
+  m_EditorClassIdentifier: 
+  gameName: TargetTap
+  gameDescription: "Target Tap challenges players to quickly hit floor targets as
+    they appear. Stay sharp and tap fast\u2014accuracy and speed are the key to winning!"
+  gameImage: {fileID: 21300000, guid: 16d96d20e68a540ec94526a1a54481ac, type: 3}
+  gameTags:
+  - Coordination
+  - Balance
+  gameIcon:
+  - {fileID: 21300000, guid: 514b89ffa304c4d468a7ef2856e9f62c, type: 3}
+  - {fileID: 21300000, guid: 0239f1d9edc7e4d7db0862b148943429, type: 3}
+  Settings:
+  - cardName: Target Height
+    cardDescription: The Height of the target from the ground
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 0
+      min: 0
+      max: 0.5
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: Target Hold Time
+    cardDescription: The length of time in second you need to hold hitting a target
+    cardImage: {fileID: 21300000, guid: 7030bc38134e043b884f2ff9ee0d7d14, type: 3}
+    SettingValue:
+      value: 1.5
+      min: 0
+      max: 5
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: Target Size
+    cardDescription: The size of the target to hit
+    cardImage: {fileID: 21300000, guid: a3c2c95342be348f2bfd395c72c3245e, type: 3}
+    SettingValue:
+      value: 1
+      min: 1
+      max: 2
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: Number of Targets
+    cardDescription: Total Number of Targets you need to hit.
+    cardImage: {fileID: 21300000, guid: 16d96d20e68a540ec94526a1a54481ac, type: 3}
+    SettingValue:
+      value: 10
+      min: 10
+      max: 100
+      units: 
+      LiveSetting: 0
+    sliderisWholeNumber: 1
+  - cardName: Home Box Hold Time
+    cardDescription: The size of the center home box
+    cardImage: {fileID: 21300000, guid: 216d4c113ede24337a18f78ab558af8a, type: 3}
+    SettingValue:
+      value: 2
+      min: 0
+      max: 5
+      units: Seconds
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: Home Box Size
+    cardDescription: The size of the center home box
+    cardImage: {fileID: 21300000, guid: 216d4c113ede24337a18f78ab558af8a, type: 3}
+    SettingValue:
+      value: 0.5
+      min: 0.5
+      max: 1
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  RestartGame: 1
+  CardOrder: 1
+  SpecialCardPlatform:
+    cardName: Platform Size
+    cardDescription: Adjusts the size of the platform
+    cardImage: {fileID: 21300000, guid: 216d4c113ede24337a18f78ab558af8a, type: 3}
+    SettingValue:
+      frontValue: 1
+      backValue: 1
+      leftValue: 1
+      rightValue: 1
+      min: 0
+      max: 2
+      increment: 0.1
+    cardPrefab: {fileID: 5886861621587215550, guid: c9da8e8a85c05487e8cae3be8600cdfd, type: 3}
+  SpecialCardBias:
+    cardName: Target Bias
+    cardDescription: Adjust the bias where targets spawn
+    cardImage: {fileID: 21300000, guid: a3c2c95342be348f2bfd395c72c3245e, type: 3}
+    SettingValue:
+      value: 50
+      min: 0
+      max: 100
+      units: '%'
+    cardPrefab: {fileID: 7291998014160336035, guid: 873f222c7bf05430a93db35ebf052948, type: 3}
