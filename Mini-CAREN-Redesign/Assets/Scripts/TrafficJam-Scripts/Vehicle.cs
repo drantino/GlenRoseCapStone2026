@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Vehicle : MonoBehaviour
 {
-    public string footTag; // this determines what foot the vehicle will stop infont of, and be stomped by
+    public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
 
 	[SerializeField] private GameObject vehicleModel;
 	[SerializeField] private GameObject vehicleSquishedModel;
 	[SerializeField] private float moveSpeed;
-	[SerializeField]
-	private bool objectInfront = false;
-	[SerializeField]
+	[SerializeField] private float vehicleStopDistance;
+	[SerializeField] private float timeUntilDespawnAfterSquish;
+	
 	private bool squished = false;
 
 	private void Start()
@@ -21,6 +21,10 @@ public class Vehicle : MonoBehaviour
 
 	private void Update()
 	{
+		// check if there is an object infront of the vehicle
+		Physics.BoxCast(transform.position, new Vector3(0.2f, 0.2f, 0.2f), Vector3.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
+		bool objectInfront = hit.transform != null && (hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle"));
+
 		if (!objectInfront && !squished)
 		{
 			// move
@@ -29,22 +33,20 @@ public class Vehicle : MonoBehaviour
 
 		if (squished)
 		{
-			// TODO: squished movement
+			// TODO: do more complex squished movement (for now just despawns after a few seconds)
+			timeUntilDespawnAfterSquish -= Time.deltaTime;
+			if (timeUntilDespawnAfterSquish < 0)
+			{
+				Destroy(gameObject);
+				return;
+			}
 		}
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		string tag = other.tag;
-		if (tag == footTag || tag == "Vehicle")
-			objectInfront = true;
-	}
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		Debug.Log("Collision!");
-
-		if (tag == footTag)
+		if (other.tag == footTag)
 			Squish();
 	}
 
