@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 2169832125516911363}
   m_Layer: 0
   m_Name: Vehicle
-  m_TagString: RightShoe
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
