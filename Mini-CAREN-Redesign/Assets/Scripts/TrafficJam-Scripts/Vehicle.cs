@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -17,6 +16,11 @@ public class Vehicle : MonoBehaviour
 	{
 		vehicleModel.SetActive(true);
 		vehicleSquishedModel.SetActive(false);
+
+		if (vehicleModel == null)
+			throw new System.Exception("the vehicle model is null");
+		if (vehicleSquishedModel == null)
+			throw new System.Exception("the vehicle squished model is null");
 	}
 
 	private void Update()
