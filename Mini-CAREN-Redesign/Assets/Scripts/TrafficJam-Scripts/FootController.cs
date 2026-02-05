@@ -11,6 +11,8 @@ public class FootController : MonoBehaviour
 
     public GameObject leftFoot;
     public GameObject rightFoot;
+    public BoxCollider leftFootCollider;
+    public BoxCollider rightFootCollider;
 
     public float minimumHeight;
     public float maximumHeight;
@@ -23,9 +25,14 @@ public class FootController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        leftFoot = Instantiate(leftFootPrefab);
-        rightFoot = Instantiate(rightFootPrefab);
-
+        if(leftFootPrefab != null)
+        {
+            leftFoot = Instantiate(leftFootPrefab);
+        }
+        if (rightFootPrefab != null)
+        {
+            rightFoot = Instantiate(rightFootPrefab);
+        }
         //TODO:identify left and right foot markers
 
         leftFoot.transform.position = leftFootPosition;
@@ -71,7 +78,6 @@ public class FootController : MonoBehaviour
         //TODO: update foot position to left and right markers
 
         #region Debug Controls
-
         //DEBUG CONTROLS
         if (leftFoot.transform.position.y < maximumHeight && leftMovement > 0
             || leftFoot.transform.position.y > minimumHeight && leftMovement < 0)
@@ -84,9 +90,34 @@ public class FootController : MonoBehaviour
             rightFootPosition.y += rightMovement * Time.deltaTime * movementMultiplyer;
         }
         #endregion
-
+        //Set visual feet to read position of markers TODO: decouple X and Z, TODO: allow recalibrate to set the new "zero" point
         leftFoot.transform.position = leftFootPosition;
         rightFoot.transform.position = rightFootPosition;
+        
+        
+        //Height controller for colliders
+        if(leftFootPosition.y > minimumHeight + heightThreshold)
+        {
+            leftFootCollider.enabled = false;
+        }
+        else
+        { 
+            leftFootCollider.enabled = true; 
+        }
+        if (rightFootPosition.y > minimumHeight + heightThreshold)
+        {
+            rightFootCollider.enabled = false;
+        }
+        else
+        {
+            rightFootCollider.enabled = true;
+        }
 
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(leftFootPosition, new Vector3(0.1f,0.1f,0.1f));
+        Gizmos.DrawCube(rightFootPosition, new Vector3(0.1f, 0.1f, 0.1f));
     }
 }
