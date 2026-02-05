@@ -28,15 +28,17 @@ public class FootController : MonoBehaviour
         if(leftFootPrefab != null)
         {
             leftFoot = Instantiate(leftFootPrefab);
+            leftFoot.transform.position = leftFootPosition;
         }
         if (rightFootPrefab != null)
         {
             rightFoot = Instantiate(rightFootPrefab);
+            rightFoot.transform.position = rightFootPosition;
         }
         //TODO:identify left and right foot markers
 
-        leftFoot.transform.position = leftFootPosition;
-        rightFoot.transform.position = rightFootPosition;
+        
+        
 
     }
 
@@ -79,22 +81,27 @@ public class FootController : MonoBehaviour
 
         #region Debug Controls
         //DEBUG CONTROLS
-        if (leftFoot.transform.position.y < maximumHeight && leftMovement > 0
-            || leftFoot.transform.position.y > minimumHeight && leftMovement < 0)
+        if (leftFootPosition.y < maximumHeight && leftMovement > 0
+            || leftFootPosition.y > minimumHeight && leftMovement < 0)
         {
             leftFootPosition.y += leftMovement * Time.deltaTime * movementMultiplyer;
         }
-        if (rightFoot.transform.position.y < maximumHeight && rightMovement > 0
-            || rightFoot.transform.position.y > minimumHeight && rightMovement < 0)
+        if (rightFootPosition.y < maximumHeight && rightMovement > 0
+            || rightFootPosition.y > minimumHeight && rightMovement < 0)
         {
             rightFootPosition.y += rightMovement * Time.deltaTime * movementMultiplyer;
         }
         #endregion
         //Set visual feet to read position of markers TODO: decouple X and Z, TODO: allow recalibrate to set the new "zero" point
-        leftFoot.transform.position = leftFootPosition;
-        rightFoot.transform.position = rightFootPosition;
-        
-        
+        if(leftFoot != null)
+        {
+            leftFoot.transform.position = leftFootPosition;
+        }
+        if(rightFoot !=null)
+        {
+            rightFoot.transform.position = rightFootPosition;
+        }
+ 
         //Height controller for colliders
         if(leftFootPosition.y > minimumHeight + heightThreshold)
         {
