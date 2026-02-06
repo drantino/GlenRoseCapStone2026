@@ -163,4 +163,4 @@ MonoBehaviour:
   minimumHeight: 0
   maximumHeight: 1
   heightThreshold: 0.5
-  movementMultiplyer: 1
+  movementMultiplyer: 2

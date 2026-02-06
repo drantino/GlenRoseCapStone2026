@@ -3,6 +3,7 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
+	[HideInInspector] public VehicleSpawner vehicleSpawner;
 
 	[SerializeField] private GameObject vehicleModel;
 	[SerializeField] private GameObject vehicleSquishedModel;
@@ -41,6 +42,7 @@ public class Vehicle : MonoBehaviour
 			timeUntilDespawnAfterSquish -= Time.deltaTime;
 			if (timeUntilDespawnAfterSquish < 0)
 			{
+				vehicleSpawner.currentCarsInLane--;
 				Destroy(gameObject);
 				return;
 			}

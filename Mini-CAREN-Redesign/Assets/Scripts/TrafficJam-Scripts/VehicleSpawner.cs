@@ -50,15 +50,7 @@ public class VehicleSpawner : MonoBehaviour
         GameObject instantiatedVehicle = Instantiate(VehiclePrefab, transform.position, transform.rotation);
         Vehicle instantiatedVehicleScript = instantiatedVehicle.GetComponent<Vehicle>();
         instantiatedVehicleScript.footTag = footTag;
+        instantiatedVehicleScript.vehicleSpawner = this;
         currentCarsInLane++;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Vehicle")
-        {
-            Destroy(other.transform.parent.gameObject);
-            currentCarsInLane--;
-        }
     }
 }

@@ -84,12 +84,12 @@ public class FootController : MonoBehaviour
         if (leftFootPosition.y < maximumHeight && leftMovement > 0
             || leftFootPosition.y > minimumHeight && leftMovement < 0)
         {
-            leftFootPosition.y += leftMovement * Time.deltaTime * movementMultiplyer;
+            leftFootPosition.y += leftMovement * Time.fixedDeltaTime * movementMultiplyer;
         }
         if (rightFootPosition.y < maximumHeight && rightMovement > 0
             || rightFootPosition.y > minimumHeight && rightMovement < 0)
         {
-            rightFootPosition.y += rightMovement * Time.deltaTime * movementMultiplyer;
+            rightFootPosition.y += rightMovement * Time.fixedDeltaTime * movementMultiplyer;
         }
         #endregion
         //Set visual feet to read position of markers TODO: decouple X and Z, TODO: allow recalibrate to set the new "zero" point
