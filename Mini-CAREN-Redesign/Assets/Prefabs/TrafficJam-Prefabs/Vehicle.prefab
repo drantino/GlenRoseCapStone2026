@@ -250,7 +250,7 @@ MonoBehaviour:
   footTag: RightShoe
   vehicleModel: {fileID: 2657023913442293587}
   vehicleSquishedModel: {fileID: 2570368856864982978}
-  moveSpeed: 3
+  moveSpeed: 4
   vehicleStopDistance: 1.5
   timeUntilDespawnAfterSquish: 2
 --- !u!1 &8158564348847658314
