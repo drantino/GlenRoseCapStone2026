@@ -26,7 +26,7 @@ public class Vehicle : MonoBehaviour
 	private void Update()
 	{
 		// check if there is an object infront of the vehicle
-		Physics.BoxCast(transform.position, new Vector3(0.2f, 0.2f, 0.2f), Vector3.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
+		Physics.BoxCast(transform.position, new Vector3(0.2f, 0.2f, 0.2f), transform.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
 		bool objectInfront = hit.transform != null && (hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle"));
 
 		if (!objectInfront && !squished)

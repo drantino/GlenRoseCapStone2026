@@ -9,8 +9,8 @@ public class FootController : MonoBehaviour
     public Vector3 leftFootPosition;
     public Vector3 rightFootPosition;
 
-    public GameObject leftFoot;
-    public GameObject rightFoot;
+    [HideInInspector] public GameObject leftFoot;
+    [HideInInspector] public GameObject rightFoot;
     public BoxCollider leftFootCollider;
     public BoxCollider rightFootCollider;
 
