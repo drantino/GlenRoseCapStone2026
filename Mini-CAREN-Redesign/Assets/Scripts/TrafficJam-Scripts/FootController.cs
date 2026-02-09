@@ -34,11 +34,7 @@ public class FootController : MonoBehaviour
         {
             rightFoot = Instantiate(rightFootPrefab);
             rightFoot.transform.position = rightFootPosition;
-        }
-        //TODO:identify left and right foot markers
-
-        
-        
+        }  
 
     }
 
@@ -78,6 +74,12 @@ public class FootController : MonoBehaviour
     private void FixedUpdate()
     {
         //TODO: update foot position to left and right markers
+        if(!CalibrationLogic.NotEnoughtMarkers)
+        {
+            leftFootPosition = new Vector3(leftFootPosition.x,CalibrationLogic.leftFootPosition.y,leftFootPosition.z);
+            rightFootPosition = new Vector3(rightFootPosition.x,CalibrationLogic.rightFootPosition.y,rightFootPosition.z);
+        }
+
 
         #region Debug Controls
         //DEBUG CONTROLS
@@ -92,7 +94,7 @@ public class FootController : MonoBehaviour
             rightFootPosition.y += rightMovement * Time.fixedDeltaTime * movementMultiplyer;
         }
         #endregion
-        //Set visual feet to read position of markers TODO: decouple X and Z, TODO: allow recalibrate to set the new "zero" point
+        //Set visual feet to read position of markers TODO: allow recalibrate to set the new "zero" point
         if(leftFoot != null)
         {
             leftFoot.transform.position = leftFootPosition;
@@ -101,9 +103,10 @@ public class FootController : MonoBehaviour
         {
             rightFoot.transform.position = rightFootPosition;
         }
- 
+        
+        //TODO: change min/max height and threshold to settings of the Game object gamesettings
         //Height controller for colliders
-        if(leftFootPosition.y > minimumHeight + heightThreshold)
+        if(leftFootPosition.y > minimumHeight + heightThreshold)//might have to change this to allow for offset
         {
             leftFootCollider.enabled = false;
         }
@@ -111,7 +114,7 @@ public class FootController : MonoBehaviour
         { 
             leftFootCollider.enabled = true; 
         }
-        if (rightFootPosition.y > minimumHeight + heightThreshold)
+        if (rightFootPosition.y > minimumHeight + heightThreshold)//might have to change this to allow for offset
         {
             rightFootCollider.enabled = false;
         }
