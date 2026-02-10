@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 516816858}
   - component: {fileID: 516816857}
   m_Layer: 0
-  m_Name: Dummy
+  m_Name: DummyGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   leftPassed: 0
   rightAmount: 0
   rightPassed: 0
-  endTime: 0
+  endTime: 312
   startTime: 0
 --- !u!4 &516816858
 Transform:

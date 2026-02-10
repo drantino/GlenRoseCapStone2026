@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class TrafficJamGameManager : MonoBehaviour
 {
-    public float leftAmount, leftPassed, rightAmount, rightPassed;
-    private float leftScore, rightScore;
+    public int leftAmount, leftPassed, rightAmount, rightPassed;
     
     //TEMP: Serialize to view in editor
     [SerializeField]
@@ -15,6 +14,8 @@ public class TrafficJamGameManager : MonoBehaviour
         {
             EndGame();
         }
+        //UIManager.UpdateTimer(endTime - Time.fixedTime);
+        
     }
 
     public void StartGame()
@@ -36,31 +37,15 @@ public class TrafficJamGameManager : MonoBehaviour
     [ContextMenu("EndGame")]
     public void EndGame()
     {
-        leftScore = 100;
-        rightScore = 100;
-
-        if (leftAmount > 0)
-        {
-            leftScore *= leftPassed/leftAmount;
-            leftScore = Mathf.Round(leftScore);
-        }
-        if (rightAmount > 0)
-        {
-            rightScore *= rightPassed/rightAmount;
-            rightScore = Mathf.Round(rightScore);
-        }
-            
-        
-        //TODO: Send the scores to the UI to display
-
-        //TEMP: Debug.Log to see the scores
-        Debug.Log($"Left score: {leftScore}%, Right score: {rightScore}%"); 
+        //UIManager.ShowEndPanel((float)leftAmount, (float)leftPassed, (float)rightAmount, (float)rightPassed);
         
     }
 
+    // The timer raises or lowers when the operator/therapist adjusts the time, instead of completely resetting
     public void AdjustTimer(int timerLengthSeconds)
     {
         endTime = startTime + timerLengthSeconds;
+        //UIManager.UpdateTimer(endTime - Time.fixedTime);
     }
     
 }
