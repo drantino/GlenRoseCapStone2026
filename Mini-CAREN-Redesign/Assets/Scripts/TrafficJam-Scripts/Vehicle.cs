@@ -10,25 +10,26 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float vehicleStopDistance;
 	[SerializeField] private float timeUntilDespawnAfterSquish;
-	
+
 	private bool squished = false;
 
 	private void Start()
 	{
-		vehicleModel.SetActive(true);
-		vehicleSquishedModel.SetActive(false);
-
 		if (vehicleModel == null)
 			throw new System.Exception("the vehicle model is null");
 		if (vehicleSquishedModel == null)
 			throw new System.Exception("the vehicle squished model is null");
+
+		vehicleModel.SetActive(true);
+		vehicleSquishedModel.SetActive(false);
 	}
 
 	private void Update()
 	{
 		// check if there is an object infront of the vehicle
 		Physics.BoxCast(transform.position, new Vector3(0.2f, 0.2f, 0.2f), transform.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
-		bool objectInfront = hit.transform != null && (hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle"));
+		bool objectInfront = hit.transform != null && (
+			hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle") || hit.transform.CompareTag("VehicleStopper"));
 
 		if (!objectInfront && !squished)
 		{
@@ -51,7 +52,6 @@ public class Vehicle : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		string tag = other.tag;
 		if (other.tag == footTag)
 			Squish();
 	}

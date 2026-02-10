@@ -8,6 +8,7 @@ TagManager:
   - LeftShoe
   - RightShoe
   - Vehicle
+  - VehicleStopper
   layers:
   - Default
   - TransparentFX
