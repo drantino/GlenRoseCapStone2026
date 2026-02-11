@@ -4023,6 +4023,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1549163296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549163298}
+  - component: {fileID: 1549163297}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1549163297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549163296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e6c3b8f2c17c94eabafb13d8eb2f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftCarsPassedText: {fileID: 0}
+  rightCarsPassedText: {fileID: 0}
+  leftCarsSquishedText: {fileID: 0}
+  rightCarsSquishedText: {fileID: 0}
+  timerText: {fileID: 0}
+  leftRatioText: {fileID: 0}
+  leftPercentageText: {fileID: 0}
+  rightRatioText: {fileID: 0}
+  rightPercentageText: {fileID: 0}
+  countdownText: {fileID: 0}
+  countdownPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
+  endPanel: {fileID: 0}
+--- !u!4 &1549163298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549163296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7254114, y: 18.916897, z: -20.767975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1558036424
 GameObject:
   m_ObjectHideFlags: 0
@@ -6581,3 +6638,4 @@ SceneRoots:
   - {fileID: 890370428}
   - {fileID: 1731097166}
   - {fileID: 979070067}
+  - {fileID: 1549163298}
