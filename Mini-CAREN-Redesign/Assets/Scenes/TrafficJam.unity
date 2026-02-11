@@ -4424,7 +4424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
       propertyPath: spawnRateVarianceSec
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6266,7 +6266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
       propertyPath: spawnRateVarianceSec
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
