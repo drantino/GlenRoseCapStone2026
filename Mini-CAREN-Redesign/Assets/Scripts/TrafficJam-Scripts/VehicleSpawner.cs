@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class VehicleSpawner : MonoBehaviour
 {
-    public float spawnRateSec;
-    public float spawnRateVarianceSec;
-    public float currentCarsInLane = 0;
-    public float maxCarsInLane;
+	[HideInInspector] public float currentCarsInLane = 0;
+
+	[SerializeField] protected float spawnRateSec;
+	[SerializeField] protected float spawnRateVarianceSec;
+	[SerializeField] protected float maxCarsInLane;
+	[SerializeField] protected float timeOffset;
 
     // Since we only have one car type/model, we only need one game object for the prefabs.
     // TODO: Either have an array/list or a scriptable object to reference when we get many car models.
-    [SerializeField] private GameObject VehiclePrefab;
+    [SerializeField] protected GameObject VehiclePrefab;
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
     public string footTag;
 
-    private float timeUntilNextSpawn;
+	protected float timeUntilNextSpawn;
 
     // Gizmo to easily identify where the spawn point is.
     void OnDrawGizmos()
@@ -24,7 +26,7 @@ public class VehicleSpawner : MonoBehaviour
     void Start()
     {
         currentCarsInLane = 0;
-        timeUntilNextSpawn = Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec);
+        timeUntilNextSpawn = Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec) - timeOffset;
         // Temp statement to notify of spelling mistakes.
         if (footTag != "LeftShoe" && footTag != "RightShoe")
         {
@@ -32,7 +34,7 @@ public class VehicleSpawner : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         timeUntilNextSpawn -= Time.deltaTime;
         if (timeUntilNextSpawn < 0)
@@ -45,7 +47,7 @@ public class VehicleSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnCar()
+    protected virtual void SpawnCar()
     {
         GameObject instantiatedVehicle = Instantiate(VehiclePrefab, transform.position, transform.rotation);
         Vehicle instantiatedVehicleScript = instantiatedVehicle.GetComponent<Vehicle>();
