@@ -44,6 +44,15 @@ public class Timer : MonoBehaviour
 		timerTextMesh.text = timerTextMesh.text = $"<mspace=0.5em>{Mathf.CeilToInt(time).ToString()}</mspace>";
 	}
 
+	public static void ResetTimer()
+	{
+		if (instance == null)
+			throw new System.Exception("Cannot reset the timer because there is no timer in the scene");
+
+		instance.paused = true;
+		instance.time = instance.startTime;
+	}
+
 	public static void Pause()
 	{
 		if (instance == null)
