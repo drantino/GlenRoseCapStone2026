@@ -19,9 +19,9 @@ public class TrafficJamUIManager : MonoBehaviour
     public int Countdown { set {countdownText.text = $"{value}";}}
 
     // Panel Properties
-    public bool countdownPanelActive { set {countdownPanel.SetActive(value);} }
-    public bool pausePanelActive { set {pausePanel.SetActive(value);} }
-    public bool endPanelActive { set {endPanel.SetActive(value);} }
+    public bool CountdownPanelActive { set {countdownPanel.SetActive(value);} }
+    public bool PausePanelActive { set {pausePanel.SetActive(value);} }
+    public bool EndPanelActive { set {endPanel.SetActive(value);} }
 
     
     public void ResetText()
