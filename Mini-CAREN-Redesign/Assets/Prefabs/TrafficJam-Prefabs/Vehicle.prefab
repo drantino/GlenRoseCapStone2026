@@ -248,11 +248,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footTag: RightShoe
+  vehicleSpawner: {fileID: 0}
   vehicleModel: {fileID: 2657023913442293587}
   vehicleSquishedModel: {fileID: 2570368856864982978}
   moveSpeed: 4
+  turnMoveSpeed: 5.5
   vehicleStopDistance: 1.5
   timeUntilDespawnAfterSquish: 2
+  squishedLaneDistance: -5
 --- !u!1 &8158564348847658314
 GameObject:
   m_ObjectHideFlags: 0
