@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee347b1e4ae94481c8c2d6e9643a64bb, type: 3}
   m_Name: TrrafficJam
   m_EditorClassIdentifier: 
-  gameName: Traffic Jam
+  gameName: TrafficJam
   gameDescription: Dummy Test Descrption
   gameImage: {fileID: 21300000, guid: 71157f411135745ce9634a4ad7d80480, type: 3}
   gameTags:
@@ -29,7 +29,17 @@ MonoBehaviour:
       value: 1.6
       min: 0
       max: 5
-      units: M
+      units: S
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: TestSetting
+    cardDescription: For testing
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 1.6
+      min: 0
+      max: 5
+      units: S
       LiveSetting: 1
     sliderisWholeNumber: 0
   RestartGame: 1
