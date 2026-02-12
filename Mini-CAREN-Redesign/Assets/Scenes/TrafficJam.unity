@@ -5738,19 +5738,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e6c3b8f2c17c94eabafb13d8eb2f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCarsPassedText: {fileID: 0}
-  rightCarsPassedText: {fileID: 0}
-  leftCarsSquishedText: {fileID: 0}
-  rightCarsSquishedText: {fileID: 0}
-  timerText: {fileID: 0}
-  leftRatioText: {fileID: 0}
-  leftPercentageText: {fileID: 0}
-  rightRatioText: {fileID: 0}
-  rightPercentageText: {fileID: 0}
-  countdownText: {fileID: 0}
-  countdownPanel: {fileID: 0}
-  pausePanel: {fileID: 0}
-  endPanel: {fileID: 0}
+  leftCarsPassedText: {fileID: 1294595158}
+  rightCarsPassedText: {fileID: 1448206518}
+  leftCarsSquishedText: {fileID: 99059310}
+  rightCarsSquishedText: {fileID: 1430898009}
+  timerText: {fileID: 2130593189}
+  leftRatioText: {fileID: 627032537}
+  leftPercentageText: {fileID: 1027510683}
+  rightRatioText: {fileID: 1087047257}
+  rightPercentageText: {fileID: 1723515346}
+  countdownText: {fileID: 1685668865}
+  countdownPanel: {fileID: 2108543385}
+  pausePanel: {fileID: 312435398649334079}
+  endPanel: {fileID: 352612271}
 --- !u!4 &1549163298
 Transform:
   m_ObjectHideFlags: 0
@@ -6296,7 +6296,7 @@ GameObject:
   - component: {fileID: 1685668866}
   - component: {fileID: 1685668865}
   m_Layer: 5
-  m_Name: Score Label Text
+  m_Name: Countdown Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
