@@ -83,6 +83,10 @@ public class TrafficJamGameManager : MonoBehaviour
 
     private IEnumerator StartingCountdown()
     {
+        leftSpawner.gameObject.SetActive(false);
+        rightSpawner.gameObject.SetActive(false);
+        emergencySpawner.gameObject.SetActive(false);
+
         UIManager.CountdownPanelActive = true;
         while (countdownTime > 0)
         {
@@ -91,6 +95,11 @@ public class TrafficJamGameManager : MonoBehaviour
             countdownTime--;
             yield return new WaitForSeconds(1);
         }
+
+        leftSpawner.gameObject.SetActive(true);
+        rightSpawner.gameObject.SetActive(true);
+        emergencySpawner.gameObject.SetActive(true);
+
         UIManager.CountdownPanelActive = false;
         yield return null;
     }

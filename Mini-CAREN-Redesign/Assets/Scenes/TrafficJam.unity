@@ -363,6 +363,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1859055128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &114059190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114059192}
+  - component: {fileID: 114059191}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114059191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114059190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4907b88dbd7caeb41b706f94fa7ed21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIManager: {fileID: 1549163297}
+  leftSpawner: {fileID: 1610722904}
+  rightSpawner: {fileID: 1840944755}
+  emergencySpawner: {fileID: 2765643277328705669}
+  leftAmount: 0
+  leftPassed: 0
+  rightAmount: 0
+  rightPassed: 0
+  endTime: 0
+  startTime: 0
+--- !u!4 &114059192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114059190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.58916, y: -3.0549784, z: 15.826246}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154671150
 GameObject:
   m_ObjectHideFlags: 0
@@ -7176,6 +7230,7 @@ MonoBehaviour:
   timeOffset: 0
   VehiclePrefab: {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
   footTag: LeftShoe
+  VehicleList: []
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
   trafficLight1: {fileID: 1731097167}
@@ -7425,3 +7480,4 @@ SceneRoots:
   - {fileID: 625090057207787179}
   - {fileID: 1520438755}
   - {fileID: 1549163298}
+  - {fileID: 114059192}
