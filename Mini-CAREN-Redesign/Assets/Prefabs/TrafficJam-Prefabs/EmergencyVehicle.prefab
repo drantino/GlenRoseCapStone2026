@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8083836922111704343}
   - component: {fileID: 5120738811957593860}
-  - component: {fileID: 2169832125516911363}
+  - component: {fileID: -8366112817456744406}
   m_Layer: 0
   m_Name: EmergencyVehicle
   m_TagString: Vehicle
@@ -235,7 +235,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2169832125516911363
+--- !u!114 &-8366112817456744406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6258505706416592736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7deedc421363cdc438233636d64431eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abd2f130311c2e49b9730909cd1c43c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   footTag: RightShoe
@@ -252,8 +252,11 @@ MonoBehaviour:
   vehicleModel: {fileID: 2657023913442293587}
   vehicleSquishedModel: {fileID: 2570368856864982978}
   moveSpeed: 10
+  turnMoveSpeed: 0
   vehicleStopDistance: 1.5
   timeUntilDespawnAfterSquish: 2
+  squishedLaneDistance: 0
+  squished: 0
 --- !u!1 &8158564348847658314
 GameObject:
   m_ObjectHideFlags: 0
