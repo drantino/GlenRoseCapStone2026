@@ -50,5 +50,8 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		instantiatedVehicleScript.footTag = tag;
 		instantiatedVehicleScript.vehicleSpawner = this;
 		currentCarsInLane++;
+
+		//gameManager.AddToVechicleList(instantiatedVehicle);
+		VehicleList.Add(instantiatedVehicle);
 	}
 }

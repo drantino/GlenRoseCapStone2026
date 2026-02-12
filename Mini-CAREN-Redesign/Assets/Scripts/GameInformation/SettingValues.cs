@@ -58,3 +58,12 @@ public struct SettingPlatform
     public SettingPlatform SettingValue;
     public GameObject cardPrefab;
 }
+[System.Serializable] public struct CardBoolFloat
+{
+    public string cardName;
+    public string cardDescrption;
+    public Sprite cardImage;
+    public bool Active;
+    public SettingFloat SettingValue;
+    public GameObject cardPreFab;
+}
