@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -5,14 +6,17 @@ public class Vehicle : MonoBehaviour
     public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
 	[HideInInspector] public VehicleSpawner vehicleSpawner;
 
-	[SerializeField] private GameObject vehicleModel;
-	[SerializeField] private GameObject vehicleSquishedModel;
-	[SerializeField] private float moveSpeed;
-	[SerializeField] private float vehicleStopDistance;
-	[SerializeField] private float timeUntilDespawnAfterSquish;
+	[SerializeField] protected GameObject vehicleModel;
+	[SerializeField] protected GameObject vehicleSquishedModel;
+	[SerializeField] protected float moveSpeed;
+	[SerializeField] protected float turnMoveSpeed;
+	[SerializeField] protected float vehicleStopDistance;
+	[SerializeField] protected float timeUntilDespawnAfterSquish;
+	[SerializeField] protected float squishedLaneDistance;
 
-	private bool squished = false;
-
+	public bool squished = false;
+	protected float originalZPos;
+	protected float originalTimeUntilDespawnAfterSquish;
 	private void Start()
 	{
 		if (vehicleModel == null)
@@ -22,6 +26,10 @@ public class Vehicle : MonoBehaviour
 
 		vehicleModel.SetActive(true);
 		vehicleSquishedModel.SetActive(false);
+
+		originalZPos = transform.position.z;
+
+		originalTimeUntilDespawnAfterSquish = timeUntilDespawnAfterSquish;
 	}
 
 	private void Update()
@@ -39,15 +47,46 @@ public class Vehicle : MonoBehaviour
 
 		if (squished)
 		{
-			// TODO: do more complex squished movement (for now just despawns after a few seconds)
-			timeUntilDespawnAfterSquish -= Time.deltaTime;
-			if (timeUntilDespawnAfterSquish < 0)
-			{
-				vehicleSpawner.currentCarsInLane--;
-				Destroy(gameObject);
-				return;
-			}
+			PerformSquishedBehavior();
 		}
+	}
+
+	protected virtual void PerformSquishedBehavior()
+	{
+		// squished behavior 1: despawn after a couple seconds
+		//if (timeUntilDespawnAfterSquish < originalTimeUntilDespawnAfterSquish / 2f)
+		//	vehicleSquishedModel.SetActive(Math.Sin(timeUntilDespawnAfterSquish * 40) > 0); // do flashing animation
+
+		//timeUntilDespawnAfterSquish -= Time.deltaTime;
+		//if (timeUntilDespawnAfterSquish < 0)
+		//{
+		//	// despawn vehicle
+		//	vehicleSpawner.currentCarsInLane--;
+		//	Destroy(gameObject);
+		//	return;
+		//}
+
+
+
+		// squished behavior 2: move into "squished" lane
+		if (transform.forward.x > 0)
+		{
+			if (transform.position.z - originalZPos > squishedLaneDistance)
+				transform.Translate(Vector3.right * turnMoveSpeed * Time.deltaTime);
+		}
+		else if (transform.position.z - originalZPos < -squishedLaneDistance)
+		{
+			transform.Translate(Vector3.right * turnMoveSpeed * Time.deltaTime);
+		}
+			
+
+		// move forward
+		transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
+
+
+		// squished behavior 3: just keep driving forward
+		//transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 	}
 
 	private void OnTriggerEnter(Collider other)
