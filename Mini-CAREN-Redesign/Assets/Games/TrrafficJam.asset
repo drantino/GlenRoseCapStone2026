@@ -14,13 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameName: Traffic Jam
   gameDescription: Dummy Test Descrption
-  gameImage: {fileID: 0}
+  gameImage: {fileID: 21300000, guid: 71157f411135745ce9634a4ad7d80480, type: 3}
   gameTags:
-  - 
-  - 
+  - Coordination
+  - Balance
   gameIcon:
-  - {fileID: 0}
-  - {fileID: 0}
-  Settings: []
-  RestartGame: 0
+  - {fileID: 21300000, guid: 514b89ffa304c4d468a7ef2856e9f62c, type: 3}
+  - {fileID: 21300000, guid: 0239f1d9edc7e4d7db0862b148943429, type: 3}
+  Settings:
+  - cardName: TestSetting
+    cardDescription: For testing
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 1.6
+      min: 0
+      max: 5
+      units: M
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  RestartGame: 1
   CardOrder: 0
