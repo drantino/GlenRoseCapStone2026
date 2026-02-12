@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class VehicleSpawner : MonoBehaviour
 {
+    [SerializeField] protected TrafficJamGameManager gameManager;
 	[HideInInspector] public float currentCarsInLane = 0;
 
 	[SerializeField] protected float spawnRateSec;
@@ -16,6 +18,8 @@ public class VehicleSpawner : MonoBehaviour
     public string footTag;
 
 	protected float timeUntilNextSpawn;
+
+    [SerializeField] protected List<GameObject> VehicleList = new List<GameObject>();
 
     // Gizmo to easily identify where the spawn point is.
     void OnDrawGizmos()
@@ -54,5 +58,25 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.footTag = footTag;
         instantiatedVehicleScript.vehicleSpawner = this;
         currentCarsInLane++;
+
+        //gameManager.AddToVechicleList(instantiatedVehicle);
+        VehicleList.Add(instantiatedVehicle);
+    }
+
+    public void RemovingVechicle(GameObject Vehicle)
+    {
+        //gameManager.RemoveFromVechicleList(Vechicle);
+        VehicleList.Remove(Vehicle);
+        currentCarsInLane--;
+    }
+
+    public void ResetVehicleList()
+    {
+        foreach (GameObject vech in VehicleList)
+        {
+            Destroy(vech);
+        }
+        VehicleList.Clear();
+        currentCarsInLane = 0;
     }
 }

@@ -1083,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &182032680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed67472bee5c8a445b78d71c4232fa1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 418330492}
   currentCarsInLane: 0
   spawnRateSec: 16
   spawnRateVarianceSec: 4
@@ -1104,6 +1104,7 @@ MonoBehaviour:
   timeOffset: 0
   VehiclePrefab: {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
   footTag: LeftShoe
+  VehicleList: []
   leftSpawnPosition: {fileID: 954229612}
   rightSpawnPosition: {fileID: 1908903274}
   trafficLight1: {fileID: 1652577194}
@@ -2262,13 +2263,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIManager: {fileID: 337765370}
+  leftSpawner: {fileID: 1017736745}
+  rightSpawner: {fileID: 1657035807}
+  emergencySpawner: {fileID: 182032680}
   leftAmount: 0
   leftPassed: 0
   rightAmount: 0
   rightPassed: 0
   endTime: 0
   startTime: 0
-  VechicleList: []
 --- !u!1 &458822311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a34854dbc6bb04686528cfa500780b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 418330492}
   vehicleSpawner: {fileID: 1017736745}
 --- !u!65 &562460953
 BoxCollider:
@@ -5683,7 +5685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a34854dbc6bb04686528cfa500780b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   vehicleSpawner: {fileID: 182032680}
 --- !u!65 &1311741603
 BoxCollider:
@@ -5976,7 +5977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a34854dbc6bb04686528cfa500780b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 418330492}
   vehicleSpawner: {fileID: 1657035807}
 --- !u!65 &1497405651
 BoxCollider:

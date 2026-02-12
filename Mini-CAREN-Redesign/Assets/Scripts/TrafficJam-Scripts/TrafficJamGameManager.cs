@@ -5,14 +5,17 @@ using UnityEngine;
 public class TrafficJamGameManager : MonoBehaviour
 {
     [SerializeField] private TrafficJamUIManager UIManager;
+    [SerializeField] private VehicleSpawner leftSpawner, rightSpawner;
+    [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
     public int leftAmount, leftPassed, rightAmount, rightPassed;
+
+    //currentCarsInLane variables are meant for both vehicle spawners and emergency vehicle spawner to reference
+    ///public float currentCarsInLaneLeft, currentCarsInLaneRight, currentCarsInLaneEmergency;
     
     //TEMP: Serialize to view in editor
     [SerializeField]
     private float endTime, startTime;
     private int countdownTime;
-
-    [SerializeField] private List<GameObject> VechicleList = new List<GameObject>();
 
     void Update()
     {
@@ -70,25 +73,12 @@ public class TrafficJamGameManager : MonoBehaviour
         //UIManager.UpdateTimer(endTime - Time.fixedTime);
     }
 
-    //AddVechicleList: Needs to be connected to VechileSpawner
-    public void AddToVechicleList(GameObject instantiatedVechicle)
-    {
-        VechicleList.Add(instantiatedVechicle);
-    }
-    //RemoveVechicleList: Needs to be connect to VechileSpawner, which is connected to VechileDespawner
-    public void RemoveFromVechicleList(GameObject Vechicle)
-    {
-        VechicleList.Remove(Vechicle);
-    }
-    //ResetVechileList: 
     [ContextMenu("Reset Vechicles")]
     private void ResetVechicleList()
     {
-        foreach (GameObject vech in VechicleList)
-        {
-            Destroy(vech);
-        }
-        VechicleList.Clear();
+        leftSpawner.ResetVehicleList();
+        rightSpawner.ResetVehicleList();
+        emergencySpawner.ResetVehicleList();
     }
 
     private IEnumerator StartingCountdown()
@@ -96,7 +86,6 @@ public class TrafficJamGameManager : MonoBehaviour
         UIManager.CountdownPanelActive = true;
         while (countdownTime > 0)
         {
-            Debug.Log(countdownTime);
             UIManager.Countdown = countdownTime;
             //TODO: Play a sound.
             countdownTime--;

@@ -7168,6 +7168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed67472bee5c8a445b78d71c4232fa1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   currentCarsInLane: 0
   spawnRateSec: 16
   spawnRateVarianceSec: 4
