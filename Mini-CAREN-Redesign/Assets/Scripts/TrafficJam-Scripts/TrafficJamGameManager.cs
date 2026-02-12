@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TrafficJamGameManager : MonoBehaviour
@@ -11,11 +12,13 @@ public class TrafficJamGameManager : MonoBehaviour
     private float endTime, startTime;
     private int countdownTime;
 
+    [SerializeField] private List<GameObject> VechicleList = new List<GameObject>();
+
     void Update()
     {
         if (Time.fixedTime >= endTime)
         {
-            EndGame();
+            //EndGame();
         }
         //UIManager.UpdateTimer(endTime - Time.fixedTime);
         
@@ -29,24 +32,34 @@ public class TrafficJamGameManager : MonoBehaviour
         Time.timeScale = 1;
         countdownTime = 3;
         //TODO: Remove cars
+        ResetVechicleList();
 
         StopAllCoroutines();
         StartCoroutine(StartingCountdown());
+
+        
     }
 
     [ContextMenu("PauseGame")]
     public void PauseGame()
     {
         if (Time.timeScale == 0)
+        {
             Time.timeScale = 1;
+            UIManager.PausePanelActive = false;
+        }
         else
+        {
+            UIManager.PausePanelActive = true;
             Time.timeScale = 0;
+        }
+            
     } 
 
     [ContextMenu("EndGame")]
     public void EndGame()
     {
-        //UIManager.ShowEndPanel((float)leftAmount, (float)leftPassed, (float)rightAmount, (float)rightPassed);
+        UIManager.ShowEndResults(leftAmount, leftPassed, rightAmount, rightPassed);
         
     }
 
@@ -55,6 +68,27 @@ public class TrafficJamGameManager : MonoBehaviour
     {
         endTime = startTime + timerLengthSeconds;
         //UIManager.UpdateTimer(endTime - Time.fixedTime);
+    }
+
+    //AddVechicleList: Needs to be connected to VechileSpawner
+    public void AddToVechicleList(GameObject instantiatedVechicle)
+    {
+        VechicleList.Add(instantiatedVechicle);
+    }
+    //RemoveVechicleList: Needs to be connect to VechileSpawner, which is connected to VechileDespawner
+    public void RemoveFromVechicleList(GameObject Vechicle)
+    {
+        VechicleList.Remove(Vechicle);
+    }
+    //ResetVechileList: 
+    [ContextMenu("Reset Vechicles")]
+    private void ResetVechicleList()
+    {
+        foreach (GameObject vech in VechicleList)
+        {
+            Destroy(vech);
+        }
+        VechicleList.Clear();
     }
 
     private IEnumerator StartingCountdown()

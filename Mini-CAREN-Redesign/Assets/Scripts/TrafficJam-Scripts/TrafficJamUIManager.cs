@@ -59,9 +59,6 @@ public class TrafficJamUIManager : MonoBehaviour
         rightRatioText.text = $"{rightPassed} / {rightAmount}";
         rightPercentageText.text = $"{rightScore}%";
 
-        //TEMP: Debug.Log to see the scores
-        Debug.Log($"Left score: {leftScore}%, Right score: {rightScore}%");
-
         endPanel.SetActive(true);
     }
 
