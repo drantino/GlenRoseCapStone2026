@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewTargetTap", menuName = "Games/Game")]
+[CreateAssetMenu(fileName = "Game", menuName = "Games/Game")]
 public class Game :ScriptableObject
 {
     public string gameName;

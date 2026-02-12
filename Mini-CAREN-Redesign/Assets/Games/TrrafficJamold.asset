@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee347b1e4ae94481c8c2d6e9643a64bb, type: 3}
+  m_Name: TrrafficJamold
+  m_EditorClassIdentifier: 
+  gameName: TrafficJam
+  gameDescription: Traffic Jam challenges players to keep each foot up to allow cars
+    to pass. Make sure not to squish them!
+  gameImage: {fileID: 21300000, guid: 71157f411135745ce9634a4ad7d80480, type: 3}
+  gameTags:
+  - Coordination
+  - Balance
+  gameIcon:
+  - {fileID: 21300000, guid: 514b89ffa304c4d468a7ef2856e9f62c, type: 3}
+  - {fileID: 21300000, guid: 0239f1d9edc7e4d7db0862b148943429, type: 3}
+  Settings:
+  - cardName: GameTime
+    cardDescription: The time for how long a round will go.
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 2
+      min: 0
+      max: 6
+      units: Minutes
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: Height Threshold
+    cardDescription: The height needed to allow cars to pass.
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 0.12
+      min: 0
+      max: 0.3
+      units: Meters
+      LiveSetting: 1
+    sliderisWholeNumber: 0
+  - cardName: Car Speed
+    cardDescription: Car speed not under the feet
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 3
+      min: 1
+      max: 10
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 1
+  - cardName: Car Speed under Foot
+    cardDescription: How often the car spawns
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 3
+      min: 1
+      max: 10
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 1
+  - cardName: Car Spawn Inverval
+    cardDescription: How often the car spawns
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 10
+      min: 2
+      max: 12
+      units: Seconds
+      LiveSetting: 1
+    sliderisWholeNumber: 1
+  - cardName: Car Detour Rate
+    cardDescription: How long before car detours
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 10
+      min: 2
+      max: 12
+      units: Seconds
+      LiveSetting: 1
+    sliderisWholeNumber: 1
+  - cardName: Emergency Vehicle Spawn Interval
+    cardDescription: How often a emergency vehicle spawns
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 30
+      min: 10
+      max: 60
+      units: Seconds
+      LiveSetting: 1
+    sliderisWholeNumber: 1
+  - cardName: Car Lengths
+    cardDescription: The size of the car
+    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    SettingValue:
+      value: 1
+      min: 1
+      max: 3
+      units: 
+      LiveSetting: 1
+    sliderisWholeNumber: 1
+  RestartGame: 1
+  CardOrder: 0
