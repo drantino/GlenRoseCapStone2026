@@ -8,22 +8,30 @@ public class TrafficJamGameManager : MonoBehaviour
     [SerializeField] private VehicleSpawner leftSpawner, rightSpawner;
     [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
     public int leftAmount, leftPassed, rightAmount, rightPassed;
-
-    //currentCarsInLane variables are meant for both vehicle spawners and emergency vehicle spawner to reference
-    ///public float currentCarsInLaneLeft, currentCarsInLaneRight, currentCarsInLaneEmergency;
+    public int TEMPGameTimeStartSec;
+    private bool isPlaying;
     
     //TEMP: Serialize to view in editor
     [SerializeField]
     private float endTime, startTime;
     private int countdownTime;
 
+    void Start()
+    {
+        AdjustTimer(TEMPGameTimeStartSec);
+    }
+
     void Update()
     {
-        if (Time.fixedTime >= endTime)
+        if (isPlaying)
         {
-            //EndGame();
+           if (Time.fixedTime >= endTime)
+            {
+                EndGame();
+            }
+            UIManager.UpdateTimer(endTime - Time.fixedTime);
+
         }
-        //UIManager.UpdateTimer(endTime - Time.fixedTime);
         
     }
 
@@ -31,16 +39,25 @@ public class TrafficJamGameManager : MonoBehaviour
     public void StartGame()
     {
         //Reset game values
-        startTime = Time.fixedTime;
+        startTime = Time.fixedTime + 3;
         Time.timeScale = 1;
         countdownTime = 3;
-        //TODO: Remove cars
+        isPlaying = false;
+
+        UIManager.PausePanelActive = false;
+        UIManager.EndPanelActive = false;
+        UIManager.CountdownPanelActive = true;
+
+        leftSpawner.gameObject.SetActive(false);
+        rightSpawner.gameObject.SetActive(false);
+        emergencySpawner.gameObject.SetActive(false);
+
+        //Remove cars
         ResetVechicleList();
 
         StopAllCoroutines();
         StartCoroutine(StartingCountdown());
 
-        
     }
 
     [ContextMenu("PauseGame")]
@@ -63,14 +80,20 @@ public class TrafficJamGameManager : MonoBehaviour
     public void EndGame()
     {
         UIManager.ShowEndResults(leftAmount, leftPassed, rightAmount, rightPassed);
-        
+
+        // Uncomment these if you wish to disable car spawning once the game ends
+        //leftSpawner.gameObject.SetActive(false);
+        //rightSpawner.gameObject.SetActive(false);
+        //emergencySpawner.gameObject.SetActive(false);
+
+        isPlaying = false;
     }
 
     // The timer raises or lowers when the operator/therapist adjusts the time, instead of completely resetting
     public void AdjustTimer(int timerLengthSeconds)
     {
         endTime = startTime + timerLengthSeconds;
-        //UIManager.UpdateTimer(endTime - Time.fixedTime);
+        UIManager.UpdateTimer(endTime - Time.fixedTime);
     }
 
     [ContextMenu("Reset Vechicles")]
@@ -83,11 +106,6 @@ public class TrafficJamGameManager : MonoBehaviour
 
     private IEnumerator StartingCountdown()
     {
-        leftSpawner.gameObject.SetActive(false);
-        rightSpawner.gameObject.SetActive(false);
-        emergencySpawner.gameObject.SetActive(false);
-
-        UIManager.CountdownPanelActive = true;
         while (countdownTime > 0)
         {
             UIManager.Countdown = countdownTime;
@@ -100,7 +118,9 @@ public class TrafficJamGameManager : MonoBehaviour
         rightSpawner.gameObject.SetActive(true);
         emergencySpawner.gameObject.SetActive(true);
 
+        AdjustTimer(TEMPGameTimeStartSec);
         UIManager.CountdownPanelActive = false;
+        isPlaying = true;
         yield return null;
     }
     

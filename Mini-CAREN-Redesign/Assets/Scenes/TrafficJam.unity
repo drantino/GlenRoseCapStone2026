@@ -400,6 +400,7 @@ MonoBehaviour:
   leftPassed: 0
   rightAmount: 0
   rightPassed: 0
+  TEMPGameTimeStartSec: 10
   endTime: 0
   startTime: 0
 --- !u!4 &114059192
@@ -3577,6 +3578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VehicleSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4837484625981785566, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4919,6 +4924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VehicleSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4837484625981785566, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22
@@ -5152,7 +5161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
   m_sharedMaterial: {fileID: 7597110922936624669, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
