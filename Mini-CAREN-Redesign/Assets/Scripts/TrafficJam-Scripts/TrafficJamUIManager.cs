@@ -23,8 +23,16 @@ public class TrafficJamUIManager : MonoBehaviour
     public bool PausePanelActive { set {pausePanel.SetActive(value);} }
     public bool EndPanelActive { set {endPanel.SetActive(value);} }
 
-    
-    public void ResetText()
+
+	private void Update()
+	{
+        LeftCarsPassed = TrafficJamScoreKeeper.leftFootVehiclesPassed;
+        LeftCarsSquished = TrafficJamScoreKeeper.leftFootVehiclesSquished;
+        RightCarsPassed = TrafficJamScoreKeeper.rightFootVehiclesPassed;
+        RightCarsSquished = TrafficJamScoreKeeper.rightFootVehiclesSquished;
+	}
+
+	public void ResetText()
     {
         leftCarsPassedText.text = "0";
         leftCarsSquishedText.text = "0";

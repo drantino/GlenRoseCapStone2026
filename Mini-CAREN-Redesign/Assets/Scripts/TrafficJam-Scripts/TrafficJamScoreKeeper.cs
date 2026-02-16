@@ -30,7 +30,7 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 		ResetValues();
 	}
 
-	public void ResetValues()
+	public static void ResetValues()
 	{
 		leftFootVehiclesPassed = 0;
 		leftFootVehiclesSquished = 0;

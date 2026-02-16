@@ -44,6 +44,9 @@ public class TrafficJamGameManager : MonoBehaviour
         countdownTime = 3;
         isPlaying = false;
 
+        // reset score
+        TrafficJamScoreKeeper.ResetValues();
+            
         UIManager.PausePanelActive = false;
         UIManager.EndPanelActive = false;
         UIManager.CountdownPanelActive = true;
