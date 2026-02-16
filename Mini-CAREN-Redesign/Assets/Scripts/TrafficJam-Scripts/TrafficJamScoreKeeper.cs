@@ -2,34 +2,45 @@ using UnityEngine;
 
 public class TrafficJamScoreKeeper : MonoBehaviour
 {
-	[SerializeField] private string vehicleFootTag; // the score keeper will only count points for vehicles with this foot tag.
-	[SerializeField] private GameObject scorePopupPrefab;
-	[SerializeField] private string vehiclePassedText;
-	[SerializeField] private string vehicleSquishedText;
+	public enum Type
+	{
+		LeftFoot,
+		RightFoot
+	}
 	
-	[HideInInspector] public int vehiclesPassed, vehiclesSquished = 0;
+	public static int leftFootVehiclesPassed;
+	public static int rightFootVehiclesPassed;
+	public static int leftFootVehiclesSquished;
+	public static int rightFootVehiclesSquished;
+
+	[SerializeField] private Type type; // determines which foot (left or right) this score keeper is scoring. 
+	[SerializeField] private GameObject scorePopupPrefab;
+	[SerializeField] private string vehiclePassedText; // the text ui that will pop up when a vehicle passes.
+	[SerializeField] private string vehicleSquishedText; // the text ui that will pop up when a vehicle is squished.
+
+	private string vehicleFootTag; // the score keeper will only count points for vehicles with this foot tag.
 
 	private void Start()
 	{
-		Debug.Log("Starting");
-
-		if (vehicleFootTag != "LeftShoe" && vehicleFootTag != "RightShoe")
-			Debug.LogWarning("Variable 'vehicleFootTag' was not given either 'LeftShoe' or 'RightShoe' as a value. Please correct before running the project again.");
+		if (type == Type.LeftFoot)
+			vehicleFootTag = "LeftShoe";
+		else
+			vehicleFootTag = "RightShoe";
 
 		ResetValues();
 	}
 
 	public void ResetValues()
 	{
-		vehiclesPassed = 0;
-		vehiclesSquished = 0;
+		leftFootVehiclesPassed = 0;
+		leftFootVehiclesSquished = 0;
+		rightFootVehiclesPassed = 0;
+		rightFootVehiclesSquished = 0;
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Trigger Entered");
 		if (!other.CompareTag("Vehicle")) return;
-		Debug.Log("Vehicle Detected");
 
 		Vehicle vehicle = other.transform.parent.GetComponent<Vehicle>(); // we access the component of the parent because the hitbox is a child of the vehicle object
 
@@ -38,7 +49,8 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 			if (!vehicle.squished)
 			{
 				// the car made it through
-				vehiclesPassed++;
+				if (type == Type.LeftFoot) leftFootVehiclesPassed++;
+				else rightFootVehiclesPassed++;
 
 				// provide player feedback
 				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
@@ -48,7 +60,8 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 			else
 			{
 				// the car was squished
-				vehiclesSquished++;
+				if (type == Type.LeftFoot) leftFootVehiclesSquished++;
+				else rightFootVehiclesSquished++;
 
 				// provide player feedback
 				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
