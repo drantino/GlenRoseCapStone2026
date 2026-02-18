@@ -7,6 +7,7 @@ public class ScorePopup : MonoBehaviour
     public string text;
     public Color color;
     public float despawnTime;
+    [SerializeField] private float moveUpSpeed;
 
     private float timeUntilDespawn;
 
@@ -21,6 +22,14 @@ public class ScorePopup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position += Vector3.up * moveUpSpeed * Time.deltaTime;
+        textMesh.color = new Color(
+            textMesh.color.r,
+            textMesh.color.g,
+            textMesh.color.b,
+            timeUntilDespawn / despawnTime
+            );
+
         timeUntilDespawn -= Time.deltaTime;
         if (timeUntilDespawn < 0 )
         {
