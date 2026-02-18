@@ -4,10 +4,10 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
 	private static Timer instance;
-
-	[SerializeField] private TextMeshProUGUI timerTextMesh;
+	
 	[SerializeField] public float startTime;
 
+	[SerializeField]
 	private float time;
 	private bool paused = false;
 
@@ -21,8 +21,8 @@ public class Timer : MonoBehaviour
 		time = startTime;
 		paused = false;
 
-		if (timerTextMesh == null)
-			throw new System.Exception($"timerTextMesh is null");
+		//if (timerTextMesh == null)
+		//	throw new System.Exception($"timerTextMesh is null");
 	}
 
 	private void OnDestroy()
@@ -39,9 +39,6 @@ public class Timer : MonoBehaviour
 			time -= Time.deltaTime;
 		else
 			time = 0;
-
-		// update the UI
-		timerTextMesh.text = timerTextMesh.text = $"<mspace=0.5em>{Mathf.CeilToInt(time).ToString()}</mspace>";
 	}
 
 	public static void ResetTimer()
@@ -75,5 +72,10 @@ public class Timer : MonoBehaviour
 			throw new System.Exception("Cannot get the time because there is no timer in the scene");
 
 		return instance.time;
+	}
+
+	public static string GetFormatedTime()
+	{
+		return $"<mspace=0.5em>{Mathf.CeilToInt(GetTime()).ToString()}</mspace>";
 	}
 }

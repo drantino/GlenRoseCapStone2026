@@ -19,6 +19,7 @@ public class TrafficJamGameManager : MonoBehaviour
     void Start()
     {
         AdjustTimer(TEMPGameTimeStartSec);
+        StartGame(); // TEMP CODE: game should be started manually in final build
     }
 
     void Update()
@@ -76,8 +77,7 @@ public class TrafficJamGameManager : MonoBehaviour
             UIManager.PausePanelActive = true;
             Time.timeScale = 0;
         }
-            
-    } 
+    }
 
     [ContextMenu("EndGame")]
     public void EndGame()

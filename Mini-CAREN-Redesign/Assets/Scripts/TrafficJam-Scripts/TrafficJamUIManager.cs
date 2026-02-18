@@ -30,6 +30,7 @@ public class TrafficJamUIManager : MonoBehaviour
         LeftCarsSquished = TrafficJamScoreKeeper.leftFootVehiclesSquished;
         RightCarsPassed = TrafficJamScoreKeeper.rightFootVehiclesPassed;
         RightCarsSquished = TrafficJamScoreKeeper.rightFootVehiclesSquished;
+		//UpdateTimer(Timer.GetTime());
 	}
 
 	public void ResetText()

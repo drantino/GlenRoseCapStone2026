@@ -400,7 +400,7 @@ MonoBehaviour:
   leftPassed: 0
   rightAmount: 0
   rightPassed: 0
-  TEMPGameTimeStartSec: 10
+  TEMPGameTimeStartSec: 120
   endTime: 0
   startTime: 0
 --- !u!4 &114059192
