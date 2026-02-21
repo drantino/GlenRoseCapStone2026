@@ -85,27 +85,24 @@ MonoBehaviour:
     sliderisWholeNumber: 1
   RestartGame: 1
   CardOrder: 0
-  SpecialCardCardDetour:
-    cardName: Emergency Car Spawn Interval
-    cardDescrption: The rate the emergency cars spawn
-    cardImage: {fileID: 21300000, guid: 25dc0332449e34ce19d9ec9e5819032f, type: 3}
-    Active: 0
-    SettingValue:
-      value: 30
-      min: 10
-      max: 60
-      units: Seconds
-      LiveSetting: 1
-    cardPreFab: {fileID: 0}
+  SpecialCardDetour:
+    cardName: Car detour
+    cardDescription: If the cars can detour
+    cardImage: {fileID: 21300000, guid: a3c2c95342be348f2bfd395c72c3245e, type: 3}
+    isActive: 0
+    cardPrefab: {fileID: 0}
   SpecialCardEmergencyVehicle:
-    cardName: Car detour rate
-    cardDescrption: The rate the cars detour
+    cardName: Emergency vehical bias
+    cardDescrption: When active, the bias for which lane the vehical goes
     cardImage: {fileID: 21300000, guid: 7030bc38134e043b884f2ff9ee0d7d14, type: 3}
-    Active: 0
+    isActive: 0
     SettingValue:
-      value: 10
-      min: 5
-      max: 40
-      units: Seconds
+      value: 50
+      min: 0
+      max: 100
+      units: '%'
       LiveSetting: 1
-    cardPreFab: {fileID: 0}
+    customSliderDescription: 1
+    leftSliderDescription: Left Bias
+    rightSliderDescription: Right Bias
+    cardPrefab: {fileID: 7291998014160336035, guid: 243678bd6eb4f0c4faa85b22d81e53ef, type: 3}

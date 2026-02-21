@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 [System.Serializable]
-public struct SettingFloat {
+public struct SettingFloat
+{
     public float value;
     public float min;
     public float max;
@@ -31,7 +33,8 @@ public struct SettingPlatform
     public float increment;
 }
 
-[System.Serializable] public struct CardFloat
+[System.Serializable]
+public struct CardFloat
 {
     public string cardName;
     public string cardDescription;
@@ -41,7 +44,8 @@ public struct SettingPlatform
 
 }
 
-[System.Serializable] public struct CardInt
+[System.Serializable]
+public struct CardInt
 {
     public string cardName;
     public string cardDescription;
@@ -50,7 +54,8 @@ public struct SettingPlatform
     public GameObject cardPrefab;
 }
 
-[System.Serializable] public struct CardPlatform
+[System.Serializable]
+public struct CardPlatform
 {
     public string cardName;
     public string cardDescription;
@@ -58,12 +63,26 @@ public struct SettingPlatform
     public SettingPlatform SettingValue;
     public GameObject cardPrefab;
 }
-[System.Serializable] public struct CardBoolFloat
+[System.Serializable]
+public struct CardBool
+{
+    public string cardName;
+    public string cardDescription;
+    public Sprite cardImage;
+    public bool isActive;
+    public GameObject cardPrefab;
+}
+
+[System.Serializable]
+public struct CardBoolFloat
 {
     public string cardName;
     public string cardDescrption;
     public Sprite cardImage;
-    public bool Active;
+    public bool isActive;
     public SettingFloat SettingValue;
-    public GameObject cardPreFab;
+    public bool customSliderDescription;
+    public string leftSliderDescription;
+    public string rightSliderDescription;
+    public GameObject cardPrefab;
 }
