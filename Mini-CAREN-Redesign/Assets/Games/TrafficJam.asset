@@ -90,14 +90,14 @@ MonoBehaviour:
     cardDescription: If the cars can detour
     cardImage: {fileID: 21300000, guid: a3c2c95342be348f2bfd395c72c3245e, type: 3}
     isActive: 0
-    cardPrefab: {fileID: 0}
+    cardPrefab: {fileID: 7291998014160336035, guid: 57b7f621df2d9b8409c11bc0660f7ced, type: 3}
   SpecialCardEmergencyVehicle:
     cardName: Emergency vehical bias
     cardDescrption: When active, the bias for which lane the vehical goes
     cardImage: {fileID: 21300000, guid: 7030bc38134e043b884f2ff9ee0d7d14, type: 3}
     isActive: 0
     SettingValue:
-      value: 50
+      value: 60
       min: 0
       max: 100
       units: '%'

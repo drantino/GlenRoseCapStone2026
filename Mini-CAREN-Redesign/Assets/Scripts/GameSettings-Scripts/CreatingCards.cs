@@ -125,7 +125,8 @@ public class CreatingCards : MonoBehaviour
 
     /// <summary>
     /// Creates a special card that has a active toggle and a slider to be used for settings that can be both adjust the settings and turn it on and off.
-    /// 
+    /// It populates the card with a title, description, image, min/max values, units and sets isActive.
+    /// Allows for custom left and right text descriptions if the "customeSliderDescription" is true.
     /// </summary>
     public void CreateSpecialCardBoolFloat(int index)
     {
@@ -151,13 +152,13 @@ public class CreatingCards : MonoBehaviour
         Slider.GetComponent<Slider>().value = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.value;
 
         //might not need this?
-        Slider.GetComponent<TargetBiasSlider>().settingIndex = index;
+        //Slider.GetComponent<TargetBiasSlider>().settingIndex = index;
 
         LeftBias.GetComponent<TextMeshProUGUI>().text = ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.max - (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.value).ToString();
         RightBias.GetComponent<TextMeshProUGUI>().text = ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.value).ToString();
         Units.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.units;
 
-
+        activeToggle.GetComponent<Toggle>().isOn = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.isActive;
 
         //If custom slider descriptions
         if ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.customSliderDescription)
@@ -170,8 +171,24 @@ public class CreatingCards : MonoBehaviour
             leftText.GetComponent<TextMeshProUGUI>().text = null;
             rightText.GetComponent<TextMeshProUGUI>().text = null;
         }
+    }
+    /// <summary>
+    /// Creates a special card that has a active toggle based on the special card bool configuration.
+    /// </summary>
 
+    public void CreateSpecialCardBool(int index)
+    {
+        GameObject newCard = Instantiate((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardPrefab, cardHolder.transform);
+        Transform cardTitle = newCard.transform.Find("Title");
+        Transform CardDescription = newCard.transform.Find("Description");
+        Transform CardImage = newCard.transform.Find("Image");
+        Transform activeToggle = newCard.transform.Find("ActiveToggle");
 
+        cardTitle.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardName;
+        CardDescription.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardDescription;
+        CardImage.GetComponent<Image>().sprite = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardImage;
+        
+        activeToggle.GetComponent<Toggle>().isOn = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.isActive;
     }
     /*
         Unity method called once before the first frame update.  
@@ -186,7 +203,7 @@ public class CreatingCards : MonoBehaviour
         bool cardOrder = GameList.staticGameList[GameList.gameIndex].CardOrder;
 
 
-        //This is setup for only TargetTap
+        //A switch statment that looks at the current gameIndex gameName to determin how the settings cards are handled
         switch (GameList.staticGameList[GameList.gameIndex].gameName)
         {
             case "TargetTap":
@@ -241,6 +258,7 @@ public class CreatingCards : MonoBehaviour
                         CreateCard(index);
                     }
                     CreateSpecialCardBoolFloat(0);
+                    CreateSpecialCardBool(1);
 
                     break;
                 }
