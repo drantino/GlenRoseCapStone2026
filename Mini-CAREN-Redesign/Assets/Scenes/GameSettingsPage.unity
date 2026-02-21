@@ -1260,6 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScreenName: 
+  UseGameIndex: 1
 --- !u!4 &634466516
 Transform:
   m_ObjectHideFlags: 0
@@ -2367,6 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScreenName: GamesList
+  UseGameIndex: 0
 --- !u!1 &1095925416
 GameObject:
   m_ObjectHideFlags: 0

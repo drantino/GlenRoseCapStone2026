@@ -6,26 +6,31 @@ public class NextScreen : MonoBehaviour
     // Thus script is used to load the next scene when a button is clicked.
 
     public string NextScreenName;
-
+    public bool UseGameIndex;
     public void NextScreenButtonClicked()
     {
-        //Checks if there is a dedicated selection by name
-        if (!string.IsNullOrWhiteSpace(NextScreenName))
+        //checks if wanting to use game index
+        if (!UseGameIndex)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(NextScreenName);
         }
         else//if not goes to game index
         {
-            switch (GameList.gameIndex)
+            switch (GameList.staticGameList[GameList.gameIndex].gameName)
             {
-                case 0:
+                case "TargetTap":
                     {
                         UnityEngine.SceneManagement.SceneManager.LoadScene("TargetTapGame");
                         break;
                     }
-                case 1:
+                case "TrafficJam":
                     {
-                        UnityEngine.SceneManagement.SceneManager.LoadScene("JamesTestScene");
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("TrafficJam");
+                        break;
+                    }
+                default:
+                    {
+
                         break;
                     }
             }
