@@ -137,54 +137,69 @@ public class CreatingCards : MonoBehaviour
 
 
         //This is setup for only TargetTap
-        if (GameList.gameIndex == 0)
+        switch (GameList.staticGameList[GameList.gameIndex].gameName)
         {
-            if (cardOrder == true) {
-                CreateCard(0);
-                CreateCard(1);
-                CreateCard(2);
-
-
-                TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
-                if (t == null)
+            case "TargetTap":
                 {
-                    Debug.Log("no special Cards");
-                }
-                else
-                {
-                    CreateSpecialCardPlatform(0);
-                    CreateSpecialCardBias(1);
-                }
-                CreateCard(3);
-                CreateCard(4);
-                CreateCard(5);
-
-
-            }
-            else {
-                if (cardCount == 3)
-                    for (int i = 0; i < cardCount; i++)
+                    if (cardOrder == true)
                     {
-                        CreateCard(i);
+                        CreateCard(0);
+                        CreateCard(1);
+                        CreateCard(2);
+
+
+                        TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
+                        if (t == null)
+                        {
+                            Debug.Log("no special Cards");
+                        }
+                        else
+                        {
+                            CreateSpecialCardPlatform(0);
+                            CreateSpecialCardBias(1);
+                        }
+                        CreateCard(3);
+                        CreateCard(4);
+                        CreateCard(5);
+
+
                     }
-                TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
-                if (t == null)
-                {
-                    Debug.Log("no special Cards");
+                    else
+                    {
+                        if (cardCount == 3)
+                            for (int i = 0; i < cardCount; i++)
+                            {
+                                CreateCard(i);
+                            }
+                        TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
+                        if (t == null)
+                        {
+                            Debug.Log("no special Cards");
+                        }
+                        else
+                        {
+                            CreateSpecialCardPlatform(0);
+                            CreateSpecialCardBias(1);
+                        }
+                    }
+                    break;
                 }
-                else
+            case "TrafficJam":
                 {
-                    CreateSpecialCardPlatform(0);
-                    CreateSpecialCardBias(1);
+                    for (int index = 0; index < cardCount; index++)
+                    {
+                        CreateCard(index);
+                    }
+                    break;
                 }
-            }
-        }
-        else//For other games
-        {
-            for(int index= 0; index< cardCount; index++)
-            {
-                CreateCard(index);
-            }
+            default:
+                {
+                    for (int index = 0; index < cardCount; index++)
+                    {
+                        CreateCard(index);
+                    }
+                    break;
+                }
         }
 
             SetScroleToTop();
