@@ -13733,6 +13733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Traffic Light (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7621613536554108666, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.77
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21204,6 +21208,10 @@ PrefabInstance:
     - target: {fileID: 1105962930265838921, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_Name
       value: Traffic Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621613536554108666, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
