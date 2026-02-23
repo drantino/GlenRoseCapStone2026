@@ -1906,6 +1906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 114059191}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -3535,6 +3536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 114059191}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -13952,6 +13954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e6c3b8f2c17c94eabafb13d8eb2f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 114059191}
   leftCarsPassedText: {fileID: 1294595158}
   rightCarsPassedText: {fileID: 1448206518}
   leftCarsSquishedText: {fileID: 99059310}
@@ -14451,6 +14454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 114059191}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -18408,7 +18412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1870221911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20521,6 +20525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 114059191}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
