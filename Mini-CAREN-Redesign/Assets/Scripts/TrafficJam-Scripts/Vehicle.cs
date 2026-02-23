@@ -6,9 +6,10 @@ public class Vehicle : MonoBehaviour
     public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
 	[HideInInspector] public VehicleSpawner vehicleSpawner;
 
+	[SerializeField] public float moveSpeed;
+
 	[SerializeField] protected GameObject vehicleModel;
 	[SerializeField] protected GameObject vehicleSquishedModel;
-	[SerializeField] protected float moveSpeed;
 	[SerializeField] protected float turnMoveSpeed;
 	[SerializeField] protected float vehicleStopDistance;
 	[SerializeField] protected float timeUntilDespawnAfterSquish;
