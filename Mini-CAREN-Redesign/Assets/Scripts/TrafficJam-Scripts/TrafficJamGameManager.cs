@@ -16,6 +16,9 @@ public class TrafficJamGameManager : MonoBehaviour
     private float endTime, startTime;
     private int countdownTime;
 
+    public int leftSquished => leftAmount - leftPassed;
+    public int rightSquished => rightAmount - rightPassed;
+
     void Start()
     {
         AdjustTimer(TEMPGameTimeStartSec);
@@ -33,7 +36,6 @@ public class TrafficJamGameManager : MonoBehaviour
             UIManager.UpdateTimer(endTime - Time.fixedTime);
 
         }
-        
     }
 
     [ContextMenu("Start Game")]
@@ -46,7 +48,7 @@ public class TrafficJamGameManager : MonoBehaviour
         isPlaying = false;
 
         // reset score
-        TrafficJamScoreKeeper.ResetValues();
+        ResetValues();
             
         UIManager.PausePanelActive = false;
         UIManager.EndPanelActive = false;
@@ -127,4 +129,11 @@ public class TrafficJamGameManager : MonoBehaviour
         yield return null;
     }
     
+    private void ResetValues()
+    {
+        leftAmount = 0;
+        rightAmount = 0;
+        leftPassed = 0;
+        rightPassed = 0;
+    }
 }

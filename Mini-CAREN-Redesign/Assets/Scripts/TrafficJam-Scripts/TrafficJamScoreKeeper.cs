@@ -7,11 +7,13 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 		LeftFoot,
 		RightFoot
 	}
-	
-	public static int leftFootVehiclesPassed;
-	public static int rightFootVehiclesPassed;
-	public static int leftFootVehiclesSquished;
-	public static int rightFootVehiclesSquished;
+
+	//public static int leftFootVehiclesPassed;
+	//public static int rightFootVehiclesPassed;
+	//public static int leftFootVehiclesSquished;
+	//public static int rightFootVehiclesSquished;
+
+	[SerializeField] private TrafficJamGameManager gameManager;
 
 	[SerializeField] private Type type; // determines which foot (left or right) this score keeper is scoring. 
 	[SerializeField] private GameObject scorePopupPrefab;
@@ -20,6 +22,7 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 
 	private string vehicleFootTag; // the score keeper will only count points for vehicles with this foot tag.
 
+
 	private void Start()
 	{
 		if (type == Type.LeftFoot)
@@ -27,16 +30,16 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 		else
 			vehicleFootTag = "RightShoe";
 
-		ResetValues();
+		//ResetValues();
 	}
 
-	public static void ResetValues()
-	{
-		leftFootVehiclesPassed = 0;
-		leftFootVehiclesSquished = 0;
-		rightFootVehiclesPassed = 0;
-		rightFootVehiclesSquished = 0;
-	}
+	//public static void ResetValues()
+	//{
+	//	leftFootVehiclesPassed = 0;
+	//	leftFootVehiclesSquished = 0;
+	//	rightFootVehiclesPassed = 0;
+	//	rightFootVehiclesSquished = 0;
+	//}
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -49,8 +52,18 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 			if (!vehicle.squished)
 			{
 				// the car made it through
-				if (type == Type.LeftFoot) leftFootVehiclesPassed++;
-				else rightFootVehiclesPassed++;
+				//if (type == Type.LeftFoot) leftFootVehiclesPassed++;
+				//else rightFootVehiclesPassed++;
+				if (type == Type.LeftFoot) 
+				{
+					gameManager.leftAmount++;
+					gameManager.leftPassed++;
+				}
+				else 
+				{
+					gameManager.rightAmount++;
+					gameManager.rightPassed++;
+				}
 
 				// provide player feedback
 				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
@@ -60,8 +73,10 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 			else
 			{
 				// the car was squished
-				if (type == Type.LeftFoot) leftFootVehiclesSquished++;
-				else rightFootVehiclesSquished++;
+				//if (type == Type.LeftFoot) leftFootVehiclesSquished++;
+				//else rightFootVehiclesSquished++;
+				if (type == Type.LeftFoot) gameManager.leftAmount++;
+				else gameManager.rightAmount++;
 
 				// provide player feedback
 				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();

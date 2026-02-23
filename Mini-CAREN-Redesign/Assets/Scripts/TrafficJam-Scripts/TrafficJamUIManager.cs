@@ -7,6 +7,8 @@ public class TrafficJamUIManager : MonoBehaviour
     // pause panel, end panel, l+r results (ratio and percentage),
     // countdown panel, countdown text
 
+    [SerializeField] private TrafficJamGameManager gameManager;
+
     [SerializeField] private TextMeshProUGUI leftCarsPassedText, rightCarsPassedText, leftCarsSquishedText, rightCarsSquishedText, 
         timerText, leftRatioText, leftPercentageText, rightRatioText, rightPercentageText, countdownText;
     [SerializeField] private GameObject countdownPanel, pausePanel, endPanel;
@@ -26,10 +28,15 @@ public class TrafficJamUIManager : MonoBehaviour
 
 	private void Update()
 	{
-        LeftCarsPassed = TrafficJamScoreKeeper.leftFootVehiclesPassed;
-        LeftCarsSquished = TrafficJamScoreKeeper.leftFootVehiclesSquished;
-        RightCarsPassed = TrafficJamScoreKeeper.rightFootVehiclesPassed;
-        RightCarsSquished = TrafficJamScoreKeeper.rightFootVehiclesSquished;
+        //LeftCarsPassed = TrafficJamScoreKeeper.leftFootVehiclesPassed;
+        //LeftCarsSquished = TrafficJamScoreKeeper.leftFootVehiclesSquished;
+        //RightCarsPassed = TrafficJamScoreKeeper.rightFootVehiclesPassed;
+        //RightCarsSquished = TrafficJamScoreKeeper.rightFootVehiclesSquished;
+        LeftCarsPassed = gameManager.leftPassed;
+        LeftCarsSquished = gameManager.leftSquished;
+        RightCarsPassed = gameManager.rightPassed;
+        RightCarsSquished = gameManager.rightSquished;
+
 		//UpdateTimer(Timer.GetTime());
 	}
 
