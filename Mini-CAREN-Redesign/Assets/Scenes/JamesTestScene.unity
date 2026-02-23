@@ -453,9 +453,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calibration, Assembly-CSharp
-        m_MethodName: CloseCalibrationPanel2
+      - m_Target: {fileID: 1719471837}
+        m_TargetAssemblyTypeName: TraffitJamSettingsUI, Assembly-CSharp
+        m_MethodName: CloseRecalibrationComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1897940621}
         m_TargetAssemblyTypeName: CalibrationLogic, Assembly-CSharp
         m_MethodName: Recalibrate
         m_Mode: 1
@@ -3059,6 +3059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScreenName: GamesList
+  UseGameIndex: 0
 --- !u!114 &483796433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,9 +3104,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DisplayUI, Assembly-CSharp
-        m_MethodName: DisplayUIPopUP
+      - m_Target: {fileID: 1719471837}
+        m_TargetAssemblyTypeName: TraffitJamSettingsUI, Assembly-CSharp
+        m_MethodName: OpenExitGamePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3334,7 +3335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1897940621}
         m_TargetAssemblyTypeName: CalibrationLogic, Assembly-CSharp
         m_MethodName: Recalibrate
         m_Mode: 1
@@ -4265,9 +4266,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DisplayUI, Assembly-CSharp
-        m_MethodName: DisplayUIPopUP
+      - m_Target: {fileID: 1719471837}
+        m_TargetAssemblyTypeName: TraffitJamSettingsUI, Assembly-CSharp
+        m_MethodName: CloseExitGamePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11127,6 +11128,7 @@ GameObject:
   - component: {fileID: 1719471835}
   - component: {fileID: 1719471834}
   - component: {fileID: 1719471833}
+  - component: {fileID: 1719471837}
   m_Layer: 5
   m_Name: Canvas - Monitor
   m_TagString: Untagged
@@ -11221,6 +11223,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1719471837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719471832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa6e936bbcc0f440b2fd4bd55184264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endGamePanel: {fileID: 970590902}
+  exitGamePanel: {fileID: 809809340}
+  recalibrationCompletePanel: {fileID: 1452847751}
+  recalibrationErrorPanel: {fileID: 917685940}
 --- !u!1 &1722685550
 GameObject:
   m_ObjectHideFlags: 0
@@ -11379,9 +11397,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DisplayUI, Assembly-CSharp
-        m_MethodName: DisplayUIPopUP
+      - m_Target: {fileID: 1719471837}
+        m_TargetAssemblyTypeName: TraffitJamSettingsUI, Assembly-CSharp
+        m_MethodName: OpenEndGamePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11778,9 +11796,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DisplayUI, Assembly-CSharp
-        m_MethodName: DisplayUIPopUP
+      - m_Target: {fileID: 1719471837}
+        m_TargetAssemblyTypeName: TraffitJamSettingsUI, Assembly-CSharp
+        m_MethodName: CloseEndGamePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12396,9 +12414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DisplayUI, Assembly-CSharp
-        m_MethodName: DisplayUIPopUP
+      - m_Target: {fileID: 1719471837}
+        m_TargetAssemblyTypeName: TraffitJamSettingsUI, Assembly-CSharp
+        m_MethodName: CloseEndGamePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12938,7 +12956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optitrackClient: {fileID: 2034362632}
-  Recalibrate_Error_UI: {fileID: 0}
+  Recalibrate_Error_UI: {fileID: 917685940}
 --- !u!1 &1898636851
 GameObject:
   m_ObjectHideFlags: 0
