@@ -1259,7 +1259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a077945f08a497982444ed1fbe0a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScreenName: TargetTapGame
+  NextScreenName: 
+  UseGameIndex: 1
 --- !u!4 &634466516
 Transform:
   m_ObjectHideFlags: 0
@@ -2367,6 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScreenName: GamesList
+  UseGameIndex: 0
 --- !u!1 &1095925416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4069,7 +4071,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 436113814}
   m_HandleRect: {fileID: 436113813}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
