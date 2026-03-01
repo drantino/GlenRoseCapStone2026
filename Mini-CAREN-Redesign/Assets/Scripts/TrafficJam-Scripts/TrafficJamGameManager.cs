@@ -7,7 +7,7 @@ public class TrafficJamGameManager : MonoBehaviour
     [SerializeField] private TrafficJamUIManager UIManager;
     [SerializeField] private VehicleSpawner leftSpawner, rightSpawner;
     [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
-    [SerializeField] private TrafficJamSettings settings;
+    public TrafficJamSettings settings;
     public int leftAmount, leftPassed, rightAmount, rightPassed;
     public int TEMPGameTimeStartSec;
     private bool isPlaying;
