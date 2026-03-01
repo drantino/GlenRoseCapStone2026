@@ -7,6 +7,7 @@ public class TrafficJamSettings : MonoBehaviour
     public bool useDebugSettings;
 
     //Debug settings
+    [Header("Debug Settings")]
     public float gameTime;
     public float heightThreshold;
     public float carSpeed;
