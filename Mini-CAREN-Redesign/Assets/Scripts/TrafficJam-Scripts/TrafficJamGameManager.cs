@@ -124,7 +124,7 @@ public class TrafficJamGameManager : MonoBehaviour
         rightSpawner.gameObject.SetActive(true);
         emergencySpawner.gameObject.SetActive(true);
 
-        AdjustTimer(TEMPGameTimeStartSec);
+        AdjustTimer((int)(settings.GameTime*60));
         UIManager.CountdownPanelActive = false;
         isPlaying = true;
         yield return null;
