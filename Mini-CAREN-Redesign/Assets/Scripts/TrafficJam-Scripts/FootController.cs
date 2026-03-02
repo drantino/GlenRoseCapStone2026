@@ -7,6 +7,7 @@ public class FootController : MonoBehaviour
     public GameObject leftFootPrefab;
     public GameObject rightFootPrefab;
 	public RawImage shoeRenderImage;
+	public TrafficJamGameManager gameManager;
 
     public Vector3 leftFootPosition;
     public Vector3 rightFootPosition;
@@ -120,35 +121,38 @@ public class FootController : MonoBehaviour
 		}
 
 		//TODO: change min/max height and threshold to settings of the Game object gamesettings
-		//Height controller for colliders
-		if (leftFootPosition.y > minimumHeight + heightThreshold)//might have to change this to allow for offset
+		if (gameManager != null)
 		{
-			leftFootCollider.enabled = false;
-			leftShoeAboveThreshold = true;
-		}
-		else
-		{
-			leftFootCollider.enabled = true;
-			leftShoeAboveThreshold = false;
-		}
-		if (rightFootPosition.y > minimumHeight + heightThreshold)//might have to change this to allow for offset
-		{
-			rightFootCollider.enabled = false;
-			rightShoeAboveThreshhold = true;
-		}
-		else
-		{
-			rightFootCollider.enabled = true;
-			rightShoeAboveThreshhold = false;
-		}
+			//Height controller for colliders
+			if (leftFootPosition.y > minimumHeight + gameManager.settings.HeightThreshold)//might have to change this to allow for offset
+			{
+				leftFootCollider.enabled = false;
+				leftShoeAboveThreshold = true;
+			}
+			else
+			{
+				leftFootCollider.enabled = true;
+				leftShoeAboveThreshold = false;
+			}
+			if (rightFootPosition.y > minimumHeight + gameManager.settings.HeightThreshold)//might have to change this to allow for offset
+			{
+				rightFootCollider.enabled = false;
+				rightShoeAboveThreshhold = true;
+			}
+			else
+			{
+				rightFootCollider.enabled = true;
+				rightShoeAboveThreshhold = false;
+			}
 
-		if (leftShoeAboveThreshold || rightShoeAboveThreshhold)
-		{
-			shoeRenderImage.color = new Color(1, 1, 1, 0.5f);
-		}
-		else
-		{
-			shoeRenderImage.color = Color.white;
+			if (leftShoeAboveThreshold || rightShoeAboveThreshhold)
+			{
+				shoeRenderImage.color = new Color(1, 1, 1, 0.5f);
+			}
+			else
+			{
+				shoeRenderImage.color = Color.white;
+			}
 		}
     }
     private void OnDrawGizmos()
