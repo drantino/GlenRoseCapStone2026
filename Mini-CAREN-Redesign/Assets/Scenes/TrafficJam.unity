@@ -1134,8 +1134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIManager: {fileID: 1549163297}
-  leftSpawner: {fileID: 1610722904}
-  rightSpawner: {fileID: 1840944755}
+  leftSpawner: {fileID: 8996286738346057528}
+  rightSpawner: {fileID: 8996286738792908710}
   emergencySpawner: {fileID: 2765643277328705669}
   settings: {fileID: 114059193}
   leftAmount: 0
@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 188001608}
   - component: {fileID: 188001607}
   m_Layer: 0
-  m_Name: Score Keeper (3)
+  m_Name: Score Keeper Emergency Right Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1732,12 +1732,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188001606}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.6, y: 1, z: -10.42}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 288620987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195015135
 GameObject:
@@ -2592,7 +2592,7 @@ GameObject:
   - component: {fileID: 284661515}
   - component: {fileID: 284661514}
   m_Layer: 0
-  m_Name: Vehicle Despawner (1)
+  m_Name: Vehicle Despawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a34854dbc6bb04686528cfa500780b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleSpawner: {fileID: 1610722904}
+  vehicleSpawner: {fileID: 8996286738346057528}
 --- !u!65 &284661515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2648,12 +2648,45 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284661513}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26, y: 0.86, z: 0}
-  m_LocalScale: {x: 2.33, y: 2.33, z: 23.46}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.6000079, y: 0.02000004, z: 48}
+  m_LocalScale: {x: 2.3299994, y: 2.33, z: 23.459993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7139972617946860822}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &288620986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288620987}
+  m_Layer: 0
+  m_Name: Score Keepers Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288620987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288620986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1592020797}
+  - {fileID: 188001609}
+  m_Father: {fileID: 782186907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327550224
 GameObject:
@@ -2791,6 +2824,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327550224}
   m_CullTransparentMesh: 1
+--- !u!1 &349556043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349556044}
+  m_Layer: 0
+  m_Name: Vehicle Spawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349556044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349556043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7139972618326545800}
+  - {fileID: 7139972617946860822}
+  - {fileID: 2765643277328705668}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &352612271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,7 +3371,7 @@ GameObject:
   - component: {fileID: 442795584}
   - component: {fileID: 442795583}
   m_Layer: 0
-  m_Name: Score Keeper (1)
+  m_Name: Score Keeper Left Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3356,12 +3423,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442795582}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.7, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 22}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1362847191}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &478249000
 GameObject:
@@ -3909,8 +3976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335a1cef0387b3948a36aac9e6714146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carSpeedUnderft_L: 0.5
-  carSpeedUnderft_R: 2
+  carSpeedUnderft_L: 1
+  carSpeedUnderft_R: 1
 --- !u!65 &545899690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4559,7 +4626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 800}
+  m_SizeDelta: {x: 100, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598083349
 MonoBehaviour:
@@ -6557,6 +6624,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772376548}
   m_CullTransparentMesh: 1
+--- !u!1 &782186906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782186907}
+  m_Layer: 0
+  m_Name: Score Keepers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782186907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782186906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1362847191}
+  - {fileID: 288620987}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808782539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6941,7 +7041,7 @@ GameObject:
   - component: {fileID: 876622400}
   - component: {fileID: 876622399}
   m_Layer: 5
-  m_Name: Main Canvas
+  m_Name: Canvas - Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9764,91 +9864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264208078}
   m_CullTransparentMesh: 1
---- !u!1001 &1273116361
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4837484625981785566, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_Name
-      value: VehicleSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837484625981785566, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: footTag
-      value: RightShoe
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: spawnRateSec
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: spawnRateVarianceSec
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
 --- !u!1 &1289710897
 GameObject:
   m_ObjectHideFlags: 0
@@ -10786,6 +10801,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1362847190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362847191}
+  m_Layer: 0
+  m_Name: Score Keepers Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1362847191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362847190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 442795585}
+  - {fileID: 2102980761}
+  m_Father: {fileID: 782186907}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379459613
 GameObject:
   m_ObjectHideFlags: 0
@@ -11201,12 +11249,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404021520}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: -13.84}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.02000004, z: 36.43}
   m_LocalScale: {x: 5.28, y: 2.33, z: 2.33}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2765643277328705668}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1421461813
 GameObject:
@@ -12228,7 +12276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1105962930265838921, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_Name
-      value: Traffic Light (1)
+      value: Traffic Light Left Foot
       objectReference: {fileID: 0}
     - target: {fileID: 7621613536554108666, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12371,7 +12419,7 @@ GameObject:
   - component: {fileID: 1544785996}
   - component: {fileID: 1544785995}
   m_Layer: 5
-  m_Name: Shoe Render Canvas
+  m_Name: Canvas - Shoe Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12916,7 +12964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a34854dbc6bb04686528cfa500780b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleSpawner: {fileID: 1840944755}
+  vehicleSpawner: {fileID: 8996286738792908710}
 --- !u!65 &1575592936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12954,12 +13002,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575592934}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26, y: 0.86, z: 0}
-  m_LocalScale: {x: 2.33, y: 2.33, z: 23.46}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.5999926, y: 0.02000004, z: 48}
+  m_LocalScale: {x: 2.3299994, y: 2.33, z: 23.459993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7139972618326545800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581787227
 GameObject:
@@ -13158,7 +13206,7 @@ GameObject:
   - component: {fileID: 1592020796}
   - component: {fileID: 1592020795}
   m_Layer: 0
-  m_Name: Score Keeper
+  m_Name: Score Keeper Right Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13210,97 +13258,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592020794}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.7, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 22}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 288620987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1610722903
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4837484625981785566, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_Name
-      value: VehicleSpawner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837484625981785566, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139972617409962817, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: timeOffset
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: spawnRateSec
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-      propertyPath: spawnRateVarianceSec
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
---- !u!114 &1610722904 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-  m_PrefabInstance: {fileID: 1610722903}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d4bab1c6cb8fd4e9ae5e1f82e1b114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1611945774
 GameObject:
   m_ObjectHideFlags: 0
@@ -14769,7 +14733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1773908894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15359,17 +15323,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 22.69, y: 0, z: 0}
---- !u!114 &1840944755 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8996286737809224047, guid: f490b90238ec8a74abb1920bb771d743, type: 3}
-  m_PrefabInstance: {fileID: 1273116361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d4bab1c6cb8fd4e9ae5e1f82e1b114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1856161213
 GameObject:
   m_ObjectHideFlags: 0
@@ -17316,7 +17269,7 @@ GameObject:
   - component: {fileID: 2102980760}
   - component: {fileID: 2102980759}
   m_Layer: 0
-  m_Name: Score Keeper (2)
+  m_Name: Score Keeper Emergency Left Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17368,12 +17321,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102980758}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.6, y: 1, z: -10.42}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1362847191}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108543385
 GameObject:
@@ -17484,7 +17437,7 @@ RectTransform:
   m_Father: {fileID: 356977825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17808,7 +17761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1105962930265838921, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_Name
-      value: Traffic Light
+      value: Traffic Light Right Foot
       objectReference: {fileID: 0}
     - target: {fileID: 7621613536554108666, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17872,14 +17825,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456548080417607195}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0.84, z: 22.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2083898788}
   - {fileID: 2097718207}
-  m_Father: {fileID: 0}
+  - {fileID: 1404021524}
+  m_Father: {fileID: 349556044}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &2765643277328705669
 MonoBehaviour:
@@ -18003,6 +17957,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -76.2}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4837484626518698889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7139972617946860822}
+  - component: {fileID: 8996286738346057528}
+  m_Layer: 0
+  m_Name: VehicleSpawnerLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &4837484627187528471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7139972618326545800}
+  - component: {fileID: 8996286738792908710}
+  m_Layer: 0
+  m_Name: VehicleSpawnerRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &5833792373406114195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18040,6 +18028,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &7139972617946860822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837484626518698889}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -22, y: 0.84, z: -1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 284661517}
+  m_Father: {fileID: 349556044}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!4 &7139972618326545800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837484627187528471}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 22, y: 0.84, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1575592938}
+  m_Father: {fileID: 349556044}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &8696951473077952550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18131,37 +18151,71 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8996286738346057528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837484626518698889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d4bab1c6cb8fd4e9ae5e1f82e1b114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentCarsInLane: 0
+  spawnRateSec: 6
+  spawnRateVarianceSec: 3
+  maxCarsInLane: 4
+  timeOffset: 3
+  VehiclePrefab: {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  footTag: LeftShoe
+  VehicleList: []
+--- !u!114 &8996286738792908710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837484627187528471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d4bab1c6cb8fd4e9ae5e1f82e1b114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentCarsInLane: 0
+  spawnRateSec: 6
+  spawnRateVarianceSec: 3
+  maxCarsInLane: 4
+  timeOffset: 0
+  VehiclePrefab: {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  footTag: RightShoe
+  VehicleList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 114059192}
+  - {fileID: 1549163298}
   - {fileID: 204599073}
   - {fileID: 2134232475}
   - {fileID: 1859055128}
+  - {fileID: 349556044}
+  - {fileID: 782186907}
   - {fileID: 1728197469}
-  - {fileID: 1273116361}
-  - {fileID: 1610722903}
-  - {fileID: 2765643277328705668}
-  - {fileID: 1575592938}
-  - {fileID: 284661517}
-  - {fileID: 1404021524}
-  - {fileID: 876622402}
-  - {fileID: 890370428}
   - {fileID: 625090057207787179}
   - {fileID: 1520438755}
-  - {fileID: 1549163298}
-  - {fileID: 114059192}
-  - {fileID: 1592020797}
-  - {fileID: 442795585}
-  - {fileID: 2102980761}
-  - {fileID: 188001609}
   - {fileID: 545899691}
   - {fileID: 1348226401}
-  - {fileID: 1773908897}
   - {fileID: 1320757881}
   - {fileID: 1840487690}
   - {fileID: 664953782}
   - {fileID: 1870221912}
   - {fileID: 70031380}
   - {fileID: 2032691495}
+  - {fileID: 1773908897}
+  - {fileID: 876622402}
   - {fileID: 1544785998}
+  - {fileID: 890370428}
