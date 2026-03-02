@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class FootController : MonoBehaviour
 {
     public GameObject leftFootPrefab;
     public GameObject rightFootPrefab;
+	public RawImage shoeRenderImage;
 
     public Vector3 leftFootPosition;
     public Vector3 rightFootPosition;
@@ -17,6 +19,9 @@ public class FootController : MonoBehaviour
     public float minimumHeight;
     public float maximumHeight;
     public float heightThreshold;
+
+	private bool rightShoeAboveThreshhold = false;
+	private bool leftShoeAboveThreshold = false;
 
     //DEBUG CONTROLS
     public bool debugMode;
@@ -119,18 +124,31 @@ public class FootController : MonoBehaviour
 		if (leftFootPosition.y > minimumHeight + heightThreshold)//might have to change this to allow for offset
 		{
 			leftFootCollider.enabled = false;
+			leftShoeAboveThreshold = true;
 		}
 		else
 		{
 			leftFootCollider.enabled = true;
+			leftShoeAboveThreshold = false;
 		}
 		if (rightFootPosition.y > minimumHeight + heightThreshold)//might have to change this to allow for offset
 		{
 			rightFootCollider.enabled = false;
+			rightShoeAboveThreshhold = true;
 		}
 		else
 		{
 			rightFootCollider.enabled = true;
+			rightShoeAboveThreshhold = false;
+		}
+
+		if (leftShoeAboveThreshold || rightShoeAboveThreshhold)
+		{
+			shoeRenderImage.color = new Color(1, 1, 1, 0.5f);
+		}
+		else
+		{
+			shoeRenderImage.color = Color.white;
 		}
     }
     private void OnDrawGizmos()
