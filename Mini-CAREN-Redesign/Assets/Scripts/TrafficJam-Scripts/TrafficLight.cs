@@ -4,17 +4,18 @@ public class TrafficLight : MonoBehaviour
 {
     [SerializeField] private GameObject greenLightModel;
     [SerializeField] private GameObject redLightModel;
-    [SerializeField] private GameObject stopCollider;
 
     public bool redLightOn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (stopCollider == null)
-            throw new System.Exception("Traffic light stop collider is null");
+        if (redLightModel == null)
+            throw new System.Exception("Red light model of traffic light was not set.");
+		if (greenLightModel == null)
+			throw new System.Exception("Green light model of traffic light was not set.");
 
-        UpdateModelAndCollider();
+		UpdateModelAndCollider();
 	}
 
     [ContextMenu("Turn on red light")]
@@ -33,9 +34,7 @@ public class TrafficLight : MonoBehaviour
 
     private void UpdateModelAndCollider()
     {
-		if (greenLightModel != null) greenLightModel.SetActive(!redLightOn);
-		if (redLightModel != null) redLightModel.SetActive(redLightOn);
-
-        stopCollider.SetActive(redLightOn);
+		greenLightModel.SetActive(!redLightOn);
+		redLightModel.SetActive(redLightOn);
 	}
 }

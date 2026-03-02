@@ -6,6 +6,11 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 	[SerializeField] private Transform rightSpawnPosition;
 	[SerializeField] private TrafficLight trafficLight1;
 	[SerializeField] private TrafficLight trafficLight2;
+	//[SerializeField] private TrafficGate trafficGate1;
+	//[SerializeField] private TrafficGate trafficGate2;
+	[SerializeField] private GameObject vehicleStopper1;
+	[SerializeField] private GameObject vehicleStopper2;
+	[SerializeField] private TrafficGate[] trafficGates;
 
 	private bool spawnCarOnLeft = false;
 
@@ -16,13 +21,31 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		// if there is an emergency vehicle, stop traffic.
 		if (currentCarsInLane > 0)
 		{
-			if (!trafficLight1.redLightOn) trafficLight1.TurnOnRedLight();
-			if (!trafficLight2.redLightOn) trafficLight2.TurnOnRedLight();
+			// stop cars
+			vehicleStopper1.SetActive(true);
+			vehicleStopper2.SetActive(true);
+
+			// update traffic lights
+			if (trafficLight1 != null && !trafficLight1.redLightOn) trafficLight1.TurnOnRedLight();
+			if (trafficLight2 != null && !trafficLight2.redLightOn) trafficLight2.TurnOnRedLight();
+
+			// update gates
+			foreach (TrafficGate gate in trafficGates)
+				gate.Close();
 		}
 		else
 		{
-			if (trafficLight1.redLightOn) trafficLight1.TurnOnGreenLight();
-			if (trafficLight2.redLightOn) trafficLight2.TurnOnGreenLight();
+			// let cars pass
+			vehicleStopper1.SetActive(false);
+			vehicleStopper2.SetActive(false);
+
+			// update traffic lights
+			if (trafficLight1 != null && trafficLight1.redLightOn) trafficLight1.TurnOnGreenLight();
+			if (trafficLight2 != null && trafficLight2.redLightOn) trafficLight2.TurnOnGreenLight();
+
+			// update gates
+			foreach (TrafficGate gate in trafficGates)
+				gate.Open();
 		}
 	}
 

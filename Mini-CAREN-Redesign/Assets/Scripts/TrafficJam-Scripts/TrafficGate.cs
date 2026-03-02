@@ -8,8 +8,13 @@ public class TrafficGate : MonoBehaviour
     private bool inPosition;
     private bool open = false;
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+        Open();
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         if (inPosition)
             return;
@@ -48,14 +53,14 @@ public class TrafficGate : MonoBehaviour
     }
 
     [ContextMenu("Open")]
-	private void Open()
+	public void Open()
     {
         open = true;
         inPosition = false;
     }
 
 	[ContextMenu("Close")]
-	private void Close()
+	public void Close()
     {
         open = false;
         inPosition = false;
