@@ -85,6 +85,8 @@ public class TrafficJamGameManager : MonoBehaviour
     [ContextMenu("EndGame")]
     public void EndGame()
     {
+        Time.timeScale = 0;
+
         UIManager.ShowEndResults(leftAmount, leftPassed, rightAmount, rightPassed);
 
         // Uncomment these if you wish to disable car spawning once the game ends
