@@ -1927,6 +1927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Traffic Gate Right
       objectReference: {fileID: 0}
+    - target: {fileID: 3801828227087581128, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12564,7 +12568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1105962930265838921, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7621613536554108666, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17234,6 +17238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Traffic Gate Right (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3801828227087581128, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18125,7 +18133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1105962930265838921, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7621613536554108666, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
       propertyPath: m_LocalPosition.x

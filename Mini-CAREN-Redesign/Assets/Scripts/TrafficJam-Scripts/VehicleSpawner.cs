@@ -79,4 +79,14 @@ public class VehicleSpawner : MonoBehaviour
         VehicleList.Clear();
         currentCarsInLane = 0;
     }
+
+    public bool IsLastInLine(GameObject vehicle)
+    {
+        bool v = false;
+        if (VehicleList.Count == maxCarsInLane)
+        {
+            v = VehicleList[(int)(maxCarsInLane - 1)] == vehicle;
+        }
+        return v;
+    }
 }

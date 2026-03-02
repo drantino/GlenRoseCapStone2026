@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -14,6 +14,9 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] protected float vehicleStopDistance;
 	[SerializeField] protected float timeUntilDespawnAfterSquish;
 	[SerializeField] protected float squishedLaneDistance;
+
+	[SerializeField] protected float detourCountdownSec;
+	private bool detourCountdownRunning;
 
 	public bool squished = false;
 	protected float originalZPos;
@@ -63,6 +66,18 @@ public class Vehicle : MonoBehaviour
 		if (squished)
 		{
 			PerformSquishedBehavior();
+		}
+
+		if (objectInfront && !detourCountdownRunning && vehicleSpawner.IsLastInLine(this.gameObject))
+		{
+			detourCountdownRunning = true;
+			Debug.Log("Starting coroutine");
+			StartCoroutine(DetourCountdown());
+		} 
+		else if (!objectInfront)
+		{
+			detourCountdownRunning = false;
+			StopAllCoroutines();
 		}
 	}
 
@@ -116,4 +131,18 @@ public class Vehicle : MonoBehaviour
 		vehicleModel.SetActive(false);
 		vehicleSquishedModel?.SetActive(true);
 	}
+
+	private void Detour()
+	{
+		detourCountdownRunning = false;
+		// TODO: Travel away.
+		Debug.Log("Insert high quality animation here");
+	}
+
+	private IEnumerator DetourCountdown()
+	{
+		yield return new WaitForSeconds(4);
+		Detour();
+	}
 }
+
