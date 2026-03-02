@@ -987,10 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftFootVehiclesPassed: 0
-  rightFootVehiclesPassed: 0
-  leftFootVehiclesSquished: 0
-  rightFootVehiclesSquished: 0
+  gameManager: {fileID: 0}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -1984,10 +1981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftFootVehiclesPassed: 0
-  rightFootVehiclesPassed: 0
-  leftFootVehiclesSquished: 0
-  rightFootVehiclesSquished: 0
+  gameManager: {fileID: 0}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -4298,6 +4292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e6c3b8f2c17c94eabafb13d8eb2f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   leftCarsPassedText: {fileID: 0}
   rightCarsPassedText: {fileID: 0}
   leftCarsSquishedText: {fileID: 0}
@@ -7256,10 +7251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftFootVehiclesPassed: 0
-  rightFootVehiclesPassed: 0
-  leftFootVehiclesSquished: 0
-  rightFootVehiclesSquished: 0
+  gameManager: {fileID: 0}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -7731,10 +7723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b5508f7b913d489d1afefff47ca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftFootVehiclesPassed: 0
-  rightFootVehiclesPassed: 0
-  leftFootVehiclesSquished: 0
-  rightFootVehiclesSquished: 0
+  gameManager: {fileID: 0}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
@@ -9388,6 +9377,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133999007}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1064055156229022507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.9143915
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61270976
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.993876
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51583200556958947, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801828227087581128, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
+      propertyPath: m_Name
+      value: Traffic Gate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9412,3 +9458,4 @@ SceneRoots:
   - {fileID: 424714731}
   - {fileID: 1779204402}
   - {fileID: 1855276791}
+  - {fileID: 1064055156229022507}
