@@ -49,7 +49,8 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 
 		if (vehicle.footTag == vehicleFootTag)
 		{
-			if (!vehicle.squished)
+			/*
+			if (!vehicle.squished && !vehicle.detouring)
 			{
 				// the car made it through
 				//if (type == Type.LeftFoot) leftFootVehiclesPassed++;
@@ -82,6 +83,41 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
 				scorePopup.color = new Color(1, 0, 0);
 				scorePopup.text = vehicleSquishedText;
+			} */
+
+			if (vehicle.squished || vehicle.detouring)
+			{
+				// the car was squished
+				//if (type == Type.LeftFoot) leftFootVehiclesSquished++;
+				//else rightFootVehiclesSquished++;
+				if (type == Type.LeftFoot) gameManager.leftAmount++;
+				else gameManager.rightAmount++;
+
+				// provide player feedback
+				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
+				scorePopup.color = new Color(1, 0, 0);
+				scorePopup.text = vehicleSquishedText;
+			}
+			else
+			{
+				// the car made it through
+				//if (type == Type.LeftFoot) leftFootVehiclesPassed++;
+				//else rightFootVehiclesPassed++;
+				if (type == Type.LeftFoot) 
+				{
+					gameManager.leftAmount++;
+					gameManager.leftPassed++;
+				}
+				else 
+				{
+					gameManager.rightAmount++;
+					gameManager.rightPassed++;
+				}
+
+				// provide player feedback
+				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
+				scorePopup.color = new Color(0, 1, 0);
+				scorePopup.text = vehiclePassedText;
 			}
 		}
 	}

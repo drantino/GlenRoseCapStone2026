@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class VehicleSpawner : MonoBehaviour
 {
-    [SerializeField] protected TrafficJamGameManager gameManager;
 	[HideInInspector] public float currentCarsInLane = 0;
 
 	[SerializeField] protected float spawnRateSec;
@@ -18,6 +17,9 @@ public class VehicleSpawner : MonoBehaviour
     public string footTag;
 
 	protected float timeUntilNextSpawn;
+    // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
+    [SerializeField] protected Transform detourPos;
+    public bool vehiclesDetour = false;
 
     [SerializeField] protected List<GameObject> VehicleList = new List<GameObject>();
 
@@ -57,6 +59,8 @@ public class VehicleSpawner : MonoBehaviour
         Vehicle instantiatedVehicleScript = instantiatedVehicle.GetComponent<Vehicle>();
         instantiatedVehicleScript.footTag = footTag;
         instantiatedVehicleScript.vehicleSpawner = this;
+        instantiatedVehicleScript.detourZPos = detourPos.position.z;
+        instantiatedVehicleScript.detourEnabled = vehiclesDetour;
         currentCarsInLane++;
 
         //gameManager.AddToVechicleList(instantiatedVehicle);

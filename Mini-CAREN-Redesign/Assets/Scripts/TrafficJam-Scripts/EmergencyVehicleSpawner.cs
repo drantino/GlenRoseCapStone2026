@@ -72,6 +72,8 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		Vehicle instantiatedVehicleScript = instantiatedVehicle.GetComponent<Vehicle>();
 		instantiatedVehicleScript.footTag = tag;
 		instantiatedVehicleScript.vehicleSpawner = this;
+		instantiatedVehicleScript.detourEnabled = false;
+		instantiatedVehicleScript.detourZPos = 0;
 		currentCarsInLane++;
 
 		//gameManager.AddToVechicleList(instantiatedVehicle);
