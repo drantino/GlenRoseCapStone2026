@@ -86,6 +86,9 @@ public class VehicleSpawner : MonoBehaviour
 
     public bool IsLastInLine(GameObject vehicle)
     {
+        if (VehicleList.Count > maxCarsInLane)
+            throw new System.Exception("There are more vehicles in the scene then the maximum.");
+
         bool v = false;
         if (VehicleList.Count == maxCarsInLane)
         {

@@ -16,6 +16,7 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] protected float squishedLaneDistance;
 
 	[SerializeField] protected float detourCountdownSec;
+	[SerializeField] // temp
 	private bool detourCountdownRunning;
 	[SerializeField] private float originalYRotation;
 	public float detourZPos;
