@@ -12,13 +12,19 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] protected GameObject vehicleSquishedModel;
 	[SerializeField] protected float turnMoveSpeed;
 	[SerializeField] protected float vehicleStopDistance;
+	[SerializeField] protected float raycastStartDistance;
 	[SerializeField] protected float timeUntilDespawnAfterSquish;
 	[SerializeField] protected float squishedLaneDistance;
 
 	[SerializeField] protected float detourCountdownSec;
+	[SerializeField] // temp
 	private bool detourCountdownRunning;
+	[SerializeField] private float originalYRotation;
+	public float detourZPos;
+	public bool detourEnabled;
+	
 
-	public bool squished = false;
+	public bool squished = false, detouring = false;
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
 	private void Start()
@@ -34,6 +40,9 @@ public class Vehicle : MonoBehaviour
 		originalZPos = transform.position.z;
 
 		originalTimeUntilDespawnAfterSquish = timeUntilDespawnAfterSquish;
+
+		originalYRotation = transform.eulerAngles.y;
+
 	}
 
 	private void Update()
@@ -44,7 +53,7 @@ public class Vehicle : MonoBehaviour
 		//bool objectInfront = hit.transform != null && (
 		//	hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle") || hit.transform.CompareTag("VehicleStopper"));
 
-		RaycastHit[] hits = Physics.BoxCastAll(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
+		RaycastHit[] hits = Physics.BoxCastAll(transform.position + transform.forward * raycastStartDistance, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
 		bool objectInfront = false;
 
 		foreach (RaycastHit hit in hits)
@@ -68,16 +77,23 @@ public class Vehicle : MonoBehaviour
 			PerformSquishedBehavior();
 		}
 
-		if (objectInfront && !detourCountdownRunning && vehicleSpawner.IsLastInLine(this.gameObject))
+		
+		
+		if (detourEnabled && objectInfront && !detourCountdownRunning && vehicleSpawner.IsLastInLine(this.gameObject))
 		{
 			detourCountdownRunning = true;
-			Debug.Log("Starting coroutine");
 			StartCoroutine(DetourCountdown());
 		} 
 		else if (!objectInfront)
 		{
 			detourCountdownRunning = false;
 			StopAllCoroutines();
+		}
+		
+
+		if (Mathf.Abs(transform.position.z) > Mathf.Abs(detourZPos) && !squished)
+		{
+			transform.eulerAngles = new Vector3(0, -originalYRotation, 0);
 		}
 	}
 
@@ -132,17 +148,13 @@ public class Vehicle : MonoBehaviour
 		vehicleSquishedModel?.SetActive(true);
 	}
 
-	private void Detour()
-	{
-		detourCountdownRunning = false;
-		// TODO: Travel away.
-		Debug.Log("Insert high quality animation here");
-	}
-
 	private IEnumerator DetourCountdown()
 	{
 		yield return new WaitForSeconds(4);
-		Detour();
+		detourCountdownRunning = false;
+		detouring = true;
+		transform.Rotate(0, 90, 0); 
+		
 	}
 }
 
