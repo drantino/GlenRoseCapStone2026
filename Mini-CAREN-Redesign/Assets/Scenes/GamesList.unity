@@ -1942,6 +1942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamesList:
   - {fileID: 11400000, guid: 00670a804065c48a99bd04d42ada4d68, type: 2}
+  - {fileID: 11400000, guid: 6b8006f94d51e3a4eb677988f1b2c25d, type: 2}
 --- !u!1 &1081072272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2938,7 +2939,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 330111078}
   m_HandleRect: {fileID: 330111077}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

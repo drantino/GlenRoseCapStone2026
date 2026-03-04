@@ -123,6 +123,73 @@ public class CreatingCards : MonoBehaviour
         Units.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TargetTap).SpecialCardBias.SettingValue.units;
     }
 
+    /// <summary>
+    /// Creates a special card that has a active toggle and a slider to be used for settings that can be both adjust the settings and turn it on and off.
+    /// It populates the card with a title, description, image, min/max values, units and sets isActive.
+    /// Allows for custom left and right text descriptions if the "customeSliderDescription" is true.
+    /// </summary>
+    public void CreateSpecialCardBoolFloat(int index)
+    {
+        GameObject newCard = Instantiate((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.cardPrefab, cardHolder.transform);
+        Transform cardTitle = newCard.transform.Find("Title");
+        Transform CardDescription = newCard.transform.Find("Description");
+        Transform CardImage = newCard.transform.Find("Image");
+        Transform Slider = newCard.transform.Find("Slider");
+
+        Transform LeftBias = newCard.transform.Find("LeftBias");
+        Transform RightBias = newCard.transform.Find("RightBias");
+        Transform Units = newCard.transform.Find("Units");
+        Transform activeToggle = newCard.transform.Find("ActiveToggle");
+        Transform leftText = newCard.transform.Find("LeftText");
+        Transform rightText = newCard.transform.Find("RightText");
+
+        cardTitle.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.cardName;
+        CardDescription.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.cardDescrption;
+        CardImage.GetComponent<Image>().sprite = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.cardImage;
+
+        Slider.GetComponent<Slider>().minValue = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.min;
+        Slider.GetComponent<Slider>().maxValue = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.max;
+        Slider.GetComponent<Slider>().value = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.value;
+
+        //might not need this?
+        //Slider.GetComponent<TargetBiasSlider>().settingIndex = index;
+
+        LeftBias.GetComponent<TextMeshProUGUI>().text = ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.max - (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.value).ToString();
+        RightBias.GetComponent<TextMeshProUGUI>().text = ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.value).ToString();
+        Units.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.SettingValue.units;
+
+        activeToggle.GetComponent<Toggle>().isOn = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.isActive;
+
+        //If custom slider descriptions
+        if ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.customSliderDescription)
+        {
+            leftText.GetComponent<TextMeshProUGUI>().text = ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.leftSliderDescription);
+            rightText.GetComponent<TextMeshProUGUI>().text = ((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardEmergencyVehicle.rightSliderDescription);
+        }
+        else
+        {
+            leftText.GetComponent<TextMeshProUGUI>().text = null;
+            rightText.GetComponent<TextMeshProUGUI>().text = null;
+        }
+    }
+    /// <summary>
+    /// Creates a special card that has a active toggle based on the special card bool configuration.
+    /// </summary>
+
+    public void CreateSpecialCardBool(int index)
+    {
+        GameObject newCard = Instantiate((GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardPrefab, cardHolder.transform);
+        Transform cardTitle = newCard.transform.Find("Title");
+        Transform CardDescription = newCard.transform.Find("Description");
+        Transform CardImage = newCard.transform.Find("Image");
+        Transform activeToggle = newCard.transform.Find("ActiveToggle");
+
+        cardTitle.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardName;
+        CardDescription.GetComponent<TextMeshProUGUI>().text = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardDescription;
+        CardImage.GetComponent<Image>().sprite = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.cardImage;
+        
+        activeToggle.GetComponent<Toggle>().isOn = (GameList.staticGameList[GameList.gameIndex] as TrafficJam).SpecialCardDetour.isActive;
+    }
     /*
         Unity method called once before the first frame update.  
         Initializes the card creation process based on the game's settings and card order.
@@ -135,47 +202,76 @@ public class CreatingCards : MonoBehaviour
 
         bool cardOrder = GameList.staticGameList[GameList.gameIndex].CardOrder;
 
-        if (cardOrder == true) {
-            CreateCard(0);
-            CreateCard(1);
-            CreateCard(2);
+
+        //A switch statment that looks at the current gameIndex gameName to determin how the settings cards are handled
+        switch (GameList.staticGameList[GameList.gameIndex].gameName)
+        {
+            case "TargetTap":
+                {
+                    if (cardOrder == true)
+                    {
+                        CreateCard(0);
+                        CreateCard(1);
+                        CreateCard(2);
 
 
-            TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
-            if (t == null)
-            {
-                Debug.Log("no special Cards");
-            }
-            else
-            {
-                CreateSpecialCardPlatform(0);
-                CreateSpecialCardBias(1);
-            }
-            CreateCard(3);
-            CreateCard(4);
-            CreateCard(5);
+                        TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
+                        if (t == null)
+                        {
+                            Debug.Log("no special Cards");
+                        }
+                        else
+                        {
+                            CreateSpecialCardPlatform(0);
+                            CreateSpecialCardBias(1);
+                        }
+                        CreateCard(3);
+                        CreateCard(4);
+                        CreateCard(5);
 
 
+                    }
+                    else
+                    {
+                        if (cardCount == 3)
+                            for (int i = 0; i < cardCount; i++)
+                            {
+                                CreateCard(i);
+                            }
+                        TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
+                        if (t == null)
+                        {
+                            Debug.Log("no special Cards");
+                        }
+                        else
+                        {
+                            CreateSpecialCardPlatform(0);
+                            CreateSpecialCardBias(1);
+                        }
+                    }
+                    break;
+                }
+            case "TrafficJam":
+                {
+                    for (int index = 0; index < cardCount; index++)
+                    {
+                        CreateCard(index);
+                    }
+                    CreateSpecialCardBoolFloat(0);
+                    CreateSpecialCardBool(1);
+
+                    break;
+                }
+            default:
+                {
+                    for (int index = 0; index < cardCount; index++)
+                    {
+                        CreateCard(index);
+                    }
+                    break;
+                }
         }
-        else{
-            if (cardCount == 3)
-            for (int i = 0; i < cardCount; i++)
-            {
-                CreateCard(i);
-            }
-            TargetTap t = GameList.staticGameList[GameList.gameIndex] as TargetTap;
-            if (t == null)
-            {
-                Debug.Log("no special Cards");
-            }
-            else
-            {
-                CreateSpecialCardPlatform(0);
-                CreateSpecialCardBias(1);
-            }
-        }
 
-
-        SetScroleToTop();
+            SetScroleToTop();
     }
 }
