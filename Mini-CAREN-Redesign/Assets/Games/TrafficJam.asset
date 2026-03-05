@@ -53,16 +53,6 @@ MonoBehaviour:
       units: 
       LiveSetting: 1
     sliderisWholeNumber: 1
-  - cardName: Car Speed under Foot
-    cardDescription: How often the car spawns
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
-    SettingValue:
-      value: 3
-      min: 1
-      max: 10
-      units: 
-      LiveSetting: 1
-    sliderisWholeNumber: 1
   - cardName: Car Spawn Inverval
     cardDescription: How often the car spawns
     cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
