@@ -9,7 +9,7 @@ public class VehicleSpawner : MonoBehaviour
 	[SerializeField] protected float spawnRateVarianceSec;
 	[SerializeField] protected float maxCarsInLane;
 	[SerializeField] protected float timeOffset;
-
+    public TrafficJamGameManager gameManager;
     // Since we only have one car type/model, we only need one game object for the prefabs.
     // TODO: Either have an array/list or a scriptable object to reference when we get many car models.
     [SerializeField] protected GameObject VehiclePrefab;
@@ -32,7 +32,7 @@ public class VehicleSpawner : MonoBehaviour
     void Start()
     {
         currentCarsInLane = 0;
-        timeUntilNextSpawn = Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec) - timeOffset;
+        timeUntilNextSpawn = Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec) - timeOffset;
         // Temp statement to notify of spelling mistakes.
         if (footTag != "LeftShoe" && footTag != "RightShoe")
         {
@@ -45,7 +45,7 @@ public class VehicleSpawner : MonoBehaviour
         timeUntilNextSpawn -= Time.deltaTime;
         if (timeUntilNextSpawn < 0)
         {
-            timeUntilNextSpawn = Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec);
+            timeUntilNextSpawn = Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
             if (currentCarsInLane < maxCarsInLane)
             {
                 SpawnCar();
@@ -60,7 +60,8 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.footTag = footTag;
         instantiatedVehicleScript.vehicleSpawner = this;
         instantiatedVehicleScript.detourZPos = detourPos.position.z;
-        instantiatedVehicleScript.detourEnabled = vehiclesDetour;
+        instantiatedVehicleScript.detourEnabled = gameManager.settings.CarDetour;
+        instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         currentCarsInLane++;
 
         //gameManager.AddToVechicleList(instantiatedVehicle);

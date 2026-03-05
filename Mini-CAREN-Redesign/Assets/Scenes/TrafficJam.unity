@@ -1323,12 +1323,12 @@ MonoBehaviour:
   useDebugSettings: 0
   gameTime: 2
   heightThreshold: 0.5
-  carSpeed: 0
+  carSpeed: 4
   carSpeedUnderFoot: 0
-  carSpawnInterval: 0
-  carLength: 0
-  carDetour: 0
-  emergencyVehicleSideBias: 0
+  carSpawnInterval: 6
+  carLength: 1
+  carDetour: 1
+  emergencyVehicleSideBias: 50
   emergencyVehicleActive: 0
 --- !u!1 &122563043
 GameObject:
@@ -20588,6 +20588,7 @@ MonoBehaviour:
   spawnRateVarianceSec: 4
   maxCarsInLane: 1
   timeOffset: 0
+  gameManager: {fileID: 114059191}
   VehiclePrefab: {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
   footTag: LeftShoe
   detourPos: {fileID: 0}
@@ -20914,6 +20915,7 @@ MonoBehaviour:
   spawnRateVarianceSec: 3
   maxCarsInLane: 4
   timeOffset: 3
+  gameManager: {fileID: 114059191}
   VehiclePrefab: {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   footTag: LeftShoe
   detourPos: {fileID: 1486782365}
@@ -20936,6 +20938,7 @@ MonoBehaviour:
   spawnRateVarianceSec: 3
   maxCarsInLane: 4
   timeOffset: 0
+  gameManager: {fileID: 114059191}
   VehiclePrefab: {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   footTag: RightShoe
   detourPos: {fileID: 751160495}
