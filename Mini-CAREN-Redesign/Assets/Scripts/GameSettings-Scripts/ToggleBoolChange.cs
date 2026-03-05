@@ -8,7 +8,7 @@ public class ToggleBoolChange : MonoBehaviour
     {
         activeToggle.onValueChanged.AddListener((value) =>
         {
-            ((TrafficJam)GameList.staticGameList[GameList.gameIndex]).SpecialCardEmergencyVehicle.isActive = value;
+            ((TrafficJam)GameList.staticGameList[GameList.gameIndex]).SpecialCardDetour.isActive = value;
         });
     }
 }
