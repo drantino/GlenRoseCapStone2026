@@ -8,6 +8,7 @@ public class FootController : MonoBehaviour
     public GameObject rightFootPrefab;
 	public RawImage shoeRenderImage;
 	public TrafficJamGameManager gameManager;
+	public CalibrationLogic calibrationLogic;
 
     public Vector3 leftFootPosition;
     public Vector3 rightFootPosition;
@@ -91,8 +92,8 @@ public class FootController : MonoBehaviour
 		{
 			if (!CalibrationLogic.NotEnoughtMarkers)
 			{
-				leftFootPosition = new Vector3(leftFootPosition.x, CalibrationLogic.leftFootPosition.y, leftFootPosition.z);
-				rightFootPosition = new Vector3(rightFootPosition.x, CalibrationLogic.rightFootPosition.y, rightFootPosition.z);
+				leftFootPosition = new Vector3(leftFootPosition.x, calibrationLogic.optitrackClient.m_latestMarkerStates[CalibrationLogic.leftFootMarkerId].Position.y, leftFootPosition.z);
+				rightFootPosition = new Vector3(rightFootPosition.x, calibrationLogic.optitrackClient.m_latestMarkerStates[CalibrationLogic.rightFootMarkerId].Position.y, rightFootPosition.z);
 			}
 		}
 

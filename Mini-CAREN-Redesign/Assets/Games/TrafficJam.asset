@@ -25,7 +25,7 @@ MonoBehaviour:
   Settings:
   - cardName: GameTime
     cardDescription: The time for how long a round will go.
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    cardImage: {fileID: 21300000, guid: 07a7274848f1f774d887d42f2e844b2b, type: 3}
     SettingValue:
       value: 2
       min: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     sliderisWholeNumber: 0
   - cardName: Height Threshold
     cardDescription: The height needed to allow cars to pass.
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    cardImage: {fileID: 21300000, guid: b69798b7758c5714a835e51f53db7d91, type: 3}
     SettingValue:
       value: 0.12
       min: 0
@@ -45,16 +45,6 @@ MonoBehaviour:
     sliderisWholeNumber: 0
   - cardName: Car Speed
     cardDescription: Car speed not under the feet
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
-    SettingValue:
-      value: 3
-      min: 1
-      max: 10
-      units: 
-      LiveSetting: 1
-    sliderisWholeNumber: 1
-  - cardName: Car Speed under Foot
-    cardDescription: How often the car spawns
     cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
     SettingValue:
       value: 3

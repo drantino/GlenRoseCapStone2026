@@ -16,10 +16,22 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 	protected override void Update()
 	{
-		base.Update();
+		if (gameManager.settings.EmergencyVehicleActive)
+		{
+            timeUntilNextSpawn -= Time.deltaTime;
+            if (timeUntilNextSpawn < 0)
+            {
+                timeUntilNextSpawn = Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec);
+                if (currentCarsInLane < maxCarsInLane)
+                {
+                    SpawnCar();
+                }
+            }
+        }
+        
 
-		// if there is an emergency vehicle, stop traffic.
-		if (currentCarsInLane > 0)
+        // if there is an emergency vehicle, stop traffic.
+        if (currentCarsInLane > 0)
 		{
 			// stop cars
 			vehicleStopper1.SetActive(true);
@@ -52,7 +64,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 	protected override void SpawnCar()
 	{
 		// choose randomly wether to spawn this vehicle on the left lane, or right lane.
-		spawnCarOnLeft = Random.value > 0.5;
+		spawnCarOnLeft = Random.value > gameManager.settings.EmergencyVehicleBias/100;
 
 		string tag = string.Empty;
 		Vector3 spawnPos = Vector3.zero;
@@ -74,6 +86,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		instantiatedVehicleScript.vehicleSpawner = this;
 		instantiatedVehicleScript.detourEnabled = false;
 		instantiatedVehicleScript.detourZPos = 0;
+		
 		currentCarsInLane++;
 
 		//gameManager.AddToVechicleList(instantiatedVehicle);
