@@ -11,8 +11,8 @@ public class VehicleSpawner : MonoBehaviour
 	[SerializeField] protected float timeOffset;
     public TrafficJamGameManager gameManager;
     // Since we only have one car type/model, we only need one game object for the prefabs.
-    // TODO: Either have an array/list or a scriptable object to reference when we get many car models.
-    [SerializeField] protected GameObject VehiclePrefab;
+    [SerializeField] protected GameObject[] VehiclePrefabs;
+    
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
     public string footTag;
 
@@ -31,6 +31,9 @@ public class VehicleSpawner : MonoBehaviour
 
     void Start()
     {
+        if (VehiclePrefabs.Length == 0)
+            throw new System.Exception("Vehicle spawner must have at least one car prefab.");
+
         currentCarsInLane = 0;
         timeUntilNextSpawn = Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec) - timeOffset;
         // Temp statement to notify of spelling mistakes.
@@ -55,7 +58,11 @@ public class VehicleSpawner : MonoBehaviour
 
     protected virtual void SpawnCar()
     {
-        GameObject instantiatedVehicle = Instantiate(VehiclePrefab, transform.position, transform.rotation);
+        // select random vehicle prefab
+        GameObject prefab = VehiclePrefabs[Random.Range(0, VehiclePrefabs.Length)];
+        
+        // spawn vehicle
+        GameObject instantiatedVehicle = Instantiate(prefab, transform.position, transform.rotation);
         Vehicle instantiatedVehicleScript = instantiatedVehicle.GetComponent<Vehicle>();
         instantiatedVehicleScript.footTag = footTag;
         instantiatedVehicleScript.vehicleSpawner = this;

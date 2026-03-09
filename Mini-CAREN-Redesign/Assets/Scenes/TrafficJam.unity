@@ -323,6 +323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -728,6 +732,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
       propertyPath: m_Name
       value: Archways (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1329,7 +1337,7 @@ MonoBehaviour:
   carLength: 1
   carDetour: 1
   emergencyVehicleSideBias: 50
-  emergencyVehicleActive: 0
+  emergencyVehicleActive: 1
 --- !u!1 &122563043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,10 +1910,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 114059191}
+  vehicleSpawner: {fileID: 2765643277328705669}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 1
+  scorePopupPool: {fileID: 1672246573}
 --- !u!65 &188001608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3157,6 +3168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3379,6 +3394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3451,6 +3470,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
       propertyPath: m_Name
       value: Archways (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4080,6 +4103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4116,10 +4143,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 114059191}
+  vehicleSpawner: {fileID: 8996286738346057528}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 1
+  scorePopupPool: {fileID: 1672246573}
 --- !u!65 &442795584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4547,10 +4577,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 114059191}
+  vehicleSpawner: {fileID: 8996286738346057528}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 1
+  scorePopupPool: {fileID: 1672246573}
 --- !u!65 &501606652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4991,6 +5024,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
       propertyPath: m_Name
       value: Archways (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6800,6 +6837,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
       propertyPath: m_Name
       value: Archways (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11408,6 +11449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12552,6 +12597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12637,10 +12686,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 114059191}
+  vehicleSpawner: {fileID: 8996286738792908710}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 1
+  scorePopupPool: {fileID: 1672246573}
 --- !u!65 &1370728448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14043,6 +14095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15111,6 +15167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15444,10 +15504,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 114059191}
+  vehicleSpawner: {fileID: 8996286738792908710}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 1
+  scorePopupPool: {fileID: 1672246573}
 --- !u!65 &1592020796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16009,6 +16072,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657794894}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1672246572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1672246574}
+  - component: {fileID: 1672246573}
+  m_Layer: 0
+  m_Name: Score Popup Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1672246573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672246572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966622b4346d13e47831a815307cc724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfObjects: 10
+  scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
+  inactiveScorePopups: []
+  activeScorePopups: []
+--- !u!4 &1672246574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672246572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.23, y: 14.774593, z: -13.924166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673150294
 GameObject:
   m_ObjectHideFlags: 0
@@ -18842,6 +18953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archways (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2914048353908574752, guid: fdd68bc092ac5af44ada52d304527d54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20008,10 +20123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 114059191}
+  vehicleSpawner: {fileID: 2765643277328705669}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 1
+  scorePopupPool: {fileID: 1672246573}
 --- !u!65 &2102980760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20589,7 +20707,8 @@ MonoBehaviour:
   maxCarsInLane: 1
   timeOffset: 0
   gameManager: {fileID: 114059191}
-  VehiclePrefab: {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
+  VehiclePrefabs:
+  - {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
   footTag: LeftShoe
   detourPos: {fileID: 0}
   vehiclesDetour: 0
@@ -20916,7 +21035,10 @@ MonoBehaviour:
   maxCarsInLane: 4
   timeOffset: 3
   gameManager: {fileID: 114059191}
-  VehiclePrefab: {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  VehiclePrefabs:
+  - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
+  - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
   footTag: LeftShoe
   detourPos: {fileID: 1486782365}
   vehiclesDetour: 1
@@ -20939,7 +21061,10 @@ MonoBehaviour:
   maxCarsInLane: 4
   timeOffset: 0
   gameManager: {fileID: 114059191}
-  VehiclePrefab: {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  VehiclePrefabs:
+  - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
+  - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
   footTag: RightShoe
   detourPos: {fileID: 751160495}
   vehiclesDetour: 1
@@ -21002,3 +21127,4 @@ SceneRoots:
   - {fileID: 1333523453}
   - {fileID: 1493601049}
   - {fileID: 386520394}
+  - {fileID: 1672246574}

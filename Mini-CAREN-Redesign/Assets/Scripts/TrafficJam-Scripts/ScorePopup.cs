@@ -10,18 +10,22 @@ public class ScorePopup : MonoBehaviour
     [SerializeField] private float moveUpSpeed;
 
     private float timeUntilDespawn;
+    private bool active;
+    [HideInInspector] public ScorePopupPool pool;
+    
+    public void Enable()
+	{
+		//gameObject.SetActive(true);
+		timeUntilDespawn = despawnTime;
+		textMesh.text = text;
+		textMesh.color = color;
+        active = true;
+	}
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+	void Update()
     {
-        timeUntilDespawn = despawnTime;
-        textMesh.text = text;
-        textMesh.color = color;
-    }
+        if (!active) return;
 
-    // Update is called once per frame
-    void Update()
-    {
         transform.position += Vector3.up * moveUpSpeed * Time.deltaTime;
         textMesh.color = new Color(
             textMesh.color.r,
@@ -33,7 +37,8 @@ public class ScorePopup : MonoBehaviour
         timeUntilDespawn -= Time.deltaTime;
         if (timeUntilDespawn < 0 )
         {
-            Destroy(gameObject);
+            active = false;
+            pool.Return(this);
         }
     }
 }
