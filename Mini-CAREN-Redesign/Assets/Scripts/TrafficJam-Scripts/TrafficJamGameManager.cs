@@ -8,7 +8,7 @@ public class TrafficJamGameManager : MonoBehaviour
     [SerializeField] private VehicleSpawner leftSpawner, rightSpawner;
     [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
     public TrafficJamSettings settings;
-    public int leftAmount, leftPassed, rightAmount, rightPassed;
+    public int leftAmount, leftPassed, leftSquished, leftDetoured, rightAmount, rightPassed, rightSquished, rightDetoured;
     public int TEMPGameTimeStartSec;
     private bool isPlaying;
     
@@ -17,8 +17,8 @@ public class TrafficJamGameManager : MonoBehaviour
     private float endTime, startTime;
     private int countdownTime;
 
-    public int leftSquished => leftAmount - leftPassed;
-    public int rightSquished => rightAmount - rightPassed;
+    //public int leftSquished => leftAmount - leftPassed;
+    //public int rightSquished => rightAmount - rightPassed;
 
     void Start()
     {
@@ -138,5 +138,9 @@ public class TrafficJamGameManager : MonoBehaviour
         rightAmount = 0;
         leftPassed = 0;
         rightPassed = 0;
+        leftSquished = 0;
+        rightSquished = 0;
+        leftDetoured = 0;
+        rightDetoured = 0;
     }
 }
