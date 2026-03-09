@@ -14,11 +14,13 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 	//public static int rightFootVehiclesSquished;
 
 	[SerializeField] private TrafficJamGameManager gameManager;
-
+	[SerializeField] private VehicleSpawner vehicleSpawner;
 	[SerializeField] private Type type; // determines which foot (left or right) this score keeper is scoring. 
 	[SerializeField] private GameObject scorePopupPrefab;
 	[SerializeField] private string vehiclePassedText; // the text ui that will pop up when a vehicle passes.
 	[SerializeField] private string vehicleSquishedText; // the text ui that will pop up when a vehicle is squished.
+	[SerializeField] private bool spawnPopups;
+	[SerializeField] private ScorePopupPool scorePopupPool;
 
 	private string vehicleFootTag; // the score keeper will only count points for vehicles with this foot tag.
 
@@ -49,41 +51,7 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 
 		if (vehicle.footTag == vehicleFootTag)
 		{
-			/*
-			if (!vehicle.squished && !vehicle.detouring)
-			{
-				// the car made it through
-				//if (type == Type.LeftFoot) leftFootVehiclesPassed++;
-				//else rightFootVehiclesPassed++;
-				if (type == Type.LeftFoot) 
-				{
-					gameManager.leftAmount++;
-					gameManager.leftPassed++;
-				}
-				else 
-				{
-					gameManager.rightAmount++;
-					gameManager.rightPassed++;
-				}
-
-				// provide player feedback
-				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
-				scorePopup.color = new Color(0, 1, 0);
-				scorePopup.text = vehiclePassedText;
-			}
-			else
-			{
-				// the car was squished
-				//if (type == Type.LeftFoot) leftFootVehiclesSquished++;
-				//else rightFootVehiclesSquished++;
-				if (type == Type.LeftFoot) gameManager.leftAmount++;
-				else gameManager.rightAmount++;
-
-				// provide player feedback
-				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
-				scorePopup.color = new Color(1, 0, 0);
-				scorePopup.text = vehicleSquishedText;
-			} */
+			vehicleSpawner.RemovingVechicle(other.transform.parent.gameObject);
 
 			if (vehicle.squished || vehicle.detouring)
 			{
@@ -94,9 +62,18 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 				else gameManager.rightAmount++;
 
 				// provide player feedback
-				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
-				scorePopup.color = new Color(1, 0, 0);
-				scorePopup.text = vehicleSquishedText;
+				if (spawnPopups)
+				{
+					//ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
+					//scorePopup.color = new Color(1, 0, 0);
+					//scorePopup.text = vehicleSquishedText;
+
+					ScorePopup scorePopup = scorePopupPool.Get();
+					scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2, 0);
+					scorePopup.color = new Color(1, 0, 0);
+					scorePopup.text = vehicleSquishedText;
+					scorePopup.Enable();
+				}
 			}
 			else
 			{
@@ -115,9 +92,18 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 				}
 
 				// provide player feedback
-				ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
-				scorePopup.color = new Color(0, 1, 0);
-				scorePopup.text = vehiclePassedText;
+				if (spawnPopups)
+				{
+					//ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
+					//scorePopup.color = new Color(0, 1, 0);
+					//scorePopup.text = vehiclePassedText;
+
+					ScorePopup scorePopup = scorePopupPool.Get();
+					scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2, 0);
+					scorePopup.color = new Color(0, 1, 0);
+					scorePopup.text = vehiclePassedText;
+					scorePopup.Enable();
+				}
 			}
 		}
 	}
