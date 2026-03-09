@@ -11,7 +11,6 @@ public class TrafficJamSettings : MonoBehaviour
     public float gameTime;
     public float heightThreshold;
     public float carSpeed;
-    public float carSpeedUnderFoot;
     public float carSpawnInterval;
     public float carLength;
     public bool carDetour;
@@ -61,27 +60,13 @@ public class TrafficJamSettings : MonoBehaviour
             }
         }
     }
-    public float CarSpeedUnderFoot
-    {
-        get
-        {
-            if (hasSettings && !useDebugSettings)
-            {
-                return staticTrafficJamSettings.Settings[3].SettingValue.value;
-            }
-            else
-            {
-                return carSpeedUnderFoot;
-            }
-        }
-    }
     public float CarSpawnInterval
     {
         get
         {
             if (hasSettings && !useDebugSettings)
             {
-                return staticTrafficJamSettings.Settings[4].SettingValue.value;
+                return staticTrafficJamSettings.Settings[3].SettingValue.value;
             }
             else
             {
@@ -95,7 +80,7 @@ public class TrafficJamSettings : MonoBehaviour
         {
             if (hasSettings && !useDebugSettings)
             {
-                return staticTrafficJamSettings.Settings[5].SettingValue.value;
+                return staticTrafficJamSettings.Settings[4].SettingValue.value;
             }
             else
             {
