@@ -32,7 +32,11 @@ public class VehicleSpawner : MonoBehaviour
     void Start()
     {
         if (VehiclePrefabs.Length == 0)
-            throw new System.Exception("Vehicle spawner must have at least one car prefab.");
+        {
+            gameObject.SetActive(false);
+			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
+		}
+            
 
         currentCarsInLane = 0;
         timeUntilNextSpawn = Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec) - timeOffset;
