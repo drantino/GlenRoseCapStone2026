@@ -48,7 +48,7 @@ public class VehicleSpawner : MonoBehaviour
     }
 
     protected virtual void Update()
-    {
+    {        
         timeUntilNextSpawn -= Time.deltaTime;
         if (timeUntilNextSpawn < 0)
         {

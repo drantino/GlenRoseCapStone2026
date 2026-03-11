@@ -58,8 +58,26 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 				// the car was squished
 				//if (type == Type.LeftFoot) leftFootVehiclesSquished++;
 				//else rightFootVehiclesSquished++;
-				if (type == Type.LeftFoot) gameManager.leftAmount++;
-				else gameManager.rightAmount++;
+
+				//if (type == Type.LeftFoot) gameManager.leftAmount++;
+				//else gameManager.rightAmount++;
+
+				if (type == Type.LeftFoot)
+				{
+					gameManager.leftAmount++;
+					if (vehicle.squished)
+						gameManager.leftSquished++;
+					else
+						gameManager.leftDetoured++;
+				}
+				else
+				{
+					gameManager.rightAmount++;
+					if (vehicle.squished)
+					gameManager.rightSquished++;
+					else
+					gameManager.rightDetoured++;
+				}
 
 				// provide player feedback
 				if (spawnPopups)
