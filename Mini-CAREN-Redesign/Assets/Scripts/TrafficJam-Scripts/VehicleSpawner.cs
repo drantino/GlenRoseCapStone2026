@@ -21,7 +21,7 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField] protected Transform detourPos;
     public bool vehiclesDetour = false;
 
-    [SerializeField] protected List<GameObject> VehicleList = new List<GameObject>();
+    protected List<GameObject> VehicleList = new List<GameObject>();
 
     // Gizmo to easily identify where the spawn point is.
     void OnDrawGizmos()
