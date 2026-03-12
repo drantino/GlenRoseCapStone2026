@@ -14,7 +14,7 @@ public class TrafficJamGameManager : MonoBehaviour
     
     //TEMP: Serialize to view in editor
     [SerializeField]
-    private float endTime, startTime;
+    private float startTime;
     private int countdownTime;
 
     //public int leftSquished => leftAmount - leftPassed;
@@ -22,12 +22,13 @@ public class TrafficJamGameManager : MonoBehaviour
 
     void Start()
     {
-        AdjustTimer(TEMPGameTimeStartSec);
+        SetUpTimer(TEMPGameTimeStartSec);
         StartGame(); // TEMP CODE: game should be started manually in final build
     }
 
     void Update()
     {
+        float endTime = startTime + (settings.GameTime*60);
         if (isPlaying)
         {
            if (Time.fixedTime >= endTime)
@@ -98,9 +99,9 @@ public class TrafficJamGameManager : MonoBehaviour
     }
 
     // The timer raises or lowers when the operator/therapist adjusts the time, instead of completely resetting
-    public void AdjustTimer(int timerLengthSeconds)
+    public void SetUpTimer(int timerLengthSeconds)
     {
-        endTime = startTime + timerLengthSeconds;
+        float endTime = startTime + timerLengthSeconds;
         UIManager.UpdateTimer(endTime - Time.fixedTime);
     }
 
@@ -126,7 +127,7 @@ public class TrafficJamGameManager : MonoBehaviour
         rightSpawner.gameObject.SetActive(true);
         emergencySpawner.gameObject.SetActive(true);
 
-        AdjustTimer((int)(settings.GameTime*60));
+        SetUpTimer((int)(settings.GameTime*60));
         UIManager.CountdownPanelActive = false;
         isPlaying = true;
         yield return null;
