@@ -93,6 +93,6 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		currentCarsInLane++;
 
 		//gameManager.AddToVechicleList(instantiatedVehicle);
-		VehicleList.Add(instantiatedVehicle);
+		VehicleList.Add(instantiatedVehicleScript);
 	}
 }

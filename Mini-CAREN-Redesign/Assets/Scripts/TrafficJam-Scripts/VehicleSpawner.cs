@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VehicleSpawner : MonoBehaviour
@@ -21,7 +23,7 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField] protected Transform detourPos;
     public bool vehiclesDetour = false;
 
-    protected List<GameObject> VehicleList = new List<GameObject>();
+    protected List<Vehicle> VehicleList = new List<Vehicle>();
 
     // Gizmo to easily identify where the spawn point is.
     void OnDrawGizmos()
@@ -75,22 +77,37 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         currentCarsInLane++;
 
-        //gameManager.AddToVechicleList(instantiatedVehicle);
-        VehicleList.Add(instantiatedVehicle);
+        // add vehicle date to be referenced later
+        VehicleList.Add(instantiatedVehicleScript);
+
     }
 
-    public void RemovingVechicle(GameObject Vehicle)
+    public void RemovingVechicle(GameObject _Vehicle)
     {
         //gameManager.RemoveFromVechicleList(Vechicle);
-        VehicleList.Remove(Vehicle);
+        //VehicleList.Remove(Vehicle);
+        for (int i = 0; i < VehicleList.Count; i++)
+        {
+            if (VehicleList[i].gameObject == _Vehicle)
+            {
+                VehicleList.RemoveAt(i);
+                i = VehicleList.Count + 1;
+            }
+        }
         currentCarsInLane--;
     }
 
     public void ResetVehicleList()
     {
-        foreach (GameObject vech in VehicleList)
+        // foreach (GameObject vech in VehicleList)
+        // {
+        //     Destroy(vech);
+        // }
+        // VehicleList.Clear();
+
+        foreach (Vehicle vehi in VehicleList)
         {
-            Destroy(vech);
+            Destroy(vehi.gameObject);
         }
         VehicleList.Clear();
         currentCarsInLane = 0;
@@ -98,13 +115,22 @@ public class VehicleSpawner : MonoBehaviour
 
     public bool IsLastInLine(GameObject vehicle)
     {
+        // if (VehicleList.Count > maxCarsInLane)
+        //     throw new System.Exception("There are more vehicles in the scene then the maximum.");
+
+        // bool v = false;
+        // if (VehicleList.Count == maxCarsInLane)
+        // {
+        //     v = VehicleList[(int)(maxCarsInLane - 1)] == vehicle;
+        // }
+        // return v;
         if (VehicleList.Count > maxCarsInLane)
             throw new System.Exception("There are more vehicles in the scene then the maximum.");
 
         bool v = false;
         if (VehicleList.Count == maxCarsInLane)
         {
-            v = VehicleList[(int)(maxCarsInLane - 1)] == vehicle;
+            v = VehicleList[(int)(maxCarsInLane - 1)].gameObject == vehicle;
         }
         return v;
     }
