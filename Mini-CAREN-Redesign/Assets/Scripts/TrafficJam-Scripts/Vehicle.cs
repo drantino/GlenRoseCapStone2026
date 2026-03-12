@@ -143,6 +143,7 @@ public class Vehicle : MonoBehaviour
 
 	private void Squish()
 	{
+		AudioPlayer.Play(Sound.CarSquish);
 		squished = true;
 		vehicleModel.SetActive(false);
 		vehicleSquishedModel?.SetActive(true);

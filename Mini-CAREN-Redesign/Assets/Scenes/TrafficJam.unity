@@ -1294,10 +1294,13 @@ MonoBehaviour:
   settings: {fileID: 114059193}
   leftAmount: 0
   leftPassed: 0
+  leftSquished: 0
+  leftDetoured: 0
   rightAmount: 0
   rightPassed: 0
+  rightSquished: 0
+  rightDetoured: 0
   TEMPGameTimeStartSec: 120
-  endTime: 0
   startTime: 0
 --- !u!4 &114059192
 Transform:
@@ -1332,7 +1335,6 @@ MonoBehaviour:
   gameTime: 2
   heightThreshold: 0.5
   carSpeed: 4
-  carSpeedUnderFoot: 0
   carSpawnInterval: 6
   carLength: 1
   carDetour: 1
@@ -20526,6 +20528,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130593187}
   m_CullTransparentMesh: 1
+--- !u!1 &252532801712576414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6650531645207608868}
+  - component: {fileID: 723101064272305672}
+  - component: {fileID: 2874280841066760658}
+  m_Layer: 0
+  m_Name: Audio Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &312435398649334079
 GameObject:
   m_ObjectHideFlags: 0
@@ -20626,6 +20646,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d0e0ee5df775942b6b866a3859e2e7, type: 3}
+--- !u!114 &723101064272305672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252532801712576414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b14e61839372548b35f91418b131a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSOList:
+  - {fileID: 11400000, guid: 05ee7d0abd4e67b4db280abe75b63212, type: 2}
+  - {fileID: 11400000, guid: 13e24bf6527e8504c86d84c3306cfd4b, type: 2}
+  - {fileID: 11400000, guid: 43d789c874f319d4dae76bb8e441415c, type: 2}
 --- !u!1 &952839798131169334
 GameObject:
   m_ObjectHideFlags: 0
@@ -20712,7 +20748,6 @@ MonoBehaviour:
   footTag: LeftShoe
   detourPos: {fileID: 0}
   vehiclesDetour: 0
-  VehicleList: []
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
   trafficLight1: {fileID: 1731097167}
@@ -20722,6 +20757,103 @@ MonoBehaviour:
   trafficGates:
   - {fileID: 981724848}
   - {fileID: 2032837340}
+--- !u!82 &2874280841066760658
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252532801712576414}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &3250728175798379560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20890,6 +21022,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &6650531645207608868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252532801712576414}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0100244, y: -6.3596535, z: 8.938296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7139972617946860822
 Transform:
   m_ObjectHideFlags: 0
@@ -21042,7 +21189,6 @@ MonoBehaviour:
   footTag: LeftShoe
   detourPos: {fileID: 1486782365}
   vehiclesDetour: 1
-  VehicleList: []
 --- !u!114 &8996286738792908710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21068,7 +21214,6 @@ MonoBehaviour:
   footTag: RightShoe
   detourPos: {fileID: 751160495}
   vehiclesDetour: 1
-  VehicleList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -21128,3 +21273,4 @@ SceneRoots:
   - {fileID: 1493601049}
   - {fileID: 386520394}
   - {fileID: 1672246574}
+  - {fileID: 6650531645207608868}
