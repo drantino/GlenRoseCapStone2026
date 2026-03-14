@@ -24,14 +24,24 @@ public class TrafficJamSaveSystem : MonoBehaviour
 		instance.sessionData.rounds.Add(trafficJamRoundData);
 	}
 
+	public static void SetPlayerName(string playerName)
+	{
+		instance.sessionData.playerName = playerName;
+	}
+
 	[ContextMenu("Save Session")]
-	public void SaveSessionToDisk()
+	public void SaveSessionContextMenuAsset()
+	{
+		SaveSessionToDisk();
+	}
+
+	public static void SaveSessionToDisk()
 	{
 		// get time
 		DateTime time = DateTime.Now;
-		
-		string fileName = $"{instance.sessionData.playerName}_{time.ToString()}";
-		string filePath = $"{Application.dataPath}/sessions/{fileName}";
+
+		string fileName = $"{instance.sessionData.playerName}_{time.Month}-{time.Day}-{time.Year}_{time.Hour}-{time.Minute}-{time.Second}";
+		string filePath = $"{Application.dataPath}/SessionSaves/{fileName}.txt";
 		string json = JsonUtility.ToJson(instance.sessionData, true);
 		File.WriteAllText(filePath, json);
 
