@@ -1300,7 +1300,6 @@ MonoBehaviour:
   rightPassed: 0
   rightSquished: 0
   rightDetoured: 0
-  TEMPGameTimeStartSec: 120
   startTime: 0
 --- !u!4 &114059192
 Transform:
@@ -1332,7 +1331,7 @@ MonoBehaviour:
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
   useDebugSettings: 0
-  gameTime: 2
+  gameTime: 0.75
   heightThreshold: 0.5
   carSpeed: 4
   carSpawnInterval: 6
@@ -13307,6 +13306,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1859055128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1423707992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423707994}
+  - component: {fileID: 1423707993}
+  m_Layer: 0
+  m_Name: Save System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1423707993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423707992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f492a9f65aa694d928392ffe2d1f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sessionData:
+    playerName: 
+    rounds: []
+--- !u!4 &1423707994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423707992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.0008054, y: 8.44678, z: -7.0470414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430898007
 GameObject:
   m_ObjectHideFlags: 0
@@ -21219,6 +21265,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 114059192}
+  - {fileID: 1423707994}
   - {fileID: 1549163298}
   - {fileID: 204599073}
   - {fileID: 1859055128}

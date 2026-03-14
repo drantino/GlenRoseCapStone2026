@@ -9,7 +9,7 @@ public class TrafficJamGameManager : MonoBehaviour
     [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
     public TrafficJamSettings settings;
     public int leftAmount, leftPassed, leftSquished, leftDetoured, rightAmount, rightPassed, rightSquished, rightDetoured;
-    public int TEMPGameTimeStartSec;
+    //public int TEMPGameTimeStartSec;
     private bool isPlaying;
     
     //TEMP: Serialize to view in editor
@@ -22,7 +22,8 @@ public class TrafficJamGameManager : MonoBehaviour
 
     void Start()
     {
-        SetUpTimer(TEMPGameTimeStartSec);
+        //SetUpTimer(TEMPGameTimeStartSec);
+        SetUpTimer(Mathf.RoundToInt(settings.gameTime * 60));
         StartGame(); // TEMP CODE: game should be started manually in final build
     }
 
@@ -96,6 +97,31 @@ public class TrafficJamGameManager : MonoBehaviour
         //emergencySpawner.gameObject.SetActive(false);
 
         isPlaying = false;
+
+        // TODO: Save Round
+        TrafficJamRoundData roundData = new TrafficJamRoundData
+        {
+            roundLength = settings.gameTime,
+            leftFootPassed = leftPassed,
+            leftFootSquished = leftSquished,
+            leftFootDetoured = leftDetoured,
+            rightFootPassed = rightPassed,
+            rightFootSquished = rightSquished,
+            rightFootDetoured = rightDetoured,
+
+            settingsData = new TrafficJamSettingsData
+            {
+                heightThreshold = settings.heightThreshold,
+                carSpeed = settings.carSpeed,
+                carSpawnInterval = settings.carSpawnInterval,
+                carLength = settings.carLength,
+                carDetour = settings.carDetour,
+				emergencyVehicleSideBias = settings.emergencyVehicleSideBias,
+				emergencyVehicleActive = settings.emergencyVehicleActive,
+			}
+        };
+
+        TrafficJamSaveSystem.AddRoundData(roundData);
     }
 
     // The timer raises or lowers when the operator/therapist adjusts the time, instead of completely resetting
