@@ -9,7 +9,9 @@ public class TraffitJamSettingsUI : MonoBehaviour
     public GameObject recalibrationCompletePanel;
     public GameObject recalibrationErrorPanel;
     public GameObject saveSessionPanel;
+    public GameObject sessionSavedPanel;
     public TMP_InputField playerNameInputField; 
+    public TextMeshProUGUI filePathTextMesh;
 
     public void OpenExitGamePanel()
     {
@@ -44,12 +46,20 @@ public class TraffitJamSettingsUI : MonoBehaviour
 
     public void OnSaveButtonPressed()
     {
-		TrafficJamSaveSystem.SaveSessionToDisk();
+		string filePath = TrafficJamSaveSystem.SaveSessionToDisk();
         saveSessionPanel.SetActive(false);
+        sessionSavedPanel.SetActive(true);
+
+        filePathTextMesh.text = filePath;
 	}
 
     public void OnPlayerNameChanged()
     {
         TrafficJamSaveSystem.SetPlayerName(playerNameInputField.text);
+    }
+
+    public void OnSessionSavedCloseButtonpressed()
+    {
+        sessionSavedPanel.SetActive(false);
     }
 }

@@ -35,7 +35,7 @@ public class TrafficJamSaveSystem : MonoBehaviour
 		SaveSessionToDisk();
 	}
 
-	public static void SaveSessionToDisk()
+	public static string SaveSessionToDisk() // returns the file path
 	{
 		// get time
 		DateTime time = DateTime.Now;
@@ -46,5 +46,7 @@ public class TrafficJamSaveSystem : MonoBehaviour
 		File.WriteAllText(filePath, json);
 
 		Debug.Log($"Profile saved to location: '{filePath}'");
+
+		return filePath;
 	}
 }
