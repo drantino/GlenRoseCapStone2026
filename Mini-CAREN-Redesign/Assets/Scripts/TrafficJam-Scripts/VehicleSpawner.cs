@@ -6,11 +6,10 @@ using UnityEngine;
 public class VehicleSpawner : MonoBehaviour
 {
 	[HideInInspector] public float currentCarsInLane = 0;
-
-	[SerializeField] protected float spawnRateSec;
+    
 	[SerializeField] protected float spawnRateVarianceSec;
 	[SerializeField] protected float maxCarsInLane;
-	[SerializeField] protected float timeOffset;
+	[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
     public TrafficJamGameManager gameManager;
     // Since we only have one car type/model, we only need one game object for the prefabs.
     [SerializeField] protected GameObject[] VehiclePrefabs;
@@ -18,6 +17,7 @@ public class VehicleSpawner : MonoBehaviour
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
     public string footTag;
 
+    [SerializeField]
 	protected float timeUntilNextSpawn;
     // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
     [SerializeField] protected Transform detourPos;
@@ -38,12 +38,11 @@ public class VehicleSpawner : MonoBehaviour
             gameObject.SetActive(false);
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
-            
 
         currentCarsInLane = 0;
-        timeUntilNextSpawn = Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec) - timeOffset;
-        // Temp statement to notify of spelling mistakes.
-        if (footTag != "LeftShoe" && footTag != "RightShoe")
+		timeUntilNextSpawn = GetNextSpawnTime() - timeOffset;
+		// Temp statement to notify of spelling mistakes.
+		if (footTag != "LeftShoe" && footTag != "RightShoe")
         {
             Debug.LogWarning("Variable 'footTag' was not given either 'LeftShoe' or 'RightShoe' as a value. Please correct before running the project again.");
         }
@@ -54,13 +53,18 @@ public class VehicleSpawner : MonoBehaviour
         timeUntilNextSpawn -= Time.deltaTime;
         if (timeUntilNextSpawn < 0)
         {
-            timeUntilNextSpawn = Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
+            timeUntilNextSpawn = GetNextSpawnTime();
             if (currentCarsInLane < maxCarsInLane)
             {
                 SpawnCar();
             }
         }
     }
+
+    protected virtual float GetNextSpawnTime()
+    {
+        return Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
+	}
 
     protected virtual void SpawnCar()
     {

@@ -1331,7 +1331,7 @@ MonoBehaviour:
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
   useDebugSettings: 0
-  gameTime: 0.25
+  gameTime: 2
   heightThreshold: 0.5
   carSpeed: 4
   carSpawnInterval: 6
@@ -22943,16 +22943,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateSec: 16
   spawnRateVarianceSec: 4
   maxCarsInLane: 1
-  timeOffset: 0
+  timeOffset: 6
   gameManager: {fileID: 114059191}
   VehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
   footTag: LeftShoe
+  timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   vehiclesDetour: 0
+  spawnRateSec: 16
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
   trafficLight1: {fileID: 1731097167}
@@ -23382,16 +23383,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateSec: 6
   spawnRateVarianceSec: 3
   maxCarsInLane: 4
-  timeOffset: 3
+  timeOffset: 4
   gameManager: {fileID: 114059191}
   VehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
   footTag: LeftShoe
+  timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
   vehiclesDetour: 1
 --- !u!114 &8996286738792908710
@@ -23407,16 +23408,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateSec: 6
   spawnRateVarianceSec: 3
   maxCarsInLane: 4
-  timeOffset: 0
+  timeOffset: 4
   gameManager: {fileID: 114059191}
   VehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
   footTag: RightShoe
+  timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
   vehiclesDetour: 1
 --- !u!1660057539 &9223372036854775807
