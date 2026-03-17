@@ -100,6 +100,7 @@ Transform:
   - {fileID: 6632585952498222336}
   - {fileID: 3314590222453199476}
   - {fileID: 9159199453286041667}
+  - {fileID: 5989818612616915455}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5120738811957593860
@@ -146,8 +147,9 @@ MonoBehaviour:
   moveSpeed: 4
   vehicleModel: {fileID: 1816146682892344807}
   vehicleSquishedModel: {fileID: 6088052290990352540}
+  boxCastStartPosition: {fileID: 5989818612616915455}
   turnMoveSpeed: 5.5
-  vehicleStopDistance: 1.2
+  vehicleStopDistance: 1
   raycastStartDistance: 1
   timeUntilDespawnAfterSquish: 2
   squishedLaneDistance: -5
@@ -158,6 +160,37 @@ MonoBehaviour:
   detourEnabled: 0
   squished: 0
   detouring: 0
+--- !u!1 &7819665896728416099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5989818612616915455}
+  m_Layer: 0
+  m_Name: BoxCast Start Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5989818612616915455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819665896728416099}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8083836922111704343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8158564348847658314
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Vehicle : MonoBehaviour
 
 	[SerializeField] protected GameObject vehicleModel;
 	[SerializeField] protected GameObject vehicleSquishedModel;
+	[SerializeField] protected Transform boxCastStartPosition;
 	[SerializeField] protected float turnMoveSpeed;
 	[SerializeField] protected float vehicleStopDistance;
 	[SerializeField] protected float raycastStartDistance;
@@ -53,7 +54,8 @@ public class Vehicle : MonoBehaviour
 		//bool objectInfront = hit.transform != null && (
 		//	hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle") || hit.transform.CompareTag("VehicleStopper"));
 
-		RaycastHit[] hits = Physics.BoxCastAll(transform.position + transform.forward * raycastStartDistance, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
+		//RaycastHit[] hits = Physics.BoxCastAll(transform.position + transform.forward * raycastStartDistance, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
+		RaycastHit[] hits = Physics.BoxCastAll(boxCastStartPosition.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
 		bool objectInfront = false;
 
 		foreach (RaycastHit hit in hits)
