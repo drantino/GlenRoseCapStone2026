@@ -79,9 +79,7 @@ public class Vehicle : MonoBehaviour
 			PerformSquishedBehavior();
 		}
 
-		
-		
-		if (detourEnabled && objectInfront && !detourCountdownRunning && vehicleSpawner.IsLastInLine(this.gameObject))
+		if (detourEnabled && objectInfront && !detourCountdownRunning)
 		{
 			detourCountdownRunning = true;
 			StartCoroutine(DetourCountdown());
@@ -91,7 +89,6 @@ public class Vehicle : MonoBehaviour
 			detourCountdownRunning = false;
 			StopAllCoroutines();
 		}
-		
 
 		if (Mathf.Abs(transform.position.z) > Mathf.Abs(detourZPos) && !squished)
 		{
