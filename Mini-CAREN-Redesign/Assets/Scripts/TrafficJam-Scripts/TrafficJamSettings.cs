@@ -16,6 +16,7 @@ public class TrafficJamSettings : MonoBehaviour
     public bool carDetour;
     public float emergencyVehicleSideBias;
     public bool emergencyVehicleActive;
+    public float masterVolume;
 
     //Properties
     public float GameTime
@@ -127,6 +128,20 @@ public class TrafficJamSettings : MonoBehaviour
             else
             {
                 return emergencyVehicleActive;
+            }
+        }
+    }
+    public float MasterVolume
+    {
+        get
+        {
+            if (hasSettings && !useDebugSettings)
+            {
+                return staticTrafficJamSettings.Settings[5].SettingValue.value;
+            }
+            else
+            {
+                return carLength;
             }
         }
     }

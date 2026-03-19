@@ -37,7 +37,6 @@ public class TrafficJamGameManager : MonoBehaviour
                 EndGame();
             }
             UIManager.UpdateTimer(endTime - Time.fixedTime);
-
         }
     }
 
