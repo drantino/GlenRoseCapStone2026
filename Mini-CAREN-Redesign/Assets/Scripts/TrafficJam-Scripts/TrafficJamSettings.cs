@@ -18,8 +18,13 @@ public class TrafficJamSettings : MonoBehaviour
     public bool emergencyVehicleActive;
     public float masterVolume;
 
-    //Properties
-    public float GameTime
+	private void Update()
+	{
+		AudioPlayer.masterVolume = masterVolume;
+	}
+
+	//Properties
+	public float GameTime
     {
         get
         {

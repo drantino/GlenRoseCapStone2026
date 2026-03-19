@@ -11,6 +11,7 @@ public class Vehicle : MonoBehaviour
 
 	[SerializeField] protected GameObject vehicleModel;
 	[SerializeField] protected GameObject vehicleSquishedModel;
+	[SerializeField] protected VehicleWheel[] wheels;
 	[SerializeField] protected Transform boxCastStartPosition;
 	[SerializeField] protected float turnMoveSpeed;
 	[SerializeField] protected float vehicleStopDistance;
@@ -73,7 +74,12 @@ public class Vehicle : MonoBehaviour
 		if (!objectInfront && !squished)
 		{
 			// move
-			transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+			float distance = moveSpeed * Time.deltaTime;
+			transform.Translate(Vector3.forward * distance);
+			foreach (VehicleWheel wheel in wheels)
+			{
+				wheel.RotateByDistance(distance);
+			}
 		}
 
 		if (squished)
