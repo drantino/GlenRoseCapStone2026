@@ -37,7 +37,6 @@ public class TrafficJamGameManager : MonoBehaviour
                 EndGame();
             }
             UIManager.UpdateTimer(endTime - Time.fixedTime);
-
         }
     }
 
@@ -154,6 +153,15 @@ public class TrafficJamGameManager : MonoBehaviour
         leftSpawner.gameObject.SetActive(true);
         rightSpawner.gameObject.SetActive(true);
         emergencySpawner.gameObject.SetActive(true);
+
+        if (Random.Range(0, 2) == 1)
+        {
+            leftSpawner.ForceVehicleSpawn();
+        }
+        else
+        {
+            rightSpawner.ForceVehicleSpawn();
+        }
 
         SetUpTimer((int)(settings.GameTime*60));
         UIManager.CountdownPanelActive = false;

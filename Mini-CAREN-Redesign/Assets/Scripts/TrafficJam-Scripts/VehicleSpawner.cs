@@ -77,16 +77,18 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.footTag = footTag;
         instantiatedVehicleScript.vehicleSpawner = this;
         instantiatedVehicleScript.detourZPos = detourPos.position.z;
-        instantiatedVehicleScript.detourEnabled = gameManager.settings.CarDetour;
+        // detourEnabled will only be true if its the last car in lane.
+        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1;
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
+        instantiatedVehicleScript.gameManager = gameManager;
         currentCarsInLane++;
 
-        // add vehicle date to be referenced later
+        // add vehicle data to be referenced later
         VehicleList.Add(instantiatedVehicleScript);
 
     }
 
-    public void RemovingVechicle(GameObject _Vehicle)
+    public void RemovingVehicle(GameObject _Vehicle)
     {
         //gameManager.RemoveFromVechicleList(Vechicle);
         //VehicleList.Remove(Vehicle);
@@ -117,6 +119,27 @@ public class VehicleSpawner : MonoBehaviour
         currentCarsInLane = 0;
     }
 
+    // When the vehicle crosses the intersection, it will set the final vehicle's detourEnabled bool to false, 
+    // due to it no longer being in the back of a four-car queue. 
+    public void VehicleCrossedIntersection()
+    {
+        if (currentCarsInLane == maxCarsInLane)
+        {
+            VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
+        }
+    }
+
+    [ContextMenu("Force Vehicle Spawn")]
+    public void ForceVehicleSpawn()
+    {
+        if (currentCarsInLane < maxCarsInLane)
+        {
+            timeUntilNextSpawn = GetNextSpawnTime();
+            SpawnCar();
+        }
+    }
+
+    // Method is currently unused due to it causing a ton of lag. Feel free to remove during final cleanup
     public bool IsLastInLine(GameObject vehicle)
     {
         // if (VehicleList.Count > maxCarsInLane)

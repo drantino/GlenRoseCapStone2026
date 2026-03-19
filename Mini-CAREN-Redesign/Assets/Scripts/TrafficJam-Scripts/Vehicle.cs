@@ -5,11 +5,14 @@ public class Vehicle : MonoBehaviour
 {
     public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
 	[HideInInspector] public VehicleSpawner vehicleSpawner;
+	public TrafficJamGameManager gameManager;
 
 	[SerializeField] public float moveSpeed;
 
 	[SerializeField] protected GameObject vehicleModel;
 	[SerializeField] protected GameObject vehicleSquishedModel;
+	[SerializeField] protected VehicleWheel[] wheels;
+	[SerializeField] protected Transform boxCastStartPosition;
 	[SerializeField] protected float turnMoveSpeed;
 	[SerializeField] protected float vehicleStopDistance;
 	[SerializeField] protected float raycastStartDistance;
@@ -47,13 +50,15 @@ public class Vehicle : MonoBehaviour
 
 	private void Update()
 	{
+		moveSpeed = gameManager.settings.CarSpeed;
 		// check if there is an object infront of the vehicle
 		//Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
 
 		//bool objectInfront = hit.transform != null && (
 		//	hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle") || hit.transform.CompareTag("VehicleStopper"));
 
-		RaycastHit[] hits = Physics.BoxCastAll(transform.position + transform.forward * raycastStartDistance, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
+		//RaycastHit[] hits = Physics.BoxCastAll(transform.position + transform.forward * raycastStartDistance, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
+		RaycastHit[] hits = Physics.BoxCastAll(boxCastStartPosition.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
 		bool objectInfront = false;
 
 		foreach (RaycastHit hit in hits)
@@ -69,7 +74,12 @@ public class Vehicle : MonoBehaviour
 		if (!objectInfront && !squished)
 		{
 			// move
-			transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+			float distance = moveSpeed * Time.deltaTime;
+			transform.Translate(Vector3.forward * distance);
+			foreach (VehicleWheel wheel in wheels)
+			{
+				wheel.RotateByDistance(distance);
+			}
 		}
 
 		if (squished)
@@ -77,9 +87,7 @@ public class Vehicle : MonoBehaviour
 			PerformSquishedBehavior();
 		}
 
-		
-		
-		if (detourEnabled && objectInfront && !detourCountdownRunning && vehicleSpawner.IsLastInLine(this.gameObject))
+		if (detourEnabled && objectInfront && !detourCountdownRunning && gameManager.settings.CarDetour)
 		{
 			detourCountdownRunning = true;
 			StartCoroutine(DetourCountdown());
@@ -89,7 +97,6 @@ public class Vehicle : MonoBehaviour
 			detourCountdownRunning = false;
 			StopAllCoroutines();
 		}
-		
 
 		if (Mathf.Abs(transform.position.z) > Mathf.Abs(detourZPos) && !squished)
 		{
@@ -152,10 +159,12 @@ public class Vehicle : MonoBehaviour
 	private IEnumerator DetourCountdown()
 	{
 		yield return new WaitForSeconds(4);
-		detourCountdownRunning = false;
-		detouring = true;
-		transform.Rotate(0, 90, 0); 
-		
+		if (gameManager.settings.CarDetour)
+		{
+			detourCountdownRunning = false;
+			detouring = true;
+			transform.Rotate(0, 90, 0); 
+		}
 	}
 }
 

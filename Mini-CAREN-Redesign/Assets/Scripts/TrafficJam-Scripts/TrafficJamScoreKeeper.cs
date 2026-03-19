@@ -51,7 +51,8 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 
 		if (vehicle.footTag == vehicleFootTag)
 		{
-			vehicleSpawner.RemovingVechicle(other.transform.parent.gameObject);
+			//vehicleSpawner.RemovingVehicle(other.transform.parent.gameObject);
+			vehicleSpawner.VehicleCrossedIntersection();
 
 			if (vehicle.squished || vehicle.detouring)
 			{
