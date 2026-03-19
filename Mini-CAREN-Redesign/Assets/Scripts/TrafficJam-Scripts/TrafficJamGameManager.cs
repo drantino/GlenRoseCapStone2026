@@ -154,6 +154,15 @@ public class TrafficJamGameManager : MonoBehaviour
         rightSpawner.gameObject.SetActive(true);
         emergencySpawner.gameObject.SetActive(true);
 
+        if (Random.Range(0, 2) == 1)
+        {
+            leftSpawner.ForceVehicleSpawn();
+        }
+        else
+        {
+            rightSpawner.ForceVehicleSpawn();
+        }
+
         SetUpTimer((int)(settings.GameTime*60));
         UIManager.CountdownPanelActive = false;
         isPlaying = true;

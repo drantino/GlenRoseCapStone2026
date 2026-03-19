@@ -129,6 +129,16 @@ public class VehicleSpawner : MonoBehaviour
         }
     }
 
+    [ContextMenu("Force Vehicle Spawn")]
+    public void ForceVehicleSpawn()
+    {
+        if (currentCarsInLane < maxCarsInLane)
+        {
+            timeUntilNextSpawn = GetNextSpawnTime();
+            SpawnCar();
+        }
+    }
+
     // Method is currently unused due to it causing a ton of lag. Feel free to remove during final cleanup
     public bool IsLastInLine(GameObject vehicle)
     {
