@@ -95,6 +95,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		instantiatedVehicleScript.vehicleSpawner = this;
 		instantiatedVehicleScript.detourEnabled = false;
 		instantiatedVehicleScript.detourZPos = 0;
+		instantiatedVehicleScript.gameManager = gameManager;
 		
 		currentCarsInLane++;
 

@@ -5,6 +5,7 @@ public class Vehicle : MonoBehaviour
 {
     public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
 	[HideInInspector] public VehicleSpawner vehicleSpawner;
+	public TrafficJamGameManager gameManager;
 
 	[SerializeField] public float moveSpeed;
 
@@ -48,6 +49,7 @@ public class Vehicle : MonoBehaviour
 
 	private void Update()
 	{
+		moveSpeed = gameManager.settings.CarSpeed;
 		// check if there is an object infront of the vehicle
 		//Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
 
@@ -79,7 +81,7 @@ public class Vehicle : MonoBehaviour
 			PerformSquishedBehavior();
 		}
 
-		if (detourEnabled && objectInfront && !detourCountdownRunning)
+		if (detourEnabled && objectInfront && !detourCountdownRunning && gameManager.settings.CarDetour)
 		{
 			detourCountdownRunning = true;
 			StartCoroutine(DetourCountdown());
@@ -151,10 +153,12 @@ public class Vehicle : MonoBehaviour
 	private IEnumerator DetourCountdown()
 	{
 		yield return new WaitForSeconds(4);
-		detourCountdownRunning = false;
-		detouring = true;
-		transform.Rotate(0, 90, 0); 
-		
+		if (gameManager.settings.CarDetour)
+		{
+			detourCountdownRunning = false;
+			detouring = true;
+			transform.Rotate(0, 90, 0); 
+		}
 	}
 }
 

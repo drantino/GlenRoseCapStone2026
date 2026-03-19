@@ -77,9 +77,10 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.footTag = footTag;
         instantiatedVehicleScript.vehicleSpawner = this;
         instantiatedVehicleScript.detourZPos = detourPos.position.z;
-        // detourEnabled will only be true if its the last car in lane and the setting for detour is on.
-        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1 && gameManager.settings.CarDetour;
+        // detourEnabled will only be true if its the last car in lane.
+        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1;
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
+        instantiatedVehicleScript.gameManager = gameManager;
         currentCarsInLane++;
 
         // add vehicle data to be referenced later
