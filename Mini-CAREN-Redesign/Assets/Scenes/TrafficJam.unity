@@ -1339,6 +1339,7 @@ MonoBehaviour:
   carDetour: 1
   emergencyVehicleSideBias: 50
   emergencyVehicleActive: 1
+  masterVolume: 0
 --- !u!1 &122563043
 GameObject:
   m_ObjectHideFlags: 0
@@ -16180,6 +16181,16 @@ MonoBehaviour:
   rightRatioText: {fileID: 1087047257}
   rightPercentageText: {fileID: 1723515346}
   countdownText: {fileID: 1685668865}
+  statisticsTimer: {fileID: 122563045}
+  statisticsCarPassed: {fileID: 1552638191}
+  statisticsCarsSquished: {fileID: 1488391987}
+  statisticsCarsDetoured: {fileID: 206550978}
+  statisticsLeftPassed: {fileID: 1246551849}
+  statisticsRightPassed: {fileID: 1136650693}
+  statisticsLeftSquished: {fileID: 2028725113}
+  statisticsRightSquished: {fileID: 1692950132}
+  statisticsLeftDetoured: {fileID: 727474586}
+  statisticsRightDetoured: {fileID: 753973975}
   countdownPanel: {fileID: 2108543385}
   pausePanel: {fileID: 312435398649334079}
   endPanel: {fileID: 352612271}
