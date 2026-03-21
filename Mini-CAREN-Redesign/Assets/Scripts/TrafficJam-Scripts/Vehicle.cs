@@ -8,6 +8,7 @@ public class Vehicle : MonoBehaviour
 	public TrafficJamGameManager gameManager;
 
 	[SerializeField] public float moveSpeed;
+	[SerializeField] public float speedMultiplier;
 
 	[SerializeField] protected GameObject vehicleModel;
 	[SerializeField] protected GameObject vehicleSquishedModel;
@@ -74,7 +75,7 @@ public class Vehicle : MonoBehaviour
 		if (!objectInfront && !squished)
 		{
 			// move
-			float distance = moveSpeed * Time.deltaTime;
+			float distance = moveSpeed * speedMultiplier * Time.deltaTime;
 			transform.Translate(Vector3.forward * distance);
 			foreach (VehicleWheel wheel in wheels)
 			{
@@ -134,18 +135,25 @@ public class Vehicle : MonoBehaviour
 			
 
 		// move forward
-		transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+		transform.Translate(Vector3.forward * moveSpeed * speedMultiplier * Time.deltaTime);
 
 
 
 		// squished behavior 3: just keep driving forward
-		//transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+		//transform.Translate(Vector3.forward * moveSpeed * speedMultiplier * Time.deltaTime);
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == footTag)
+		if (other.CompareTag(footTag))
 			Squish();
+		else if (other.CompareTag("Vehicle"))
+		{
+			// this should never happen. But if it does, it is possible that the two cars will both stop, breaking the game.
+			// to fix this, we remove this vehicle from the scene
+			vehicleSpawner.RemovingVehicle(gameObject);
+			Destroy(gameObject);
+		}
 	}
 
 	private void Squish()

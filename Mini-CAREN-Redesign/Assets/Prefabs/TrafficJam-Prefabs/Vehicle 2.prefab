@@ -78,9 +78,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footTag: RightShoe
   vehicleSpawner: {fileID: 0}
+  gameManager: {fileID: 0}
   moveSpeed: 4
+  speedMultiplier: 1
   vehicleModel: {fileID: 1864273895974458217}
   vehicleSquishedModel: {fileID: 1442924849146086183}
+  wheels: []
   boxCastStartPosition: {fileID: 1272268417436794712}
   turnMoveSpeed: 5.5
   vehicleStopDistance: 1
@@ -172,7 +175,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

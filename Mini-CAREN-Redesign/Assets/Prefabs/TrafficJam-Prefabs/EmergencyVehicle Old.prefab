@@ -249,14 +249,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footTag: RightShoe
   vehicleSpawner: {fileID: 0}
+  gameManager: {fileID: 0}
+  moveSpeed: 10
+  speedMultiplier: 1
   vehicleModel: {fileID: 2657023913442293587}
   vehicleSquishedModel: {fileID: 2570368856864982978}
-  moveSpeed: 10
+  wheels: []
+  boxCastStartPosition: {fileID: 0}
   turnMoveSpeed: 0
   vehicleStopDistance: 1.5
+  raycastStartDistance: 0
   timeUntilDespawnAfterSquish: 2
   squishedLaneDistance: 0
+  detourCountdownSec: 0
+  detourCountdownRunning: 0
+  originalYRotation: 0
+  detourZPos: 0
+  detourEnabled: 0
   squished: 0
+  detouring: 0
 --- !u!1 &8158564348847658314
 GameObject:
   m_ObjectHideFlags: 0

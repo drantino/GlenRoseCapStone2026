@@ -80,6 +80,7 @@ MonoBehaviour:
   vehicleSpawner: {fileID: 0}
   gameManager: {fileID: 0}
   moveSpeed: 10
+  speedMultiplier: 2
   vehicleModel: {fileID: 4119250432266737580}
   vehicleSquishedModel: {fileID: 3975232981885021584}
   wheels: []
@@ -174,7 +175,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
