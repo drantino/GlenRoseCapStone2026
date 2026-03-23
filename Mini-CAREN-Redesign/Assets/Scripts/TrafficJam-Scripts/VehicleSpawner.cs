@@ -45,7 +45,7 @@ public class VehicleSpawner : MonoBehaviour
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
 
-        if (spawnRateVarianceSec > gameManager.settings.CarSpawnInterval)
+        if (spawnRateVarianceSec > gameManager.settings.CarSpawnInterval)//added a clamp to have minimun 2 seconds, so this might be pointless
             throw new System.Exception("SpawnRateVariance cannot be less than or equal to the vehicle spawn rate because cars might spawn at the same time");
 
         currentCarsInLane = 0;
@@ -95,7 +95,7 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         instantiatedVehicleScript.gameManager = gameManager;
         currentCarsInLane++;
-
+        Debug.Log($"Cars {currentCarsInLane}");
         // add vehicle data to be referenced later
         VehicleList.Add(instantiatedVehicleScript);
 
