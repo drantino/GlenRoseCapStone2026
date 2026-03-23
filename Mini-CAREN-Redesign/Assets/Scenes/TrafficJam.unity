@@ -23232,13 +23232,15 @@ MonoBehaviour:
   maxCarsInLane: 1
   timeOffset: 6
   gameManager: {fileID: 114059191}
-  VehiclePrefabs:
+  vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
+  longVehiclePrefabs: []
+  spawnLongVehicles: 0
+  longVehicleSpawnProbability: 0
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   vehiclesDetour: 0
-  VehicleList: []
   spawnRateSec: 16
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
@@ -23673,16 +23675,18 @@ MonoBehaviour:
   maxCarsInLane: 4
   timeOffset: 4
   gameManager: {fileID: 114059191}
-  VehiclePrefabs:
+  vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
+  longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
+  spawnLongVehicles: 1
+  longVehicleSpawnProbability: 0.25
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
   vehiclesDetour: 1
-  VehicleList: []
 --- !u!114 &8996286738792908710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23700,16 +23704,18 @@ MonoBehaviour:
   maxCarsInLane: 4
   timeOffset: 4
   gameManager: {fileID: 114059191}
-  VehiclePrefabs:
+  vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
+  longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
+  spawnLongVehicles: 1
+  longVehicleSpawnProbability: 0.25
   footTag: RightShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
   vehiclesDetour: 1
-  VehicleList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
