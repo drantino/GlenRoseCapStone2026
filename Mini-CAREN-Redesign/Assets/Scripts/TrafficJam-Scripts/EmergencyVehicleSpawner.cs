@@ -86,7 +86,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		}
 
 		// select random vehicle prefab
-		GameObject prefab = VehiclePrefabs[Random.Range(0, VehiclePrefabs.Length)];
+		GameObject prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
 
 		// spawn vehicle
 		GameObject instantiatedVehicle = Instantiate(prefab, spawnPos, transform.rotation);

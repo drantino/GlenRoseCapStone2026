@@ -12,7 +12,12 @@ public class VehicleSpawner : MonoBehaviour
 	[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
     public TrafficJamGameManager gameManager;
     // Since we only have one car type/model, we only need one game object for the prefabs.
-    [SerializeField] protected GameObject[] VehiclePrefabs;
+    
+    [SerializeField] protected GameObject[] vehiclePrefabs;
+    [SerializeField] protected GameObject[] longVehiclePrefabs;
+
+    public bool spawnLongVehicles;
+    public float longVehicleSpawnProbability;
     
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
     public string footTag;
@@ -23,6 +28,7 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField] protected Transform detourPos;
     public bool vehiclesDetour = false;
 
+    //[SerializeField] // uncomment for debugging
     protected List<Vehicle> VehicleList = new List<Vehicle>();
 
     // Gizmo to easily identify where the spawn point is.
@@ -33,11 +39,14 @@ public class VehicleSpawner : MonoBehaviour
 
     void Start()
     {
-        if (VehiclePrefabs.Length == 0)
+        if (vehiclePrefabs.Length == 0)
         {
             gameObject.SetActive(false);
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
+
+        if (spawnRateVarianceSec >= gameManager.settings.CarSpawnInterval)
+            throw new System.Exception("SpawnRateVariance cannot be less than or equal to the vehicle spawn rate because cars might spawn at the same time");
 
         currentCarsInLane = 0;
 		timeUntilNextSpawn = GetNextSpawnTime() - timeOffset;
@@ -69,8 +78,12 @@ public class VehicleSpawner : MonoBehaviour
     protected virtual void SpawnCar()
     {
         // select random vehicle prefab
-        GameObject prefab = VehiclePrefabs[Random.Range(0, VehiclePrefabs.Length)];
-        
+        GameObject prefab;
+        if (spawnLongVehicles && Random.Range(0, 1) <= longVehicleSpawnProbability)
+            prefab = longVehiclePrefabs[Random.Range(0, longVehiclePrefabs.Length)];
+		else
+            prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
+
         // spawn vehicle
         GameObject instantiatedVehicle = Instantiate(prefab, transform.position, transform.rotation);
         Vehicle instantiatedVehicleScript = instantiatedVehicle.GetComponent<Vehicle>();
@@ -90,17 +103,35 @@ public class VehicleSpawner : MonoBehaviour
 
     public void RemovingVehicle(GameObject _Vehicle)
     {
+        //Debug.Log($"Removing Vehicle: '{_Vehicle.name}'");
+
         //gameManager.RemoveFromVechicleList(Vechicle);
         //VehicleList.Remove(Vehicle);
-        for (int i = 0; i < VehicleList.Count; i++)
+        //for (int i = 0; i < VehicleList.Count; i++)
+        //{
+        //    if (VehicleList[i].gameObject == _Vehicle)
+        //    {
+        //        VehicleList.RemoveAt(i);
+        //        i = VehicleList.Count + 1;
+        //    }
+        //}
+
+        Vehicle vehicleComponent = _Vehicle.GetComponent<Vehicle>();
+        if (vehicleComponent == null)
+            throw new System.Exception($"No Vehicle component on vehicle '{_Vehicle.name}'");
+
+        if (VehicleList.Remove(vehicleComponent))
         {
-            if (VehicleList[i].gameObject == _Vehicle)
-            {
-                VehicleList.RemoveAt(i);
-                i = VehicleList.Count + 1;
-            }
+			Destroy(_Vehicle);
+			currentCarsInLane--;
+			Debug.Log($"Removed vehicle '{_Vehicle.name}'");
         }
-        currentCarsInLane--;
+        else
+        {
+            Debug.Log($"Couldn't remove vehicle '{_Vehicle.name}' because it is not in the vehicle list");
+        }
+
+        
     }
 
     public void ResetVehicleList()

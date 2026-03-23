@@ -5063,6 +5063,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &520456450
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 22.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 74.121826
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 21.424702
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
+      propertyPath: m_Name
+      value: Skyscraper- Building
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9aa26a64c63c6d24fb3ebca102a5d80a, type: 3}
 --- !u!1 &541428875
 GameObject:
   m_ObjectHideFlags: 0
@@ -23159,8 +23232,11 @@ MonoBehaviour:
   maxCarsInLane: 1
   timeOffset: 6
   gameManager: {fileID: 114059191}
-  VehiclePrefabs:
+  vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
+  longVehiclePrefabs: []
+  spawnLongVehicles: 0
+  longVehicleSpawnProbability: 0
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
@@ -23599,11 +23675,14 @@ MonoBehaviour:
   maxCarsInLane: 4
   timeOffset: 4
   gameManager: {fileID: 114059191}
-  VehiclePrefabs:
+  vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
+  longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
+  spawnLongVehicles: 1
+  longVehicleSpawnProbability: 0.25
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
@@ -23625,11 +23704,14 @@ MonoBehaviour:
   maxCarsInLane: 4
   timeOffset: 4
   gameManager: {fileID: 114059191}
-  VehiclePrefabs:
+  vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
+  longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
+  spawnLongVehicles: 1
+  longVehicleSpawnProbability: 0.25
   footTag: RightShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
@@ -23698,3 +23780,4 @@ SceneRoots:
   - {fileID: 6650531645207608868}
   - {fileID: 670872348}
   - {fileID: 84680089}
+  - {fileID: 520456450}
