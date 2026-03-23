@@ -79,7 +79,7 @@ public class VehicleSpawner : MonoBehaviour
     {
         // select random vehicle prefab
         GameObject prefab;
-        if (spawnLongVehicles && Random.Range(0, 1) <= longVehicleSpawnProbability)
+        if (spawnLongVehicles && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
             prefab = longVehiclePrefabs[Random.Range(0, longVehiclePrefabs.Length)];
 		else
             prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
