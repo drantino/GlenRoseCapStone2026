@@ -45,7 +45,7 @@ public class VehicleSpawner : MonoBehaviour
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
 
-        if (spawnRateVarianceSec >= gameManager.settings.CarSpawnInterval)
+        if (spawnRateVarianceSec > gameManager.settings.CarSpawnInterval)
             throw new System.Exception("SpawnRateVariance cannot be less than or equal to the vehicle spawn rate because cars might spawn at the same time");
 
         currentCarsInLane = 0;
@@ -72,7 +72,7 @@ public class VehicleSpawner : MonoBehaviour
 
     protected virtual float GetNextSpawnTime()
     {
-        return Random.Range(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
+        return Random.Range( Mathf.Clamp(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec,2,100), gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
 	}
 
     protected virtual void SpawnCar()
