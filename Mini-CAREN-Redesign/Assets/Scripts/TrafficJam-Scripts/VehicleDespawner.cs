@@ -7,8 +7,8 @@ public class VehicleDespawner : MonoBehaviour
 	{
 		if (other.tag == "Vehicle")
 		{
-			//vehicleSpawner.RemovingVechicle(other.transform.parent.gameObject);
-			Destroy(other.transform.parent.gameObject);
+			//Debug.Log($"Vehicle '{other.transform.parent.name}' has entered vehicle despawner.");
+			vehicleSpawner.RemovingVehicle(other.transform.parent.gameObject);
 		}
 	}
 }

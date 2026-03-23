@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: be0ed721d3cf2624e82019661065dbe4
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackPlasticMAT
+    second: {fileID: 2100000, guid: 7baed2cb55d03364182788523c670b74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ambulance_stickersMAT
+    second: {fileID: 2100000, guid: 3ffa59b9b477f494aaf081e073b3efac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blackMetalMAT
+    second: {fileID: 2100000, guid: dccae37b160ddb8478ae17dae776a0c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blueLightMAT
+    second: {fileID: 2100000, guid: 30b1ad5f51207fd48865b8285b330535, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: headlightsMAT
+    second: {fileID: 2100000, guid: c7ef7d71c18c0144fbb0d86d9623c2ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metalMAT
+    second: {fileID: 2100000, guid: 984fdb75a059b8d4d8902fbad389fd7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: redLightMAT
+    second: {fileID: 2100000, guid: ff85bfdfa6ed8344eb8e596dc67fe7a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: redMAT
+    second: {fileID: 2100000, guid: a11f8e1825acc30479d3e3c2a8c289f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: whiteMAT
+    second: {fileID: 2100000, guid: 22c4364a1d7673f469803940145b0b43, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Color_Edited
+    second: {fileID: 2800000, guid: f25e65794aafba943a9dfadc0187ad2b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Displacement
+    second: {fileID: 2800000, guid: 9c2395ab7f478eb4d987e575abda3ac4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal046B_1K-PNG_Color
+    second: {fileID: 2800000, guid: 486c54bdccb91c94da77987c85b399be, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal046B_1K-PNG_Displacement
+    second: {fileID: 2800000, guid: 6270b7e3220cea1408ce6b0f9e00eb1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal055A_1K-PNG_Color
+    second: {fileID: 2800000, guid: 29a4cc8fd70b9cc41a12293b50f1dec1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal055A_1K-PNG_Metalness
+    second: {fileID: 2800000, guid: f471d9868a7fa424989cbb30bfa2f9f3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal055A_1K-PNG_NormalGL
+    second: {fileID: 2800000, guid: 28709e3674e14114dbbd7caaf832f8d2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal055A_1K-PNG_Roughness
+    second: {fileID: 2800000, guid: 4968020cfaececb4a91c968d26ca5191, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic007_1K-PNG_Color
+    second: {fileID: 2800000, guid: a221319ddb2d5754286ae7d85e2a5ebf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic007_1K-PNG_Displacement
+    second: {fileID: 2800000, guid: c8e4437589b40eb4d951aad417d4be91, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic007_1K-PNG_Roughness
+    second: {fileID: 2800000, guid: 234a7133edf56894e901138974daa138, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic009_1K-PNG_Color
+    second: {fileID: 2800000, guid: aff3ba9987911a34eb97503af629ce49, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic009_1K-PNG_Displacement
+    second: {fileID: 2800000, guid: 7e97cec9e8072a347812db4bef66c05f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic009_1K-PNG_Roughness
+    second: {fileID: 2800000, guid: e42ba15c4375d2b44aea2a6fd1ecb5a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porcelain002_1K-PNG_Color
+    second: {fileID: 2800000, guid: 1a5438b515283524e8be30652c59fd9a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porcelain002_1K-PNG_Displacement
+    second: {fileID: 2800000, guid: 8be31070b5569794fa951c58cd39d92c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porcelain002_1K-PNG_Roughness
+    second: {fileID: 2800000, guid: 402907e87ba1e564ab760a8d45935e27, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Roughness
+    second: {fileID: 2800000, guid: 454e554f1d7d9a947a6a90038c3670d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: blue light
+    second: {fileID: 2800000, guid: 54ee32bc8f91855449dd23e59d29dba0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: red light
+    second: {fileID: 2800000, guid: f64e8e3be8416ba488fdf7ed7bc31413, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: texture
+    second: {fileID: 2800000, guid: af566b0d2170a374991732c0241270f8, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

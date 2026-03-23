@@ -2,7 +2,9 @@ using UnityEngine;
 
 public enum Sound
 {
-
+	GameStart = 0,
+	Countdown = 1,
+	CarSquish = 2,
 }
 
 [CreateAssetMenu(fileName = "AudioSO", menuName = "Scriptable Objects/AudioSO")]

@@ -4,7 +4,9 @@ using UnityEngine;
 public class AudioPlayer : MonoBehaviour
 {
 	private static AudioPlayer instance;
-
+	
+	public static float masterVolume = 1;
+	
 	[SerializeField] private AudioSO[] audioSOList;
 	private Dictionary<Sound, AudioSO> audioSODict = new Dictionary<Sound, AudioSO>();
 
@@ -46,7 +48,7 @@ public class AudioPlayer : MonoBehaviour
 		if (audioSO.audioClip == null)
 			throw new System.Exception($"audioSO '{audioSO.name}' does not have an audioClip");
 
-		float totalVolume = audioSO.volume * volume;
+		float totalVolume = audioSO.volume * volume * masterVolume;
 
 		if (totalVolume > 3)
 			throw new System.Exception("audioClip volume cannot exceed 3.");

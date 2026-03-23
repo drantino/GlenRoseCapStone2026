@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EmergencyVehicleSpawner : VehicleSpawner
 {
+	[SerializeField] protected float spawnRateSec;
+
 	[SerializeField] private Transform leftSpawnPosition;
 	[SerializeField] private Transform rightSpawnPosition;
 	[SerializeField] private TrafficLight trafficLight1;
@@ -21,8 +23,8 @@ public class EmergencyVehicleSpawner : VehicleSpawner
             timeUntilNextSpawn -= Time.deltaTime;
             if (timeUntilNextSpawn < 0)
             {
-                timeUntilNextSpawn = Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec);
-                if (currentCarsInLane < maxCarsInLane)
+				timeUntilNextSpawn = GetNextSpawnTime();
+				if (currentCarsInLane < maxCarsInLane)
                 {
                     SpawnCar();
                 }
@@ -61,6 +63,10 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		}
 	}
 
+	protected override float GetNextSpawnTime()
+	{
+		return Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec);
+	}
 	protected override void SpawnCar()
 	{
 		// choose randomly wether to spawn this vehicle on the left lane, or right lane.
@@ -80,7 +86,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		}
 
 		// select random vehicle prefab
-		GameObject prefab = VehiclePrefabs[Random.Range(0, VehiclePrefabs.Length)];
+		GameObject prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
 
 		// spawn vehicle
 		GameObject instantiatedVehicle = Instantiate(prefab, spawnPos, transform.rotation);
@@ -89,10 +95,11 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		instantiatedVehicleScript.vehicleSpawner = this;
 		instantiatedVehicleScript.detourEnabled = false;
 		instantiatedVehicleScript.detourZPos = 0;
+		instantiatedVehicleScript.gameManager = gameManager;
 		
 		currentCarsInLane++;
 
 		//gameManager.AddToVechicleList(instantiatedVehicle);
-		VehicleList.Add(instantiatedVehicle);
+		VehicleList.Add(instantiatedVehicleScript);
 	}
 }

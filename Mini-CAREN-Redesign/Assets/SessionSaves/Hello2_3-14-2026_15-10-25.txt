@@ -1,0 +1,41 @@
+{
+    "playerName": "Hello2",
+    "rounds": [
+        {
+            "roundLength": 0.25,
+            "leftFootPassed": 0,
+            "leftFootSquished": 0,
+            "leftFootDetoured": 0,
+            "rightFootPassed": 0,
+            "rightFootSquished": 0,
+            "rightFootDetoured": 0,
+            "settingsData": {
+                "heightThreshold": 0.5,
+                "carSpeed": 4.0,
+                "carSpawnInterval": 6.0,
+                "carLength": 1.0,
+                "carDetour": true,
+                "emergencyVehicleSideBias": 50.0,
+                "emergencyVehicleActive": true
+            }
+        },
+        {
+            "roundLength": 0.25,
+            "leftFootPassed": 2,
+            "leftFootSquished": 1,
+            "leftFootDetoured": 0,
+            "rightFootPassed": 1,
+            "rightFootSquished": 0,
+            "rightFootDetoured": 0,
+            "settingsData": {
+                "heightThreshold": 0.5,
+                "carSpeed": 4.0,
+                "carSpawnInterval": 6.0,
+                "carLength": 1.0,
+                "carDetour": true,
+                "emergencyVehicleSideBias": 50.0,
+                "emergencyVehicleActive": true
+            }
+        }
+    ]
+}
