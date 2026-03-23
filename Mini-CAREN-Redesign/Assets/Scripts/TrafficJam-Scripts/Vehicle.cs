@@ -37,7 +37,7 @@ public class Vehicle : MonoBehaviour
 			throw new System.Exception("the vehicle model is null");
 		if (vehicleSquishedModel == null)
 			throw new System.Exception("the vehicle squished model is null");
-
+		
 		vehicleModel.SetActive(true);
 		vehicleSquishedModel.SetActive(false);
 
@@ -147,13 +147,13 @@ public class Vehicle : MonoBehaviour
 	{
 		if (other.CompareTag(footTag))
 			Squish();
-		else if (other.CompareTag("Vehicle"))
-		{
-			// this should never happen. But if it does, it is possible that the two cars will both stop, breaking the game.
-			// to fix this, we remove this vehicle from the scene
-			vehicleSpawner.RemovingVehicle(gameObject);
-			Destroy(gameObject);
-		}
+		//else if (other.CompareTag("Vehicle"))
+		//{
+		//	// this should never happen. But if it does, it is possible that the two cars will both stop, breaking the game.
+		//	// to fix this, we remove this vehicle from the scene
+		//	vehicleSpawner.RemovingVehicle(gameObject);
+		//	Destroy(gameObject);
+		//}
 	}
 
 	private void Squish()
