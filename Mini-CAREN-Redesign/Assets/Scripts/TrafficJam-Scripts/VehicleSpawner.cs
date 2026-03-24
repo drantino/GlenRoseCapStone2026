@@ -8,6 +8,7 @@ public class VehicleSpawner : MonoBehaviour
 	[HideInInspector] public float currentCarsInLane = 0;
     
 	[SerializeField] protected float spawnRateVarianceSec;
+    [SerializeField] protected float minTimeBetweenVehicleSpawns;
 	[SerializeField] protected float maxCarsInLane;
 	[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
     public TrafficJamGameManager gameManager;
@@ -45,9 +46,6 @@ public class VehicleSpawner : MonoBehaviour
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
 
-        if (spawnRateVarianceSec > gameManager.settings.CarSpawnInterval)//added a clamp to have minimun 2 seconds, so this might be pointless
-            throw new System.Exception("SpawnRateVariance cannot be less than or equal to the vehicle spawn rate because cars might spawn at the same time");
-
         currentCarsInLane = 0;
 		timeUntilNextSpawn = GetNextSpawnTime() - timeOffset;
 		// Temp statement to notify of spelling mistakes.
@@ -72,7 +70,7 @@ public class VehicleSpawner : MonoBehaviour
 
     protected virtual float GetNextSpawnTime()
     {
-        return Random.Range( Mathf.Clamp(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec,2,100), gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
+        return Random.Range( Mathf.Clamp(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, minTimeBetweenVehicleSpawns, 100), gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
 	}
 
     protected virtual void SpawnCar()

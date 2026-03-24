@@ -23305,6 +23305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
   spawnRateVarianceSec: 4
+  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 1
   timeOffset: 6
   gameManager: {fileID: 114059191}
@@ -23748,6 +23749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
   spawnRateVarianceSec: 3
+  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 4
   timeOffset: 4
   gameManager: {fileID: 114059191}
@@ -23777,6 +23779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
   spawnRateVarianceSec: 3
+  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 4
   timeOffset: 4
   gameManager: {fileID: 114059191}
