@@ -17,7 +17,7 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField] protected GameObject[] vehiclePrefabs;
     [SerializeField] protected GameObject[] longVehiclePrefabs;
 
-    public bool spawnLongVehicles;
+    //public bool spawnLongVehicles; changed to setting.VehicleLengths
     public float longVehicleSpawnProbability;
     
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
@@ -77,7 +77,7 @@ public class VehicleSpawner : MonoBehaviour
     {
         // select random vehicle prefab
         GameObject prefab;
-        if (spawnLongVehicles && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
+        if (gameManager.settings.CarLength >= 2 && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
             prefab = longVehiclePrefabs[Random.Range(0, longVehiclePrefabs.Length)];
 		else
             prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
@@ -93,7 +93,6 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         instantiatedVehicleScript.gameManager = gameManager;
         currentCarsInLane++;
-        Debug.Log($"Cars {currentCarsInLane}");
         // add vehicle data to be referenced later
         VehicleList.Add(instantiatedVehicleScript);
 

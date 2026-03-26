@@ -69,7 +69,7 @@ MonoBehaviour:
     SettingValue:
       value: 1
       min: 1
-      max: 3
+      max: 2
       units: 
       LiveSetting: 1
     sliderisWholeNumber: 1
