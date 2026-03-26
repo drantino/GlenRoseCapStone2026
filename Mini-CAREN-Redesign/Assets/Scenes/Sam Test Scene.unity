@@ -1398,7 +1398,7 @@ MonoBehaviour:
   carDetour: 1
   emergencyVehicleSideBias: 50
   emergencyVehicleActive: 1
-  masterVolume: 1
+  masterVolume: 0
 --- !u!1 &122563043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,7 +6139,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 800}
+  m_SizeDelta: {x: 100, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598083349
 MonoBehaviour:
@@ -18978,7 +18978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1773908894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22916,7 +22916,7 @@ RectTransform:
   m_Father: {fileID: 356977825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23226,10 +23226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSOList:
   - {fileID: 11400000, guid: 05ee7d0abd4e67b4db280abe75b63212, type: 2}
+  - {fileID: 11400000, guid: 13e24bf6527e8504c86d84c3306cfd4b, type: 2}
   - {fileID: 11400000, guid: 43d789c874f319d4dae76bb8e441415c, type: 2}
-  - {fileID: 11400000, guid: 76863e6a7f3e973408cce49b1a830383, type: 2}
-  - {fileID: 11400000, guid: 6e834a454a23599499959a00fd9d7097, type: 2}
-  - {fileID: 11400000, guid: 74e0cc87522f3b3419ba6b7559e34307, type: 2}
 --- !u!1 &952839798131169334
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dcea9ec0eb5b8e45b647d7c951db598, type: 3}
-  m_Name: GameStart
+  m_Name: One
   m_EditorClassIdentifier: 
-  soundName: 0
-  audioClip: {fileID: 8300000, guid: ce5a5d43eea75114bb7664d7da2b43c0, type: 3}
-  volume: 0.6
+  soundName: 5
+  audioClip: {fileID: 8300000, guid: 66460e40b134f7044a062c66f90541cd, type: 3}
+  volume: 1

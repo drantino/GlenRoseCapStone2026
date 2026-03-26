@@ -65,7 +65,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 	protected override float GetNextSpawnTime()
 	{
-		return Random.Range(spawnRateSec - spawnRateVarianceSec, spawnRateSec + spawnRateVarianceSec);
+		return Random.Range( Mathf.Clamp(spawnRateSec - spawnRateVarianceSec, minTimeBetweenVehicleSpawns, 100), spawnRateSec + spawnRateVarianceSec);
 	}
 	protected override void SpawnCar()
 	{
