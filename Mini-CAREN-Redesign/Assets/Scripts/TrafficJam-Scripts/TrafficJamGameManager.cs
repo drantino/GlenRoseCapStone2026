@@ -17,6 +17,9 @@ public class TrafficJamGameManager : MonoBehaviour
     private float startTime;
     private int countdownTime;
 
+
+    public AudioLoop[] audioToMuteOnPause;
+
     //public int leftSquished => leftAmount - leftPassed;
     //public int rightSquished => rightAmount - rightPassed;
 
@@ -73,20 +76,42 @@ public class TrafficJamGameManager : MonoBehaviour
     {
         if (Time.timeScale == 0)
         {
-            Time.timeScale = 1;
+            // unpause
+            UnPause();
             UIManager.PausePanelActive = false;
         }
         else
         {
+            // pause
+            Pause();
             UIManager.PausePanelActive = true;
-            Time.timeScale = 0;
-        }
+		}
     }
+
+    private void Pause()
+    {
+		Time.timeScale = 0;
+
+		foreach (AudioLoop audioLoop in audioToMuteOnPause)
+		{
+			audioLoop.audioSource.mute = true;
+		}
+	}
+
+    private void UnPause()
+    {
+		Time.timeScale = 1;
+
+		foreach (AudioLoop audioLoop in audioToMuteOnPause)
+		{
+			audioLoop.audioSource.mute = false;
+		}
+	}
 
     [ContextMenu("EndGame")]
     public void EndGame()
     {
-        Time.timeScale = 0;
+        Pause();
 
         UIManager.ShowEndResults(leftAmount, leftPassed, rightAmount, rightPassed);
 

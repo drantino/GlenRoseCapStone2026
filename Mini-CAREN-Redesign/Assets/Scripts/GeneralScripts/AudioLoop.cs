@@ -5,7 +5,8 @@ public class AudioLoop : MonoBehaviour
 {
     private float originalVolume;
 
-    private AudioSource audioSource;
+    [HideInInspector]
+    public AudioSource audioSource;
 
     private Coroutine fadeInCoroutine;
     private Coroutine fadeOutCoroutine;
@@ -20,6 +21,16 @@ public class AudioLoop : MonoBehaviour
 
         originalVolume = audioSource.volume;
 	}
+
+    public void Play()
+    {
+        audioSource.Play();
+    }
+
+    public void Stop()
+    {
+        audioSource.Stop();
+    }
 
     public void FadeIn(float seconds)
     {
