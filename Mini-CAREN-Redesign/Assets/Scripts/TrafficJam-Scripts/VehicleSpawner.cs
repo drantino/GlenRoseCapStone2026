@@ -10,14 +10,14 @@ public class VehicleSpawner : MonoBehaviour
 	[SerializeField] protected float spawnRateVarianceSec;
     [SerializeField] protected float minTimeBetweenVehicleSpawns;
 	[SerializeField] protected float maxCarsInLane;
-	[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
+	//[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
     public TrafficJamGameManager gameManager;
     // Since we only have one car type/model, we only need one game object for the prefabs.
     
     [SerializeField] protected GameObject[] vehiclePrefabs;
     [SerializeField] protected GameObject[] longVehiclePrefabs;
 
-    //public bool spawnLongVehicles; changed to setting.VehicleLengths
+    //public bool spawnLongVehicles; changed to setting.CarLengths
     public float longVehicleSpawnProbability;
     
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
@@ -47,7 +47,7 @@ public class VehicleSpawner : MonoBehaviour
 		}
 
         currentCarsInLane = 0;
-		timeUntilNextSpawn = GetNextSpawnTime() - timeOffset;
+		timeUntilNextSpawn = GetNextSpawnTime();
 		// Temp statement to notify of spelling mistakes.
 		if (footTag != "LeftShoe" && footTag != "RightShoe")
         {
