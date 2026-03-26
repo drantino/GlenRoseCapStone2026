@@ -23762,7 +23762,7 @@ MonoBehaviour:
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   spawnLongVehicles: 1
-  longVehicleSpawnProbability: 0.25
+  longVehicleSpawnProbability: 0.1
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
@@ -23792,7 +23792,7 @@ MonoBehaviour:
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   spawnLongVehicles: 1
-  longVehicleSpawnProbability: 0.25
+  longVehicleSpawnProbability: 0.1
   footTag: RightShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
