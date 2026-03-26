@@ -23817,7 +23817,7 @@ MonoBehaviour:
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
-  vehiclesDetour: 0
+  antiDoubleSpawnRayLength: 0
   spawnRateSec: 25
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
@@ -24265,7 +24265,7 @@ MonoBehaviour:
   footTag: LeftShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
-  vehiclesDetour: 1
+  antiDoubleSpawnRayLength: 2.5
 --- !u!114 &8996286738792908710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24294,7 +24294,7 @@ MonoBehaviour:
   footTag: RightShoe
   timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
-  vehiclesDetour: 1
+  antiDoubleSpawnRayLength: 2.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
