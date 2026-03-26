@@ -23421,6 +23421,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130593187}
   m_CullTransparentMesh: 1
+--- !u!1001 &2144512421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2765643277328705668}
+    m_Modifications:
+    - target: {fileID: 5043960754580559456, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043960754580559456, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fa73c9555172ea4083b32d582ae574f, type: 3}
+    - target: {fileID: 5043960754580559456, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fa73c9555172ea4083b32d582ae574f, type: 3}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908209837285883907, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: m_Name
+      value: Siren Loop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+--- !u!4 &2144512422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+  m_PrefabInstance: {fileID: 2144512421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144512423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5985727383720040942, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+  m_PrefabInstance: {fileID: 2144512421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b3e815b6732e4ca8487fc19c5a0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &252532801712576414
 GameObject:
   m_ObjectHideFlags: 0
@@ -23617,6 +23702,7 @@ Transform:
   m_Children:
   - {fileID: 2083898788}
   - {fileID: 2097718207}
+  - {fileID: 2144512422}
   - {fileID: 1404021524}
   m_Father: {fileID: 349556044}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -23645,7 +23731,7 @@ MonoBehaviour:
   timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   vehiclesDetour: 0
-  spawnRateSec: 16
+  spawnRateSec: 25
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
   trafficLight1: {fileID: 1731097167}
@@ -23655,6 +23741,8 @@ MonoBehaviour:
   trafficGates:
   - {fileID: 981724848}
   - {fileID: 2032837340}
+  sirenLoop: {fileID: 2144512423}
+  sirenFadeTime: 1.5
 --- !u!82 &2874280841066760658
 AudioSource:
   m_ObjectHideFlags: 0

@@ -390,7 +390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6908209837285883907, guid: f06add58091fd4d4382c36177277da4b, type: 3}
       propertyPath: m_Name
-      value: Looping Audio
+      value: Audio Loop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

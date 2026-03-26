@@ -14,6 +14,9 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 	[SerializeField] private GameObject vehicleStopper2;
 	[SerializeField] private TrafficGate[] trafficGates;
 
+	public AudioLoop sirenLoop;
+	public float sirenFadeTime;
+
 	private bool spawnCarOnLeft = false;
 
 	protected override void Update()
@@ -101,5 +104,19 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 		//gameManager.AddToVechicleList(instantiatedVehicle);
 		VehicleList.Add(instantiatedVehicleScript);
+
+		sirenLoop.FadeIn(sirenFadeTime);
+	}
+
+	//public override void RemovingVehicle(GameObject _Vehicle)
+	//{
+	//	base.RemovingVehicle(_Vehicle);
+	//}
+
+	public override void VehicleCrossedIntersection()
+	{
+		base.VehicleCrossedIntersection();
+
+		sirenLoop.FadeOut(sirenFadeTime);
 	}
 }

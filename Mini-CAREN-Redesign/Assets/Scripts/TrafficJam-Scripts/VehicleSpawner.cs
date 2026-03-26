@@ -98,7 +98,7 @@ public class VehicleSpawner : MonoBehaviour
 
     }
 
-    public void RemovingVehicle(GameObject _Vehicle)
+    public virtual void RemovingVehicle(GameObject _Vehicle)
     {
         //Debug.Log($"Removing Vehicle: '{_Vehicle.name}'");
 
@@ -149,7 +149,7 @@ public class VehicleSpawner : MonoBehaviour
 
     // When the vehicle crosses the intersection, it will set the final vehicle's detourEnabled bool to false, 
     // due to it no longer being in the back of a four-car queue. 
-    public void VehicleCrossedIntersection()
+    public virtual void VehicleCrossedIntersection()
     {
         if (currentCarsInLane == maxCarsInLane)
         {

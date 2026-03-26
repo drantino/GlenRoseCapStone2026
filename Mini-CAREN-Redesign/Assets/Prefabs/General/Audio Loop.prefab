@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5985727383720040942}
   - component: {fileID: 5043960754580559456}
   m_Layer: 0
-  m_Name: Looping Audio
+  m_Name: Audio Loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

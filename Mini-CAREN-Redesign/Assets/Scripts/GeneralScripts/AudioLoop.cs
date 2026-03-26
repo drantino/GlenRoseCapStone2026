@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AudioLoop : MonoBehaviour
 {
+    private float originalVolume;
+
     private AudioSource audioSource;
 
     private Coroutine fadeInCoroutine;
@@ -15,6 +17,8 @@ public class AudioLoop : MonoBehaviour
 
 		if (audioSource.resource == null)
 			throw new System.Exception("Cannot fade in audio because the audio resource has not been set.");
+
+        originalVolume = audioSource.volume;
 	}
 
     public void FadeIn(float seconds)
@@ -36,13 +40,15 @@ public class AudioLoop : MonoBehaviour
 		float timeStamp = 0;
 		while (timeStamp <= seconds)
 		{
-			audioSource.volume = timeStamp / seconds;
+			audioSource.volume = (timeStamp / seconds) * originalVolume;
 
 			timeStamp += Time.deltaTime;
 			yield return null;
 		}
 
-        fadeInCoroutine = null;
+		audioSource.volume = (timeStamp / seconds) * originalVolume;
+
+		fadeInCoroutine = null;
 	}
 
 	private IEnumerator FadeOutCoroutine(float seconds)
@@ -50,13 +56,13 @@ public class AudioLoop : MonoBehaviour
         float timeStamp = seconds;
         while (timeStamp >= 0)
         {
-            audioSource.volume = timeStamp / seconds;
+            audioSource.volume = (timeStamp / seconds) * originalVolume;
 
             timeStamp -= Time.deltaTime;
             yield return null;
         }
-
-        audioSource.Stop();
+        
+		audioSource.Stop();
         fadeOutCoroutine = null;
     }
 }
