@@ -23,7 +23,7 @@ public class TrafficJamGameManager : MonoBehaviour
     void Start()
     {
         //SetUpTimer(TEMPGameTimeStartSec);
-        SetUpTimer(Mathf.RoundToInt(settings.gameTime * 60));
+        SetUpTimer(Mathf.RoundToInt(settings.GameTime * 60));
         StartGame(); // TEMP CODE: game should be started manually in final build
     }
 
@@ -100,7 +100,7 @@ public class TrafficJamGameManager : MonoBehaviour
         // TODO: Save Round
         TrafficJamRoundData roundData = new TrafficJamRoundData
         {
-            roundLength = settings.gameTime,
+            roundLength = settings.GameTime,
             leftFootPassed = leftPassed,
             leftFootSquished = leftSquished,
             leftFootDetoured = leftDetoured,
@@ -110,13 +110,13 @@ public class TrafficJamGameManager : MonoBehaviour
 
             settingsData = new TrafficJamSettingsData
             {
-                heightThreshold = settings.heightThreshold,
-                carSpeed = settings.carSpeed,
-                carSpawnInterval = settings.carSpawnInterval,
-                carLength = settings.carLength,
-                carDetour = settings.carDetour,
-				emergencyVehicleSideBias = settings.emergencyVehicleSideBias,
-				emergencyVehicleActive = settings.emergencyVehicleActive,
+                heightThreshold = settings.HeightThreshold,
+                carSpeed = settings.CarSpeed,
+                carSpawnInterval = settings.CarSpawnInterval,
+                carLength = settings.CarLength,
+                carDetour = settings.CarDetour,
+				emergencyVehicleSideBias = settings.EmergencyVehicleBias,
+				emergencyVehicleActive = settings.EmergencyVehicleActive,
 			}
         };
 
