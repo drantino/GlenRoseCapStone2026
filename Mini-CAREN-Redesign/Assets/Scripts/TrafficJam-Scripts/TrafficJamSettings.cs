@@ -20,7 +20,7 @@ public class TrafficJamSettings : MonoBehaviour
 
 	private void Update()
 	{
-		AudioPlayer.masterVolume = masterVolume;
+		AudioPlayer.masterVolume = MasterVolume;
 	}
 
 	//Properties
