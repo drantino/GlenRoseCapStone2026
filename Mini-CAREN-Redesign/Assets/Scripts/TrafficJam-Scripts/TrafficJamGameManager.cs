@@ -142,9 +142,24 @@ public class TrafficJamGameManager : MonoBehaviour
     {
         while (countdownTime > 0)
         {
-            UIManager.Countdown = countdownTime;
-            AudioPlayer.Play(Sound.Countdown);
+			switch (countdownTime)
+			{
+				case 3:
+					AudioPlayer.Play(Sound.Three);
+					break;
+				case 2:
+					AudioPlayer.Play(Sound.Two);
+					break;
+				case 1:
+					AudioPlayer.Play(Sound.One);
+					break;
+				default:
+					break;
+			}
+
+			UIManager.Countdown = countdownTime;
             countdownTime--;
+
             yield return new WaitForSeconds(1);
         }
 

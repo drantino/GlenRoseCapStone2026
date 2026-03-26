@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public enum Sound
+public enum Sound // don't change indexes of values to preserve scriptable object values
 {
 	GameStart = 0,
 	Countdown = 1,
 	CarSquish = 2,
+	Three = 3,
+	Two = 4,
+	One = 5,
 }
 
 [CreateAssetMenu(fileName = "AudioSO", menuName = "Scriptable Objects/AudioSO")]

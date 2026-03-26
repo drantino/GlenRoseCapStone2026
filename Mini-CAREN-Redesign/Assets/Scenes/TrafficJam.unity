@@ -1398,7 +1398,7 @@ MonoBehaviour:
   carDetour: 1
   emergencyVehicleSideBias: 50
   emergencyVehicleActive: 1
-  masterVolume: 0
+  masterVolume: 1
 --- !u!1 &122563043
 GameObject:
   m_ObjectHideFlags: 0
@@ -23226,8 +23226,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSOList:
   - {fileID: 11400000, guid: 05ee7d0abd4e67b4db280abe75b63212, type: 2}
-  - {fileID: 11400000, guid: 13e24bf6527e8504c86d84c3306cfd4b, type: 2}
   - {fileID: 11400000, guid: 43d789c874f319d4dae76bb8e441415c, type: 2}
+  - {fileID: 11400000, guid: 76863e6a7f3e973408cce49b1a830383, type: 2}
+  - {fileID: 11400000, guid: 6e834a454a23599499959a00fd9d7097, type: 2}
+  - {fileID: 11400000, guid: 74e0cc87522f3b3419ba6b7559e34307, type: 2}
 --- !u!1 &952839798131169334
 GameObject:
   m_ObjectHideFlags: 0

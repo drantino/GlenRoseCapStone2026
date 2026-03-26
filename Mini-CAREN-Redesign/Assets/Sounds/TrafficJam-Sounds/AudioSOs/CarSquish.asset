@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CarSquish
   m_EditorClassIdentifier: 
   soundName: 2
-  audioClip: {fileID: 8300000, guid: 1400f64955bb9fc4e817e5157f60d1a0, type: 3}
+  audioClip: {fileID: 8300000, guid: 866cef9e79e023c40b2d60d99fb528ab, type: 3}
   volume: 0.3
