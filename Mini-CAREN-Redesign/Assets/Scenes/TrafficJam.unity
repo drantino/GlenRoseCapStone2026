@@ -20210,7 +20210,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 62
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -24258,6 +24258,7 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
+  - {fileID: 2919276103382703148, guid: 74b208748a10dea4d86d06f0461ad4e1, type: 3}
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
@@ -24286,6 +24287,7 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
+  - {fileID: 2919276103382703148, guid: 74b208748a10dea4d86d06f0461ad4e1, type: 3}
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
