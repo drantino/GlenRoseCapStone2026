@@ -27,15 +27,25 @@ public class VehicleSpawner : MonoBehaviour
 	protected float timeUntilNextSpawn;
     // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
     [SerializeField] protected Transform detourPos;
-    public bool vehiclesDetour = false;
+    public float antiDoubleSpawnRayLength;
 
     //[SerializeField] // uncomment for debugging
     protected List<Vehicle> VehicleList = new List<Vehicle>();
 
-    // Gizmo to easily identify where the spawn point is.
+    
     void OnDrawGizmos()
     {
+        // Gizmo to easily identify where the spawn point is.
         Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
+        // Gizmo to identify where the anti-double-spawn raycast is. The box's dimensions do not rotate with the object, only being used with the x axis
+        Gizmos.color = Color.grey;
+        Gizmos.DrawCube(transform.position + (transform.forward * (antiDoubleSpawnRayLength / 2)), new Vector3(antiDoubleSpawnRayLength, 0.1f, 0.1f));
+    }
+
+    void Awake()
+    {
+        //TODO: refactor code so that this awake method isn't needed.
+        currentCarsInLane = 0;
     }
 
     void Start()
@@ -46,7 +56,6 @@ public class VehicleSpawner : MonoBehaviour
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
 
-        currentCarsInLane = 0;
 		timeUntilNextSpawn = GetNextSpawnTime();
 		// Temp statement to notify of spelling mistakes.
 		if (footTag != "LeftShoe" && footTag != "RightShoe")
@@ -61,7 +70,7 @@ public class VehicleSpawner : MonoBehaviour
         if (timeUntilNextSpawn < 0)
         {
             timeUntilNextSpawn = GetNextSpawnTime();
-            if (currentCarsInLane < maxCarsInLane)
+            if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
             {
                 SpawnCar();
             }
@@ -160,7 +169,7 @@ public class VehicleSpawner : MonoBehaviour
     [ContextMenu("Force Vehicle Spawn")]
     public void ForceVehicleSpawn()
     {
-        if (currentCarsInLane < maxCarsInLane)
+        if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
         {
             timeUntilNextSpawn = GetNextSpawnTime();
             SpawnCar();
