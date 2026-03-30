@@ -75,7 +75,7 @@ MonoBehaviour:
     sliderisWholeNumber: 1
   - cardName: MasterVolume
     cardDescription: Volume of the TrafficJam game
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    cardImage: {fileID: 21300000, guid: 8d0dba949ac399048800c8755618ec02, type: 3}
     SettingValue:
       value: 100
       min: 0
