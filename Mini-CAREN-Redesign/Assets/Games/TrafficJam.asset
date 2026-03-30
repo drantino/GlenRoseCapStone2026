@@ -15,7 +15,7 @@ MonoBehaviour:
   gameName: TrafficJam
   gameDescription: Traffic Jam challenges players to keep each foot up to allow cars
     to pass. Make sure not to squish them!
-  gameImage: {fileID: 21300000, guid: d6c52bc7ae78648b18f7f89c079f739b, type: 3}
+  gameImage: {fileID: 21300000, guid: 066be5f4ab1645e49bc8197b8e60cba5, type: 3}
   gameTags:
   - Coordination
   - Balance
@@ -25,7 +25,7 @@ MonoBehaviour:
   Settings:
   - cardName: GameTime
     cardDescription: The time for how long a round will go.
-    cardImage: {fileID: 21300000, guid: 07a7274848f1f774d887d42f2e844b2b, type: 3}
+    cardImage: {fileID: 21300000, guid: 5d00677ef6ee3774596336968a8e8604, type: 3}
     SettingValue:
       value: 2
       min: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     sliderisWholeNumber: 0
   - cardName: Height Threshold
     cardDescription: The height needed to allow cars to pass.
-    cardImage: {fileID: 21300000, guid: b69798b7758c5714a835e51f53db7d91, type: 3}
+    cardImage: {fileID: 21300000, guid: 497fb58278a976a4b80f4e41f55c797a, type: 3}
     SettingValue:
       value: 0.12
       min: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     sliderisWholeNumber: 0
   - cardName: Car Speed
     cardDescription: Car speed not under the feet
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    cardImage: {fileID: 2022485508, guid: 03ab593a8a4c4864b93e5bb22fbc6f7b, type: 3}
     SettingValue:
       value: 3
       min: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
     sliderisWholeNumber: 1
   - cardName: Car Lengths
     cardDescription: The size of the car
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    cardImage: {fileID: 21300000, guid: d745730b3fe6a9b4fbb758df14c83c67, type: 3}
     SettingValue:
       value: 1
       min: 1
@@ -88,13 +88,13 @@ MonoBehaviour:
   SpecialCardDetour:
     cardName: Car detour
     cardDescription: If the cars can detour
-    cardImage: {fileID: 21300000, guid: a3c2c95342be348f2bfd395c72c3245e, type: 3}
+    cardImage: {fileID: 21300000, guid: 0fc210b90df95334ca4fd3d6fdd9d6c1, type: 3}
     isActive: 0
     cardPrefab: {fileID: 7291998014160336035, guid: 57b7f621df2d9b8409c11bc0660f7ced, type: 3}
   SpecialCardEmergencyVehicle:
     cardName: Emergency vehical bias
     cardDescrption: When active, the bias for which lane the vehical goes
-    cardImage: {fileID: 21300000, guid: 7030bc38134e043b884f2ff9ee0d7d14, type: 3}
+    cardImage: {fileID: 21300000, guid: d63ad515f5076644bb57e10e38d749c1, type: 3}
     isActive: 0
     SettingValue:
       value: 0
