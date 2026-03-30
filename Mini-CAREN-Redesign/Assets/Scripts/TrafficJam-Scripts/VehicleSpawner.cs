@@ -88,17 +88,19 @@ public class VehicleSpawner : MonoBehaviour
     {
         // select random vehicle prefab
         GameObject prefab;
+        bool isLong = false;
         if (gameManager.settings.CarLength >= 2 && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
         {
             prefab = longVehiclePrefabs[Random.Range(0, longVehiclePrefabs.Length)];
-            //currentCarsInLane += 2;
+            currentCarsInLane += 2;
+            isLong = true;
         }   
 		else
         {
             prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
-            //currentCarsInLane++;
+            currentCarsInLane++;
         }
-            
+        //             
 
         // spawn vehicle
         GameObject instantiatedVehicle = Instantiate(prefab, transform.position, transform.rotation);
@@ -107,10 +109,11 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.vehicleSpawner = this;
         instantiatedVehicleScript.detourZPos = detourPos.position.z;
         // detourEnabled will only be true if its the last car in lane.
-        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1 && passedVehiclesTraveling == 0;
+        instantiatedVehicleScript.detourEnabled = currentCarsInLane >= maxCarsInLane && passedVehiclesTraveling == 0;
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         instantiatedVehicleScript.gameManager = gameManager;
-        currentCarsInLane++;
+        instantiatedVehicleScript.isLong = isLong;
+        //currentCarsInLane++;
         
         // add vehicle data to be referenced later
         VehicleList.Add(instantiatedVehicleScript);
@@ -136,11 +139,16 @@ public class VehicleSpawner : MonoBehaviour
         if (vehicleComponent == null)
             throw new System.Exception($"No Vehicle component on vehicle '{_Vehicle.name}'");
 
-        passedVehiclesTraveling--;
+        
         if (VehicleList.Remove(vehicleComponent))
         {
 			Destroy(_Vehicle);
-			currentCarsInLane--;
+			
+            passedVehiclesTraveling--;
+            if (vehicleComponent.isLong)
+                currentCarsInLane -= 2;
+            else
+                currentCarsInLane--;
 			Debug.Log($"Removed vehicle '{_Vehicle.name}'");
         }
         else
@@ -175,9 +183,10 @@ public class VehicleSpawner : MonoBehaviour
         passedVehiclesTraveling++;
         if (currentCarsInLane >= maxCarsInLane)
         {
-            VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
-            VehicleList[(int)(maxCarsInLane - 1)].StopAllCoroutines();
-            
+            //VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
+            //VehicleList[(int)(maxCarsInLane - 1)].StopAllCoroutines();
+            VehicleList[VehicleList.Count - 1].detourEnabled = false;
+            VehicleList[VehicleList.Count - 1].StopAllCoroutines();
         }
     }
 
