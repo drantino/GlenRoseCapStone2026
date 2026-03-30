@@ -1423,10 +1423,10 @@ MonoBehaviour:
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
   useDebugSettings: 1
-  gameTime: 0.5
+  gameTime: 2
   heightThreshold: 0.5
-  carSpeed: 4
-  carSpawnInterval: 1
+  carSpeed: 1
+  carSpawnInterval: 2
   carLength: 1
   carDetour: 1
   emergencyVehicleSideBias: 50
@@ -24260,7 +24260,6 @@ MonoBehaviour:
   timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   antiDoubleSpawnRayLength: 0
-  VehicleList: []
   spawnRateSec: 25
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
@@ -24709,7 +24708,6 @@ MonoBehaviour:
   timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
   antiDoubleSpawnRayLength: 2.5
-  VehicleList: []
 --- !u!114 &8996286738792908710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24739,7 +24737,6 @@ MonoBehaviour:
   timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
   antiDoubleSpawnRayLength: 2.5
-  VehicleList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

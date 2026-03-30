@@ -28,6 +28,7 @@ public class VehicleSpawner : MonoBehaviour
     // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
     [SerializeField] protected Transform detourPos;
     public float antiDoubleSpawnRayLength;
+    protected float passedVehiclesTraveling;
 
     //[SerializeField] // uncomment for debugging
     protected List<Vehicle> VehicleList = new List<Vehicle>();
@@ -46,6 +47,7 @@ public class VehicleSpawner : MonoBehaviour
     {
         //TODO: refactor code so that this awake method isn't needed.
         currentCarsInLane = 0;
+        passedVehiclesTraveling = 0;
     }
 
     void Start()
@@ -105,7 +107,7 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.vehicleSpawner = this;
         instantiatedVehicleScript.detourZPos = detourPos.position.z;
         // detourEnabled will only be true if its the last car in lane.
-        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1;
+        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1 && passedVehiclesTraveling == 0;
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         instantiatedVehicleScript.gameManager = gameManager;
         currentCarsInLane++;
@@ -134,7 +136,7 @@ public class VehicleSpawner : MonoBehaviour
         if (vehicleComponent == null)
             throw new System.Exception($"No Vehicle component on vehicle '{_Vehicle.name}'");
 
-        VehicleCrossedIntersection();
+        passedVehiclesTraveling--;
         if (VehicleList.Remove(vehicleComponent))
         {
 			Destroy(_Vehicle);
@@ -163,13 +165,15 @@ public class VehicleSpawner : MonoBehaviour
         }
         VehicleList.Clear();
         currentCarsInLane = 0;
+        passedVehiclesTraveling = 0;
     }
 
     // When the vehicle crosses the intersection, it will set the final vehicle's detourEnabled bool to false, 
     // due to it no longer being in the back of a four-car queue. 
     public virtual void VehicleCrossedIntersection()
     {
-        if (currentCarsInLane <= maxCarsInLane)
+        passedVehiclesTraveling++;
+        if (currentCarsInLane >= maxCarsInLane)
         {
             VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
             VehicleList[(int)(maxCarsInLane - 1)].StopAllCoroutines();
