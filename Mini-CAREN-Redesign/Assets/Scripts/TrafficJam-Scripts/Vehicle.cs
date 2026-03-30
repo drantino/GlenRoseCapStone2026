@@ -28,7 +28,7 @@ public class Vehicle : MonoBehaviour
 	public bool detourEnabled;
 	
 
-	public bool squished = false, detouring = false;
+	public bool squished = false, detouring = false, isLong = false;
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
 	protected virtual void Start()
