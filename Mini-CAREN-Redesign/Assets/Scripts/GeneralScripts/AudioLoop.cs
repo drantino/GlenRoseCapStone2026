@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using UnityEngine;
 
@@ -16,30 +17,57 @@ public class AudioLoop : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
+        if (audioSource == null )
+			throw new System.Exception($"the audio loop '{gameObject.name}' must have an audioSource component.");
+
 		if (audioSource.resource == null)
-			throw new System.Exception("Cannot fade in audio because the audio resource has not been set.");
+			throw new System.Exception($"the audio resource of audio loop '{gameObject.name}' has not been set.");
 
         originalVolume = audioSource.volume;
 	}
 
     public void Play()
     {
+        if (audioSource.resource == null)
+        {
+            Debug.LogWarning($"the audio resource of audio loop '{gameObject.name}' has not been set.");
+            return;
+        }
+
         audioSource.Play();
     }
 
     public void Stop()
     {
-        audioSource.Stop();
+		if (audioSource.resource == null)
+		{
+			Debug.LogWarning($"the audio resource of audio loop '{gameObject.name}' has not been set.");
+			return;
+		}
+
+		audioSource.Stop();
     }
 
     public void FadeIn(float seconds)
     {
-        if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
+		if (audioSource.resource == null)
+		{
+			Debug.LogWarning($"the audio resource of audio loop '{gameObject.name}' has not been set.");
+			return;
+		}
+
+		if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
         fadeInCoroutine = StartCoroutine(FadeInCoroutine(seconds));
     }
 
     public void FadeOut(float seconds)
     {
+		if (audioSource.resource == null)
+		{
+			Debug.LogWarning($"the audio resource of audio loop '{gameObject.name}' has not been set.");
+			return;
+		}
+
 		if (fadeInCoroutine != null) StopCoroutine(fadeInCoroutine);
 		fadeOutCoroutine = StartCoroutine(FadeOutCoroutine(seconds));
 	}
