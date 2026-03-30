@@ -860,7 +860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 308.3394, y: 151.74791}
+  m_AnchoredPosition: {x: 308.3394, y: 158.99992}
   m_SizeDelta: {x: 78.6015, y: 36.2313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99059310
@@ -1423,10 +1423,10 @@ MonoBehaviour:
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
   useDebugSettings: 1
-  gameTime: 0.5
+  gameTime: 2
   heightThreshold: 0.5
-  carSpeed: 4
-  carSpawnInterval: 1
+  carSpeed: 1
+  carSpawnInterval: 2
   carLength: 1
   carDetour: 1
   emergencyVehicleSideBias: 50
@@ -1795,7 +1795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224.23593, y: 151.74794}
+  m_AnchoredPosition: {x: 224.23593, y: 158.99995}
   m_SizeDelta: {x: 196.5037, y: 36.2313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154671152
@@ -3465,7 +3465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 280.04282, y: 130.00916}
+  m_AnchoredPosition: {x: 280.04282, y: 134.1}
   m_SizeDelta: {x: 471.6088, y: 36.2313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365514724
@@ -13276,7 +13276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 308.33923, y: 172.76208}
+  m_AnchoredPosition: {x: 308.33923, y: 184.29997}
   m_SizeDelta: {x: 78.6015, y: 36.2313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294595158
@@ -15549,7 +15549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361.00235, y: 151.74794}
+  m_AnchoredPosition: {x: 361.00235, y: 159}
   m_SizeDelta: {x: 78.6015, y: 36.2313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430898009
@@ -15818,7 +15818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361.00223, y: 172.76212}
+  m_AnchoredPosition: {x: 361.00223, y: 184.3}
   m_SizeDelta: {x: 78.6015, y: 36.2313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448206518
@@ -19768,7 +19768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e0ac3f908ca53d840a7bdb2b818c0776, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47b6319f4ca71244f8df9fb16934cfa7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21837,7 +21837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220.06334, y: 172.43454}
+  m_AnchoredPosition: {x: 220.06334, y: 183.97243}
   m_SizeDelta: {x: 177.9595, y: 37.6873}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950666621

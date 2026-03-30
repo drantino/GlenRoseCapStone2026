@@ -142,7 +142,7 @@ public class TrafficJamSettings : MonoBehaviour
         {
             if (hasSettings && !useDebugSettings)
             {
-                return staticTrafficJamSettings.Settings[5].SettingValue.value;
+                return staticTrafficJamSettings.Settings[5].SettingValue.value / 100;
             }
             else
             {
