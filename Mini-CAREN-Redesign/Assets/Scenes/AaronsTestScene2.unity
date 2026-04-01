@@ -3673,6 +3673,16 @@ MonoBehaviour:
   rightRatioText: {fileID: 1604185846}
   rightPercentageText: {fileID: 2088812072}
   countdownText: {fileID: 435640618}
+  statisticsTimer: {fileID: 0}
+  statisticsCarPassed: {fileID: 0}
+  statisticsCarsSquished: {fileID: 0}
+  statisticsCarsDetoured: {fileID: 0}
+  statisticsLeftPassed: {fileID: 0}
+  statisticsRightPassed: {fileID: 0}
+  statisticsLeftSquished: {fileID: 0}
+  statisticsRightSquished: {fileID: 0}
+  statisticsLeftDetoured: {fileID: 0}
+  statisticsRightDetoured: {fileID: 0}
   countdownPanel: {fileID: 405253039}
   pausePanel: {fileID: 429720184}
   endPanel: {fileID: 1070243874}
@@ -9521,10 +9531,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1202575511}
+  vehicleSpawner: {fileID: 0}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 0
+  scorePopupPool: {fileID: 0}
 --- !u!65 &796313656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12056,15 +12069,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateSec: 16
   spawnRateVarianceSec: 4
+  minTimeBetweenVehicleSpawns: 0
   maxCarsInLane: 1
   timeOffset: 0
-  VehiclePrefab: {fileID: 6258505706416592736, guid: 835b7a1c06706744496b030bcaae6206, type: 3}
+  gameManager: {fileID: 0}
+  vehiclePrefabs: []
+  longVehiclePrefabs: []
+  spawnLongVehicles: 0
+  longVehicleSpawnProbability: 0
   footTag: LeftShoe
+  timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   vehiclesDetour: 0
-  VehicleList: []
+  spawnRateSec: 16
   leftSpawnPosition: {fileID: 865334138}
   rightSpawnPosition: {fileID: 368261536}
   trafficLight1: {fileID: 1351201789}
@@ -13272,10 +13290,12 @@ MonoBehaviour:
   settings: {fileID: 0}
   leftAmount: 0
   leftPassed: 0
+  leftSquished: 0
+  leftDetoured: 0
   rightAmount: 0
   rightPassed: 0
-  TEMPGameTimeStartSec: 120
-  endTime: 0
+  rightSquished: 0
+  rightDetoured: 0
   startTime: 0
 --- !u!4 &1202575512
 Transform:
@@ -15245,10 +15265,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1202575511}
+  vehicleSpawner: {fileID: 0}
   type: 0
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 0
+  scorePopupPool: {fileID: 0}
 --- !u!65 &1470086436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18178,10 +18201,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1202575511}
+  vehicleSpawner: {fileID: 0}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 0
+  scorePopupPool: {fileID: 0}
 --- !u!65 &1714000070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20928,10 +20954,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1202575511}
+  vehicleSpawner: {fileID: 0}
   type: 1
   scorePopupPrefab: {fileID: 4518292351500359266, guid: 942bed1f3d77c814c970ff342853c09b, type: 3}
   vehiclePassedText: +1
   vehicleSquishedText: -1
+  spawnPopups: 0
+  scorePopupPool: {fileID: 0}
 --- !u!65 &1970503264
 BoxCollider:
   m_ObjectHideFlags: 0

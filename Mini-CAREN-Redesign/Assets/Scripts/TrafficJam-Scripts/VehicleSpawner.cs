@@ -10,14 +10,14 @@ public class VehicleSpawner : MonoBehaviour
 	[SerializeField] protected float spawnRateVarianceSec;
     [SerializeField] protected float minTimeBetweenVehicleSpawns;
 	[SerializeField] protected float maxCarsInLane;
-	[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
+	//[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
     public TrafficJamGameManager gameManager;
     // Since we only have one car type/model, we only need one game object for the prefabs.
     
     [SerializeField] protected GameObject[] vehiclePrefabs;
     [SerializeField] protected GameObject[] longVehiclePrefabs;
 
-    public bool spawnLongVehicles;
+    //public bool spawnLongVehicles; changed to setting.CarLengths
     public float longVehicleSpawnProbability;
     
     // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
@@ -27,15 +27,27 @@ public class VehicleSpawner : MonoBehaviour
 	protected float timeUntilNextSpawn;
     // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
     [SerializeField] protected Transform detourPos;
-    public bool vehiclesDetour = false;
+    public float antiDoubleSpawnRayLength;
+    protected float passedVehiclesTraveling;
 
     //[SerializeField] // uncomment for debugging
     protected List<Vehicle> VehicleList = new List<Vehicle>();
 
-    // Gizmo to easily identify where the spawn point is.
+    
     void OnDrawGizmos()
     {
+        // Gizmo to easily identify where the spawn point is.
         Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
+        // Gizmo to identify where the anti-double-spawn raycast is. The box's dimensions do not rotate with the object, only being used with the x axis
+        Gizmos.color = Color.grey;
+        Gizmos.DrawCube(transform.position + (transform.forward * (antiDoubleSpawnRayLength / 2)), new Vector3(antiDoubleSpawnRayLength, 0.1f, 0.1f));
+    }
+
+    void Awake()
+    {
+        //TODO: refactor code so that this awake method isn't needed.
+        currentCarsInLane = 0;
+        passedVehiclesTraveling = 0;
     }
 
     void Start()
@@ -46,8 +58,7 @@ public class VehicleSpawner : MonoBehaviour
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
 
-        currentCarsInLane = 0;
-		timeUntilNextSpawn = GetNextSpawnTime() - timeOffset;
+		timeUntilNextSpawn = GetNextSpawnTime();
 		// Temp statement to notify of spelling mistakes.
 		if (footTag != "LeftShoe" && footTag != "RightShoe")
         {
@@ -61,7 +72,7 @@ public class VehicleSpawner : MonoBehaviour
         if (timeUntilNextSpawn < 0)
         {
             timeUntilNextSpawn = GetNextSpawnTime();
-            if (currentCarsInLane < maxCarsInLane)
+            if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
             {
                 SpawnCar();
             }
@@ -77,10 +88,19 @@ public class VehicleSpawner : MonoBehaviour
     {
         // select random vehicle prefab
         GameObject prefab;
-        if (spawnLongVehicles && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
+        bool isLong = false;
+        if (gameManager.settings.CarLength >= 2 && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
+        {
             prefab = longVehiclePrefabs[Random.Range(0, longVehiclePrefabs.Length)];
+            currentCarsInLane += 2;
+            isLong = true;
+        }   
 		else
+        {
             prefab = vehiclePrefabs[Random.Range(0, vehiclePrefabs.Length)];
+            currentCarsInLane++;
+        }
+        //             
 
         // spawn vehicle
         GameObject instantiatedVehicle = Instantiate(prefab, transform.position, transform.rotation);
@@ -89,17 +109,18 @@ public class VehicleSpawner : MonoBehaviour
         instantiatedVehicleScript.vehicleSpawner = this;
         instantiatedVehicleScript.detourZPos = detourPos.position.z;
         // detourEnabled will only be true if its the last car in lane.
-        instantiatedVehicleScript.detourEnabled = currentCarsInLane == maxCarsInLane - 1;
+        instantiatedVehicleScript.detourEnabled = currentCarsInLane >= maxCarsInLane && passedVehiclesTraveling == 0;
         instantiatedVehicleScript.moveSpeed = gameManager.settings.CarSpeed;
         instantiatedVehicleScript.gameManager = gameManager;
-        currentCarsInLane++;
-        Debug.Log($"Cars {currentCarsInLane}");
+        instantiatedVehicleScript.isLong = isLong;
+        //currentCarsInLane++;
+        
         // add vehicle data to be referenced later
         VehicleList.Add(instantiatedVehicleScript);
 
     }
 
-    public void RemovingVehicle(GameObject _Vehicle)
+    public virtual void RemovingVehicle(GameObject _Vehicle)
     {
         //Debug.Log($"Removing Vehicle: '{_Vehicle.name}'");
 
@@ -118,10 +139,16 @@ public class VehicleSpawner : MonoBehaviour
         if (vehicleComponent == null)
             throw new System.Exception($"No Vehicle component on vehicle '{_Vehicle.name}'");
 
+        
         if (VehicleList.Remove(vehicleComponent))
         {
 			Destroy(_Vehicle);
-			currentCarsInLane--;
+			
+            passedVehiclesTraveling--;
+            if (vehicleComponent.isLong)
+                currentCarsInLane -= 2;
+            else
+                currentCarsInLane--;
 			Debug.Log($"Removed vehicle '{_Vehicle.name}'");
         }
         else
@@ -146,22 +173,27 @@ public class VehicleSpawner : MonoBehaviour
         }
         VehicleList.Clear();
         currentCarsInLane = 0;
+        passedVehiclesTraveling = 0;
     }
 
     // When the vehicle crosses the intersection, it will set the final vehicle's detourEnabled bool to false, 
     // due to it no longer being in the back of a four-car queue. 
-    public void VehicleCrossedIntersection()
+    public virtual void VehicleCrossedIntersection()
     {
-        if (currentCarsInLane == maxCarsInLane)
+        passedVehiclesTraveling++;
+        if (currentCarsInLane >= maxCarsInLane)
         {
-            VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
+            //VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
+            //VehicleList[(int)(maxCarsInLane - 1)].StopAllCoroutines();
+            VehicleList[VehicleList.Count - 1].detourEnabled = false;
+            VehicleList[VehicleList.Count - 1].StopAllCoroutines();
         }
     }
 
     [ContextMenu("Force Vehicle Spawn")]
     public void ForceVehicleSpawn()
     {
-        if (currentCarsInLane < maxCarsInLane)
+        if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
         {
             timeUntilNextSpawn = GetNextSpawnTime();
             SpawnCar();

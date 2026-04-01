@@ -6,7 +6,8 @@ public class FootController : MonoBehaviour
 {
     public GameObject leftFootPrefab;
     public GameObject rightFootPrefab;
-	public RawImage shoeRenderImage;
+	public RawImage shoeRenderImageLeft;
+	public RawImage shoeRenderImageRight;
 	public TrafficJamGameManager gameManager;
 	public CalibrationLogic calibrationLogic;
 
@@ -22,7 +23,7 @@ public class FootController : MonoBehaviour
     public float maximumHeight;
     public float heightThreshold;
 
-	private bool rightShoeAboveThreshhold = false;
+	private bool rightShoeAboveThreshold = false;
 	private bool leftShoeAboveThreshold = false;
 
     //DEBUG CONTROLS
@@ -141,22 +142,23 @@ public class FootController : MonoBehaviour
 			if (rightFootPosition.y > minimumHeight + gameManager.settings.HeightThreshold)//might have to change this to allow for offset
 			{
 				rightFootCollider.enabled = false;
-				rightShoeAboveThreshhold = true;
+				rightShoeAboveThreshold = true;
 			}
 			else
 			{
 				rightFootCollider.enabled = true;
-				rightShoeAboveThreshhold = false;
+				rightShoeAboveThreshold = false;
 			}
 
-			if (leftShoeAboveThreshold || rightShoeAboveThreshhold)
-			{
-				shoeRenderImage.color = new Color(1, 1, 1, 0.5f);
-			}
+			if (leftShoeAboveThreshold)
+				shoeRenderImageLeft.color = new Color(1, 1, 1, 0.5f); // make shoe transparent
 			else
-			{
-				shoeRenderImage.color = Color.white;
-			}
+				shoeRenderImageLeft.color = Color.white; // make shoe opaque
+
+			if (rightShoeAboveThreshold)
+				shoeRenderImageRight.color = new Color(1, 1, 1, 0.5f); // make shoe transparent
+			else
+				shoeRenderImageRight.color = Color.white; // make shoe opaque
 		}
     }
     private void OnDrawGizmos()

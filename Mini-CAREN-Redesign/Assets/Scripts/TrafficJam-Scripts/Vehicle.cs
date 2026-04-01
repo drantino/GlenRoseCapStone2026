@@ -28,10 +28,10 @@ public class Vehicle : MonoBehaviour
 	public bool detourEnabled;
 	
 
-	public bool squished = false, detouring = false;
+	public bool squished = false, detouring = false, isLong = false;
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
-	private void Start()
+	protected virtual void Start()
 	{
 		if (vehicleModel == null)
 			throw new System.Exception("the vehicle model is null");

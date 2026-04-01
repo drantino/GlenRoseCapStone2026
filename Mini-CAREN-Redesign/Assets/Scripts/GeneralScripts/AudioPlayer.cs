@@ -37,7 +37,10 @@ public class AudioPlayer : MonoBehaviour
 	public static void Play(Sound sound, float volume = 1)
 	{
 		if (instance == null)
-			throw new System.Exception($"Cannot play sound '{sound.ToString()}' because there is no AudioPlayer in the scene.");
+		{
+			Debug.LogWarning($"Cannot play sound '{sound.ToString()}' because there is no AudioPlayer in the scene.");
+			return;
+		}
 
 		if (!instance.audioSODict.TryGetValue(sound, out AudioSO audioSO))
 		{
@@ -51,7 +54,10 @@ public class AudioPlayer : MonoBehaviour
 		float totalVolume = audioSO.volume * volume * masterVolume;
 
 		if (totalVolume > 3)
-			throw new System.Exception("audioClip volume cannot exceed 3.");
+		{
+			Debug.LogWarning("audioClip volume cannot exceed 3.");
+			return;
+		}
 
 		instance.audioSource.PlayOneShot(audioSO.audioClip, totalVolume);
 	}

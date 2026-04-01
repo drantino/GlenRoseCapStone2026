@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4159977440715946754}
   - component: {fileID: 1255407177789669960}
   - component: {fileID: 2326566657356605148}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Model
   m_TagString: RightShoe
   m_Icon: {fileID: 0}

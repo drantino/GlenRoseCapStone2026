@@ -8,19 +8,19 @@ public class TrafficJamSettings : MonoBehaviour
 
     //Debug settings
     [Header("Debug Settings")]
-    public float gameTime;
-    public float heightThreshold;
-    public float carSpeed;
-    public float carSpawnInterval;
-    public float carLength;
-    public bool carDetour;
-    public float emergencyVehicleSideBias;
-    public bool emergencyVehicleActive;
-    public float masterVolume;
+    [SerializeField] private float gameTime;
+    [SerializeField] private float heightThreshold;
+    [SerializeField] private float carSpeed;
+    [SerializeField] private float carSpawnInterval;
+    [SerializeField] private float carLength;
+    [SerializeField] private bool carDetour;
+    [SerializeField] private float emergencyVehicleSideBias;
+    [SerializeField] private bool emergencyVehicleActive;
+    [SerializeField] private float masterVolume;
 
 	private void Update()
 	{
-		AudioPlayer.masterVolume = masterVolume;
+		AudioPlayer.masterVolume = MasterVolume;
 	}
 
 	//Properties
@@ -142,7 +142,7 @@ public class TrafficJamSettings : MonoBehaviour
         {
             if (hasSettings && !useDebugSettings)
             {
-                return staticTrafficJamSettings.Settings[5].SettingValue.value;
+                return staticTrafficJamSettings.Settings[5].SettingValue.value / 100;
             }
             else
             {

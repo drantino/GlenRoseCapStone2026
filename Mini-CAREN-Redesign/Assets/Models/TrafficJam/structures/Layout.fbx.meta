@@ -3,7 +3,27 @@ guid: 2f940b52b3597ff4bbea2f305cb450b3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roads
+    second: {fileID: 2100000, guid: 428342766c43d5e479bc203c60bd5958, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White_Stripe
+    second: {fileID: 2100000, guid: ff8a3901d1373194abdf451a0a974b07, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Terrain- Roads_Albedo
+    second: {fileID: 2800000, guid: 3837f36774f4f2249af6f39a7691ac79, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Terrain- Roads_Normal
+    second: {fileID: 2800000, guid: 1b59c6c2906942e49b9065ab13357c33, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

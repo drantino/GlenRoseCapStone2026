@@ -17,13 +17,16 @@ public class TrafficJamGameManager : MonoBehaviour
     private float startTime;
     private int countdownTime;
 
+
+    public AudioLoop[] audioToMuteOnPause;
+
     //public int leftSquished => leftAmount - leftPassed;
     //public int rightSquished => rightAmount - rightPassed;
 
     void Start()
     {
         //SetUpTimer(TEMPGameTimeStartSec);
-        SetUpTimer(Mathf.RoundToInt(settings.gameTime * 60));
+        SetUpTimer(Mathf.RoundToInt(settings.GameTime * 60));
         StartGame(); // TEMP CODE: game should be started manually in final build
     }
 
@@ -73,20 +76,42 @@ public class TrafficJamGameManager : MonoBehaviour
     {
         if (Time.timeScale == 0)
         {
-            Time.timeScale = 1;
+            // unpause
+            UnPause();
             UIManager.PausePanelActive = false;
         }
         else
         {
+            // pause
+            Pause();
             UIManager.PausePanelActive = true;
-            Time.timeScale = 0;
-        }
+		}
     }
+
+    private void Pause()
+    {
+		Time.timeScale = 0;
+
+		foreach (AudioLoop audioLoop in audioToMuteOnPause)
+		{
+			audioLoop.audioSource.mute = true;
+		}
+	}
+
+    private void UnPause()
+    {
+		Time.timeScale = 1;
+
+		foreach (AudioLoop audioLoop in audioToMuteOnPause)
+		{
+			audioLoop.audioSource.mute = false;
+		}
+	}
 
     [ContextMenu("EndGame")]
     public void EndGame()
     {
-        Time.timeScale = 0;
+        Pause();
 
         UIManager.ShowEndResults(leftAmount, leftPassed, rightAmount, rightPassed);
 
@@ -100,7 +125,7 @@ public class TrafficJamGameManager : MonoBehaviour
         // TODO: Save Round
         TrafficJamRoundData roundData = new TrafficJamRoundData
         {
-            roundLength = settings.gameTime,
+            roundLength = settings.GameTime,
             leftFootPassed = leftPassed,
             leftFootSquished = leftSquished,
             leftFootDetoured = leftDetoured,
@@ -110,13 +135,13 @@ public class TrafficJamGameManager : MonoBehaviour
 
             settingsData = new TrafficJamSettingsData
             {
-                heightThreshold = settings.heightThreshold,
-                carSpeed = settings.carSpeed,
-                carSpawnInterval = settings.carSpawnInterval,
-                carLength = settings.carLength,
-                carDetour = settings.carDetour,
-				emergencyVehicleSideBias = settings.emergencyVehicleSideBias,
-				emergencyVehicleActive = settings.emergencyVehicleActive,
+                heightThreshold = settings.HeightThreshold,
+                carSpeed = settings.CarSpeed,
+                carSpawnInterval = settings.CarSpawnInterval,
+                carLength = settings.CarLength,
+                carDetour = settings.CarDetour,
+				emergencyVehicleSideBias = settings.EmergencyVehicleBias,
+				emergencyVehicleActive = settings.EmergencyVehicleActive,
 			}
         };
 
