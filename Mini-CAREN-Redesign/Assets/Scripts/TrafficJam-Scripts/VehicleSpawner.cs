@@ -124,23 +124,9 @@ public class VehicleSpawner : MonoBehaviour
 
     public virtual void RemovingVehicle(GameObject _Vehicle)
     {
-        //Debug.Log($"Removing Vehicle: '{_Vehicle.name}'");
-
-        //gameManager.RemoveFromVechicleList(Vechicle);
-        //VehicleList.Remove(Vehicle);
-        //for (int i = 0; i < VehicleList.Count; i++)
-        //{
-        //    if (VehicleList[i].gameObject == _Vehicle)
-        //    {
-        //        VehicleList.RemoveAt(i);
-        //        i = VehicleList.Count + 1;
-        //    }
-        //}
-
         Vehicle vehicleComponent = _Vehicle.GetComponent<Vehicle>();
         if (vehicleComponent == null)
             throw new System.Exception($"No Vehicle component on vehicle '{_Vehicle.name}'");
-
         
         if (VehicleList.Remove(vehicleComponent))
         {
@@ -153,12 +139,6 @@ public class VehicleSpawner : MonoBehaviour
                 currentCarsInLane--;
 			Debug.Log($"Removed vehicle '{_Vehicle.name}'");
         }
-        else
-        {
-            Debug.Log($"Couldn't remove vehicle '{_Vehicle.name}' because it is not in the vehicle list");
-        }
-
-        
     }
 
     public void ResetVehicleList()
