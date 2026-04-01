@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VehicleSpawner : MonoBehaviour
 {
-	[HideInInspector] public float currentCarsInLane = 0;
+	[HideInInspector] public int currentCarsInLane = 0;
     
 	[SerializeField] protected float spawnRateVarianceSec;
     [SerializeField] protected float minTimeBetweenVehicleSpawns;
@@ -28,11 +28,13 @@ public class VehicleSpawner : MonoBehaviour
     // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
     [SerializeField] protected Transform detourPos;
     public float antiDoubleSpawnRayLength;
-    protected float passedVehiclesTraveling;
+    protected int passedVehiclesTraveling;
 
     //[SerializeField] // uncomment for debugging
     protected List<Vehicle> VehicleList = new List<Vehicle>();
 
+    // properties
+    protected int vehiclesNotPassedIntersection => currentCarsInLane - passedVehiclesTraveling;
     
     void OnDrawGizmos()
     {

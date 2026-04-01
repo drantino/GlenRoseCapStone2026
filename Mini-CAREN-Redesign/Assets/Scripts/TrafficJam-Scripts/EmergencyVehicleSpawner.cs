@@ -36,7 +36,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
         
 
         // if there is an emergency vehicle, stop traffic.
-        if (currentCarsInLane > 0)
+        if (vehiclesNotPassedIntersection > 0)
 		{
 			// stop cars
 			vehicleStopper1.SetActive(true);

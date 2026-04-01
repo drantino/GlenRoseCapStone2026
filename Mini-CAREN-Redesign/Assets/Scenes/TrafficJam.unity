@@ -2064,8 +2064,8 @@ MonoBehaviour:
   useDebugSettings: 1
   gameTime: 2
   heightThreshold: 0.5
-  carSpeed: 1
-  carSpawnInterval: 2
+  carSpeed: 3
+  carSpawnInterval: 8
   carLength: 1
   carDetour: 1
   emergencyVehicleSideBias: 50
@@ -27539,7 +27539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 4
+  spawnRateVarianceSec: 5
   minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 1
   gameManager: {fileID: 114059191}
@@ -27551,7 +27551,7 @@ MonoBehaviour:
   timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   antiDoubleSpawnRayLength: 0
-  spawnRateSec: 25
+  spawnRateSec: 30
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
   trafficLight1: {fileID: 1731097167}
