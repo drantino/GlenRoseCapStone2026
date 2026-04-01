@@ -146,7 +146,7 @@ public class TrafficJamSettings : MonoBehaviour
             }
             else
             {
-                return carLength;
+                return masterVolume;
             }
         }
     }
