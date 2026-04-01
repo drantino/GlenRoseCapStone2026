@@ -14,7 +14,7 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] protected GameObject vehicleSquishedModel;
 	[SerializeField] protected VehicleWheel[] wheels;
 	[SerializeField] protected Transform boxCastStartPosition;
-	[SerializeField] protected float turnMoveSpeed;
+	[SerializeField] protected float turnSpeedMultiplier;
 	[SerializeField] protected float vehicleStopDistance;
 	[SerializeField] protected float raycastStartDistance;
 	[SerializeField] protected float timeUntilDespawnAfterSquish;
@@ -126,11 +126,11 @@ public class Vehicle : MonoBehaviour
 		if (transform.forward.x > 0)
 		{
 			if (transform.position.z - originalZPos > squishedLaneDistance)
-				transform.Translate(Vector3.right * turnMoveSpeed * Time.deltaTime);
+				transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
 		}
 		else if (transform.position.z - originalZPos < -squishedLaneDistance)
 		{
-			transform.Translate(Vector3.right * turnMoveSpeed * Time.deltaTime);
+			transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
 		}
 			
 

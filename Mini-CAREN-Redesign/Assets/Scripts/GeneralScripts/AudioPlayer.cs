@@ -6,7 +6,9 @@ public class AudioPlayer : MonoBehaviour
 	private static AudioPlayer instance;
 	
 	public static float masterVolume = 1;
-	
+
+	public float masterVol; // Temp debugging
+
 	[SerializeField] private AudioSO[] audioSOList;
 	private Dictionary<Sound, AudioSO> audioSODict = new Dictionary<Sound, AudioSO>();
 
@@ -27,6 +29,11 @@ public class AudioPlayer : MonoBehaviour
 
 			audioSODict.Add(audioSO.soundName, audioSO);
 		}
+	}
+
+	private void Update()
+	{
+		masterVol = masterVolume;
 	}
 
 	private void OnDestroy()

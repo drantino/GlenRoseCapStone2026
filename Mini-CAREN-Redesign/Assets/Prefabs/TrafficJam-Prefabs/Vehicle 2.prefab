@@ -85,7 +85,7 @@ MonoBehaviour:
   vehicleSquishedModel: {fileID: 1442924849146086183}
   wheels: []
   boxCastStartPosition: {fileID: 1272268417436794712}
-  turnMoveSpeed: 5.5
+  turnSpeedMultiplier: 1.25
   vehicleStopDistance: 1
   raycastStartDistance: 1
   timeUntilDespawnAfterSquish: 2
@@ -97,6 +97,7 @@ MonoBehaviour:
   detourEnabled: 0
   squished: 0
   detouring: 0
+  isLong: 0
 --- !u!1 &7077391735375925560
 GameObject:
   m_ObjectHideFlags: 0

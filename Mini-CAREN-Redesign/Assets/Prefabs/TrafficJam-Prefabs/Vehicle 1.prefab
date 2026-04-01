@@ -353,7 +353,7 @@ MonoBehaviour:
   - {fileID: 5507760845803694038}
   - {fileID: 4258675955084283027}
   boxCastStartPosition: {fileID: 5989818612616915455}
-  turnMoveSpeed: 5.5
+  turnSpeedMultiplier: 1.25
   vehicleStopDistance: 1
   raycastStartDistance: 1
   timeUntilDespawnAfterSquish: 2
@@ -365,6 +365,7 @@ MonoBehaviour:
   detourEnabled: 0
   squished: 0
   detouring: 0
+  isLong: 0
 --- !u!1 &6356703984159079409
 GameObject:
   m_ObjectHideFlags: 0

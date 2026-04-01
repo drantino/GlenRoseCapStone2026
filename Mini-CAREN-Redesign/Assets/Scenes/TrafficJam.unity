@@ -2080,7 +2080,7 @@ MonoBehaviour:
   heightThreshold: 0.5
   carSpeed: 3
   carSpawnInterval: 8
-  carLength: 1
+  carLength: 2
   carDetour: 1
   emergencyVehicleSideBias: 50
   emergencyVehicleActive: 1
