@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.SettingsManagement;
 using UnityEngine;
 
 public class TrafficJamUIManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class TrafficJamUIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI leftCarsPassedText, rightCarsPassedText, leftCarsSquishedText, rightCarsSquishedText,
         timerText, leftRatioText, leftPercentageText, rightRatioText, rightPercentageText, countdownText,
-        statisticsTimer, statisticsCarPassed, statisticsCarsSquished, statisticsCarsDetoured, statisticsLeftPassed, statisticsRightPassed, statisticsLeftSquished, statisticsRightSquished, statisticsLeftDetoured, statisticsRightDetoured;
+        statisticsTimer, statisticsCarPassed, statisticsCarsSquished, statisticsCarsDetoured, statisticsLeftPassed, statisticsRightPassed, statisticsLeftSquished, statisticsRightSquished, statisticsLeftDetoured, statisticsRightDetoured, roundTimeValueTxt;
     [SerializeField] private GameObject countdownPanel, pausePanel, endPanel;
 
     // Number Properties
@@ -86,7 +87,19 @@ public class TrafficJamUIManager : MonoBehaviour
         rightRatioText.text = $"{rightPassed} / {rightAmount}";
         rightPercentageText.text = $"{rightScore}%";
 
-        endPanel.SetActive(true);
+        float minutes = gameManager.settings.GameTime - (gameManager.settings.GameTime % 1);
+        float seconds = (gameManager.settings.GameTime - minutes) * 60;
+        if(seconds < 10)
+        {
+            roundTimeValueTxt.text = $"{minutes}:0{seconds}";
+        }
+        else
+        {
+            roundTimeValueTxt.text = $"{minutes}:{seconds}";
+        }
+
+
+            endPanel.SetActive(true);
     }
 
     public void UpdateTimer(float timeRemainingSec)
