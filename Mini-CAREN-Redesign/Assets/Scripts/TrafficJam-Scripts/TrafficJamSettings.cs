@@ -17,6 +17,7 @@ public class TrafficJamSettings : MonoBehaviour
     [SerializeField] private float emergencyVehicleSideBias;
     [SerializeField] private bool emergencyVehicleActive;
     [SerializeField] private float masterVolume;
+    [SerializeField] private float carSpawnBias;
 
 	private void Update()
 	{
@@ -147,6 +148,20 @@ public class TrafficJamSettings : MonoBehaviour
             else
             {
                 return masterVolume;
+            }
+        }
+    }
+    public float CarSpawnBias
+    {
+        get
+        {
+            if(hasSettings && !useDebugSettings)
+            {
+                return staticTrafficJamSettings.Settings[6].SettingValue.value;
+            }
+            else
+            {
+                return carSpawnBias;
             }
         }
     }

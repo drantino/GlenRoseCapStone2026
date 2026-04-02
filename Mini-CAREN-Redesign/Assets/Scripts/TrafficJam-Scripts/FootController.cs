@@ -93,8 +93,8 @@ public class FootController : MonoBehaviour
 		{
 			if (!CalibrationLogic.NotEnoughtMarkers)
 			{
-				leftFootPosition = new Vector3(leftFootPosition.x, calibrationLogic.optitrackClient.m_latestMarkerStates[CalibrationLogic.leftFootMarkerId].Position.y, leftFootPosition.z);
-				rightFootPosition = new Vector3(rightFootPosition.x, calibrationLogic.optitrackClient.m_latestMarkerStates[CalibrationLogic.rightFootMarkerId].Position.y, rightFootPosition.z);
+				leftFootPosition = new Vector3(leftFootPosition.x, calibrationLogic.optitrackClient.m_latestMarkerStates[CalibrationLogic.leftFootMarkerId].Position.y - CalibrationLogic.leftFootPosition.y, leftFootPosition.z);
+				rightFootPosition = new Vector3(rightFootPosition.x, calibrationLogic.optitrackClient.m_latestMarkerStates[CalibrationLogic.rightFootMarkerId].Position.y - CalibrationLogic.rightFootPosition.y, rightFootPosition.z);
 			}
 		}
 
