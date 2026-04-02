@@ -22207,6 +22207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 385082634}
     - target: {fileID: 232056929162868474, guid: 63238d33a3a7bb244be99c8acc5f37c8, type: 3}
+      propertyPath: calibrationLogic
+      value: 
+      objectReference: {fileID: 1289710899}
+    - target: {fileID: 232056929162868474, guid: 63238d33a3a7bb244be99c8acc5f37c8, type: 3}
       propertyPath: shoeRenderImageLeft
       value: 
       objectReference: {fileID: 385082634}
