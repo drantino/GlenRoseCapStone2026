@@ -14,7 +14,7 @@ public class TrafficJamUIManager : MonoBehaviour
     private TextMeshProUGUI leftCarsPassedText, rightCarsPassedText, leftCarsSquishedText, rightCarsSquishedText,
         timerText, leftRatioText, leftPercentageText, rightRatioText, rightPercentageText, countdownText,
         statisticsTimer, statisticsCarPassed, statisticsCarsSquished, statisticsCarsDetoured, statisticsLeftPassed, statisticsRightPassed, statisticsLeftSquished, statisticsRightSquished, statisticsLeftDetoured, statisticsRightDetoured, roundTimeValueTxt;
-    [SerializeField] private GameObject countdownPanel, pausePanel, endPanel;
+    [SerializeField] private GameObject countdownPanel, pausePanel, endPanel, runTimeStatisicsPanel;
 
     // Number Properties
     public int LeftCarsPassed { set { leftCarsPassedText.text = $"{value}"; } }
@@ -27,6 +27,7 @@ public class TrafficJamUIManager : MonoBehaviour
     public bool CountdownPanelActive { set { countdownPanel.SetActive(value); } }
     public bool PausePanelActive { set { pausePanel.SetActive(value); } }
     public bool EndPanelActive { set { endPanel.SetActive(value); } }
+    public bool RunTimeStatisicsPanel { set { runTimeStatisicsPanel.SetActive(value); } }
 
 
     private void Update()
@@ -54,6 +55,7 @@ public class TrafficJamUIManager : MonoBehaviour
 
     public void ResetText()
     {
+
         leftCarsPassedText.text = "0";
         leftCarsSquishedText.text = "0";
         leftRatioText.text = "0 / 0";
@@ -68,6 +70,7 @@ public class TrafficJamUIManager : MonoBehaviour
 
     public void ShowEndResults(float leftAmount, float leftPassed, float rightAmount, float rightPassed)
     {
+        runTimeStatisicsPanel.SetActive(false);
         float leftScore = 100;
         float rightScore = 100;
 
@@ -95,7 +98,7 @@ public class TrafficJamUIManager : MonoBehaviour
         }
         else
         {
-            roundTimeValueTxt.text = $"{minutes}:{seconds}";
+            roundTimeValueTxt.text = $"{minutes}:   {seconds}";
         }
 
 

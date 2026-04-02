@@ -58,6 +58,7 @@ public class TrafficJamGameManager : MonoBehaviour
         UIManager.PausePanelActive = false;
         UIManager.EndPanelActive = false;
         UIManager.CountdownPanelActive = true;
+        UIManager.RunTimeStatisicsPanel = true;
 
         leftSpawner.gameObject.SetActive(false);
         rightSpawner.gameObject.SetActive(false);

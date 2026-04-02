@@ -19813,6 +19813,7 @@ MonoBehaviour:
   countdownPanel: {fileID: 2108543385}
   pausePanel: {fileID: 312435398649334079}
   endPanel: {fileID: 352612271}
+  runTimeStatisicsPanel: {fileID: 1039417525}
 --- !u!4 &1549163298
 Transform:
   m_ObjectHideFlags: 0
