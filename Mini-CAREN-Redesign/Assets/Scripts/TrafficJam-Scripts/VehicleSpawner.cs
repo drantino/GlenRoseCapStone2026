@@ -69,14 +69,18 @@ public class VehicleSpawner : MonoBehaviour
     }
 
     protected virtual void Update()
-    {        
+    {
         timeUntilNextSpawn -= Time.deltaTime;
         if (timeUntilNextSpawn < 0)
         {
             timeUntilNextSpawn = GetNextSpawnTime();
             if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
             {
-                SpawnCar();
+                if (footTag == "LeftShoe" && Random.Range(0, 101) < gameManager.settings.CarSpawnBias
+                    || footTag == "RightShoe" && Random.Range(0, 101) > gameManager.settings.CarSpawnBias)
+                {
+                    SpawnCar();
+                }
             }
         }
     }

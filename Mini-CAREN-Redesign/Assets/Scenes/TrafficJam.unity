@@ -2085,7 +2085,7 @@ MonoBehaviour:
   emergencyVehicleSideBias: 50
   emergencyVehicleActive: 1
   masterVolume: 1
-  carSpawnBias: 0
+  carSpawnBias: 50
 --- !u!1 &120933071
 GameObject:
   m_ObjectHideFlags: 0
