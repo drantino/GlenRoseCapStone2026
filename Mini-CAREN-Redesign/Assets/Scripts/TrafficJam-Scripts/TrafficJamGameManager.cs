@@ -147,7 +147,10 @@ public class TrafficJamGameManager : MonoBehaviour
         };
 
         TrafficJamSaveSystem.AddRoundData(roundData);
-    }
+
+        AudioPlayer.Play(Sound.RoundEnd);
+
+	}
 
     // The timer raises or lowers when the operator/therapist adjusts the time, instead of completely resetting
     public void SetUpTimer(int timerLengthSeconds)
