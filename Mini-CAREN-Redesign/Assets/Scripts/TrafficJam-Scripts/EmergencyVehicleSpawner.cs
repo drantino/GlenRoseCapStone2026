@@ -21,18 +21,18 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 	protected override void Update()
 	{
-		if (gameManager.settings.EmergencyVehicleActive)
-		{
-            timeUntilNextSpawn -= Time.deltaTime;
-            if (timeUntilNextSpawn < 0)
-            {
-				timeUntilNextSpawn = GetNextSpawnTime();
-				if (currentCarsInLane < maxCarsInLane)
-                {
-                    SpawnCar();
-                }
-            }
-        }
+		//if (gameManager.settings.EmergencyVehicleActive)
+		//{
+  //          timeUntilNextSpawn -= Time.deltaTime;
+  //          if (timeUntilNextSpawn < 0)
+  //          {
+		//		timeUntilNextSpawn = GetNextSpawnTime();
+		//		if (currentCarsInLane < maxCarsInLane)
+  //              {
+  //                  TrySpawnCar();
+  //              }
+  //          }
+  //      }
         
 
         // if there is an emergency vehicle, stop traffic.
@@ -70,8 +70,16 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 	{
 		return Random.Range( Mathf.Clamp(spawnRateSec - spawnRateVarianceSec, minTimeBetweenVehicleSpawns, 100), spawnRateSec + spawnRateVarianceSec);
 	}
-	protected override void SpawnCar()
+	public override bool TrySpawnCar()
 	{
+		// if the lane is full, don't spawn
+		if (currentCarsInLane >= maxCarsInLane)
+			return false;
+
+		// if there is a vehicle in the way, don't spawn
+		if (Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
+			return false;
+
 		// choose randomly wether to spawn this vehicle on the left lane, or right lane.
 		spawnCarOnLeft = Random.value > gameManager.settings.EmergencyVehicleBias/100;
 
@@ -106,6 +114,8 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		VehicleList.Add(instantiatedVehicleScript);
 
 		sirenLoop.FadeIn(sirenFadeTime);
+
+		return true;
 	}
 
 	//public override void RemovingVehicle(GameObject _Vehicle)

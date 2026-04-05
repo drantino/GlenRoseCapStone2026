@@ -6,6 +6,7 @@ public class TrafficJamGameManager : MonoBehaviour
 {
     [SerializeField] private TrafficJamUIManager UIManager;
     [SerializeField] private VehicleSpawner leftSpawner, rightSpawner;
+    [SerializeField] private VehicleSpawnController vehicleSpawnController;
     [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
     public TrafficJamSettings settings;
     public int leftAmount, leftPassed, leftSquished, leftDetoured, rightAmount, rightPassed, rightSquished, rightDetoured;
@@ -41,9 +42,9 @@ public class TrafficJamGameManager : MonoBehaviour
             }
             UIManager.UpdateTimer(endTime - Time.fixedTime);
         }
-    }
+	}
 
-    [ContextMenu("Start Game")]
+	[ContextMenu("Start Game")]
     public void StartGame()
     {
         //Reset game values
@@ -60,8 +61,9 @@ public class TrafficJamGameManager : MonoBehaviour
         UIManager.CountdownPanelActive = true;
         UIManager.RunTimeStatisicsPanel = true;
 
-        leftSpawner.gameObject.SetActive(false);
-        rightSpawner.gameObject.SetActive(false);
+        //leftSpawner.gameObject.SetActive(false);
+        //rightSpawner.gameObject.SetActive(false);
+        vehicleSpawnController.spawningEnabled = false;
         emergencySpawner.gameObject.SetActive(false);
 
         //Remove cars
@@ -194,18 +196,12 @@ public class TrafficJamGameManager : MonoBehaviour
 
         AudioPlayer.Play(Sound.GameStart);
 
-        leftSpawner.gameObject.SetActive(true);
-        rightSpawner.gameObject.SetActive(true);
+        //leftSpawner.gameObject.SetActive(true);
+        //rightSpawner.gameObject.SetActive(true);
+        vehicleSpawnController.spawningEnabled = true;
         emergencySpawner.gameObject.SetActive(true);
 
-        if (Random.Range(0, 2) == 1)
-        {
-            leftSpawner.ForceVehicleSpawn();
-        }
-        else
-        {
-            rightSpawner.ForceVehicleSpawn();
-        }
+        vehicleSpawnController.ForceVehicleSpawn();
 
         SetUpTimer((int)(settings.GameTime*60));
         UIManager.CountdownPanelActive = false;

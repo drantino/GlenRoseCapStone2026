@@ -2056,6 +2056,7 @@ MonoBehaviour:
   UIManager: {fileID: 1549163297}
   leftSpawner: {fileID: 8996286738346057528}
   rightSpawner: {fileID: 8996286738792908710}
+  vehicleSpawnController: {fileID: 1655145161}
   emergencySpawner: {fileID: 2765643277328705669}
   settings: {fileID: 114059193}
   leftAmount: 0
@@ -4873,6 +4874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1655145160}
   - {fileID: 398815070}
   - {fileID: 1572633292}
   - {fileID: 1249987874}
@@ -21436,6 +21438,62 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1655145159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655145160}
+  - component: {fileID: 1655145161}
+  m_Layer: 0
+  m_Name: Vehicle Spawn Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1655145160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655145159}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 349556044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655145161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655145159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894799f4db4df954886762cb518d273a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 114059191}
+  leftSpawner: {fileID: 8996286738346057528}
+  rightSpawner: {fileID: 8996286738792908710}
+  emergencySpawner: {fileID: 2765643277328705669}
+  spawningEnabled: 0
+  emergencyVehicleSpawnRate: 25
+  spawnRateVarianceSec: 3
+  minTimeBetweenSpawns: 0
+  emergencySpawnRateVarianceSec: 7
+  emergencyMinTimeBetweenSpawns: 3
+  timeUntilNextVehicleSpawn: 0
+  timeUntilNextEmergencyVehicleSpawn: 0
 --- !u!1001 &1657394541
 PrefabInstance:
   m_ObjectHideFlags: 0

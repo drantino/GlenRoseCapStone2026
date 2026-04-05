@@ -70,19 +70,19 @@ public class VehicleSpawner : MonoBehaviour
 
     protected virtual void Update()
     {
-        timeUntilNextSpawn -= Time.deltaTime;
-        if (timeUntilNextSpawn < 0)
-        {
-            timeUntilNextSpawn = GetNextSpawnTime();
-            if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
-            {
-                if (footTag == "LeftShoe" && Random.Range(0, 101) < gameManager.settings.CarSpawnBias
-                    || footTag == "RightShoe" && Random.Range(0, 101) > gameManager.settings.CarSpawnBias)
-                {
-                    SpawnCar();
-                }
-            }
-        }
+        //timeUntilNextSpawn -= Time.deltaTime;
+        //if (timeUntilNextSpawn < 0)
+        //{
+        //    timeUntilNextSpawn = GetNextSpawnTime();
+        //    if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
+        //    {
+        //        if (footTag == "LeftShoe" && Random.Range(0, 101) < gameManager.settings.CarSpawnBias
+        //            || footTag == "RightShoe" && Random.Range(0, 101) > gameManager.settings.CarSpawnBias)
+        //        {
+        //            SpawnCar();
+        //        }
+        //    }
+        //}
     }
 
     protected virtual float GetNextSpawnTime()
@@ -90,10 +90,22 @@ public class VehicleSpawner : MonoBehaviour
         return Random.Range( Mathf.Clamp(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, minTimeBetweenVehicleSpawns, 100), gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
 	}
 
-    protected virtual void SpawnCar()
+    /// <summary>
+    /// Attempts to spawn a vehicle from this spawner
+    /// </summary>
+    /// <returns>If the car was spawned or not</returns>
+    public virtual bool TrySpawnCar()
     {
-        // select random vehicle prefab
-        GameObject prefab;
+        // if the lane is full, don't spawn
+        if (currentCarsInLane >= maxCarsInLane)
+            return false;
+
+        // if there is a vehicle in the way, don't spawn
+        if (Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
+            return false;
+
+		// select random vehicle prefab
+		GameObject prefab;
         bool isLong = false;
         if (gameManager.settings.CarLength >= 2 && Random.Range(0f, 1f) <= longVehicleSpawnProbability)
         {
@@ -124,6 +136,7 @@ public class VehicleSpawner : MonoBehaviour
         // add vehicle data to be referenced later
         VehicleList.Add(instantiatedVehicleScript);
 
+        return true;
     }
 
     public virtual void RemovingVehicle(GameObject _Vehicle)
@@ -147,12 +160,6 @@ public class VehicleSpawner : MonoBehaviour
 
     public void ResetVehicleList()
     {
-        // foreach (GameObject vech in VehicleList)
-        // {
-        //     Destroy(vech);
-        // }
-        // VehicleList.Clear();
-
         foreach (Vehicle vehi in VehicleList)
         {
             Destroy(vehi.gameObject);
@@ -176,15 +183,15 @@ public class VehicleSpawner : MonoBehaviour
         }
     }
 
-    [ContextMenu("Force Vehicle Spawn")]
-    public void ForceVehicleSpawn()
-    {
-        if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
-        {
-            timeUntilNextSpawn = GetNextSpawnTime();
-            SpawnCar();
-        }
-    }
+    //[ContextMenu("Force Vehicle Spawn")]
+    //public void ForceVehicleSpawn()
+    //{
+    //    if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
+    //    {
+    //        timeUntilNextSpawn = GetNextSpawnTime();
+    //        TrySpawnCar();
+    //    }
+    //}
 
     // Method is currently unused due to it causing a ton of lag. Feel free to remove during final cleanup
     public bool IsLastInLine(GameObject vehicle)

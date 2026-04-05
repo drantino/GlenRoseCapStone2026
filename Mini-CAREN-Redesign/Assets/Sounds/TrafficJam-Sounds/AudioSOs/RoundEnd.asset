@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RoundEnd
   m_EditorClassIdentifier: 
   soundName: 6
-  audioClip: {fileID: 8300000, guid: 257d17145f245bd45ad75831c400a705, type: 3}
-  volume: 1
+  audioClip: {fileID: 8300000, guid: f86896da3c8e29247a88e2b60d7561bf, type: 3}
+  volume: 0.5
