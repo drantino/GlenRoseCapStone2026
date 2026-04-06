@@ -1041,9 +1041,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 542081316028319782, guid: 6fcce1ee75ae18742bde8946a0085b1b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1180647551253301279, guid: 6fcce1ee75ae18742bde8946a0085b1b, type: 3}
       propertyPath: m_Mass
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180647551253301279, guid: 6fcce1ee75ae18742bde8946a0085b1b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1690781876427562043, guid: 6fcce1ee75ae18742bde8946a0085b1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2101,7 +2109,7 @@ MonoBehaviour:
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
   useDebugSettings: 1
-  gameTime: 0.25
+  gameTime: 1.5
   heightThreshold: 0.5
   carSpeed: 3
   carSpawnInterval: 8
@@ -26915,9 +26923,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4535956431527360472, guid: 1f319d48ea796f04ba777d0c9fd88e3a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7070750662898066737, guid: 1f319d48ea796f04ba777d0c9fd88e3a, type: 3}
       propertyPath: m_Mass
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070750662898066737, guid: 1f319d48ea796f04ba777d0c9fd88e3a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
