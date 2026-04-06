@@ -49,9 +49,10 @@ public class TrafficJamGameManager : MonoBehaviour
     {
         //Reset game values
         startTime = Time.fixedTime + 3;
-        Time.timeScale = 1;
         countdownTime = 3;
         isPlaying = false;
+
+        UnPause();
 
         // reset score
         ResetValues();

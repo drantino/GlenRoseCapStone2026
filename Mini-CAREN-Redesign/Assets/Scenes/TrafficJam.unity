@@ -2101,7 +2101,7 @@ MonoBehaviour:
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
   useDebugSettings: 1
-  gameTime: 2
+  gameTime: 0.25
   heightThreshold: 0.5
   carSpeed: 3
   carSpawnInterval: 8
