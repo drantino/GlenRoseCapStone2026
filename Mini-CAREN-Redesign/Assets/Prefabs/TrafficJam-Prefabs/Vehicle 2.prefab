@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8083836922111704343}
   - component: {fileID: 5120738811957593860}
   - component: {fileID: 2169832125516911363}
+  - component: {fileID: -7886409411608888727}
+  - component: {fileID: 6186474750445643939}
   m_Layer: 0
   m_Name: Vehicle 2
   m_TagString: Vehicle
@@ -98,6 +100,60 @@ MonoBehaviour:
   squished: 0
   detouring: 0
   isLong: 0
+--- !u!114 &-7886409411608888727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258505706416592736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b39ab43b84eec84ea347650b4f144ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFilters:
+  - {fileID: 2682790792357480054}
+  - {fileID: 2945995964039599672}
+  deformationMode: 0
+  deformResolution: 100
+  deformFilter:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  randomizeVertices: 1.46
+  deformRadius: 100
+  deformMultiplier: 100
+  maximumDeformation: 80
+  minimumDeformationImpulse: 0.1
+  repairState: 1
+  deformState: 1
+  collisionDirection: {fileID: 0}
+  recalculateNormals: 1
+  recalculateBounds: 1
+  overallDeform: 0
+  latestProcessedVertexCount: 0
+--- !u!64 &6186474750445643939
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258505706416592736}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7254873862139596138, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
 --- !u!1 &7077391735375925560
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272268417436794712}
+  - component: {fileID: 6463823378949785935}
   m_Layer: 0
   m_Name: BoxCast Start Pos
   m_TagString: Untagged
@@ -129,6 +186,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8083836922111704343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6463823378949785935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077391735375925560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a0edad418807b4fa7a9e7bc3a34ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8158564348847658314
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9159199453286041667}
   - component: {fileID: 3010937992624914704}
+  - component: {fileID: 9157432745011460525}
   m_Layer: 0
   m_Name: Vehicle Hitbox
   m_TagString: Vehicle
@@ -176,12 +246,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.89, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9157432745011460525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158564348847658314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a0edad418807b4fa7a9e7bc3a34ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1521744892321754680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -257,7 +339,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3472533592055534098}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8528667262173770485}
   m_SourcePrefab: {fileID: 100100000, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
 --- !u!4 &1338954026215475667 stripped
 Transform:
@@ -267,6 +355,45 @@ Transform:
 --- !u!1 &1864273895974458217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
+  m_PrefabInstance: {fileID: 1521744892321754680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3472533592055534098
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864273895974458217}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7254873862139596138, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
+--- !u!114 &8528667262173770485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864273895974458217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a0edad418807b4fa7a9e7bc3a34ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!33 &2682790792357480054 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: -5754084199372789682, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
   m_PrefabInstance: {fileID: 1521744892321754680}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1785436805938740854
@@ -347,14 +474,39 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6833121151116403577}
+      addedObject: {fileID: 1798454032556008825}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4498105725746293892}
   m_SourcePrefab: {fileID: 100100000, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
 --- !u!1 &1442924849146086183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
   m_PrefabInstance: {fileID: 1785436805938740854}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6833121151116403577
+--- !u!64 &1798454032556008825
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442924849146086183}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7254873862139596138, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
+--- !u!114 &4498105725746293892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,28 +515,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1442924849146086183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b39ab43b84eec84ea347650b4f144ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 16a0edad418807b4fa7a9e7bc3a34ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshFilters:
-  - {fileID: 2945995964039599672}
-  deformationMode: 0
-  deformResolution: 100
-  deformFilter:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  randomizeVertices: 1.09
-  deformRadius: 100
-  deformMultiplier: 100
-  maximumDeformation: 100
-  minimumDeformationImpulse: 0.1
-  repairState: 1
-  deformState: 1
-  collisionDirection: {fileID: 0}
-  recalculateNormals: 1
-  recalculateBounds: 1
-  overallDeform: 0
-  latestProcessedVertexCount: 0
 --- !u!4 &2255630708764547485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
