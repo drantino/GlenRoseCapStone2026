@@ -115,7 +115,7 @@ public class FootController : MonoBehaviour
 		}
         #endregion
 
-		//Set visual feet to read position of markers TODO: allow recalibrate to set the new "zero" point
+		//Set visual feet to read position of markers
 		if (leftFoot != null)
 		{
 			leftFoot.transform.position = new Vector3(leftFootPosition.x, leftFootPosition.y * 4, leftFootPosition.z);

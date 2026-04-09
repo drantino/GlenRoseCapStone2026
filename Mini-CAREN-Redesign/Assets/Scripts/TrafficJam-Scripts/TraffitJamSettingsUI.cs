@@ -52,6 +52,10 @@ public class TraffitJamSettingsUI : MonoBehaviour
 
         filePathTextMesh.text = filePath;
 	}
+    public void OnSaveCancelPressed()
+    {
+        saveSessionPanel.SetActive(false);
+    }
 
     public void OnPlayerNameChanged()
     {
