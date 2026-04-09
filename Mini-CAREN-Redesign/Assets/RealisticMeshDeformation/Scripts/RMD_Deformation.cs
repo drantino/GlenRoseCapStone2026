@@ -255,7 +255,7 @@ public class RMD_Deformation : MonoBehaviour {
     /// </summary>
     /// <param name="collision"></param>
     /// <param name="impulse"></param>
-    private void DamageMesh(float impulse) {
+    public void DamageMesh(float impulse) {
         Debug.Log($"Damaging Mesh with impulse of: {impulse}");
         if (originalMeshData == null || originalMeshData.Length < 1)
             CheckMeshData();

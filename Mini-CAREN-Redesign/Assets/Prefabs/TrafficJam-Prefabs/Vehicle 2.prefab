@@ -96,6 +96,7 @@ MonoBehaviour:
   originalYRotation: 0
   detourZPos: 0
   detourEnabled: 0
+  deformationImpulse: 0.1
   squished: 0
   detouring: 0
   isLong: 0
@@ -119,10 +120,10 @@ MonoBehaviour:
   deformFilter:
     serializedVersion: 2
     m_Bits: 4294967295
-  randomizeVertices: 1.46
-  deformRadius: 500
-  deformMultiplier: 500
-  maximumDeformation: 200
+  randomizeVertices: 2.13
+  deformRadius: 50
+  deformMultiplier: 50
+  maximumDeformation: 100
   minimumDeformationImpulse: 0.1
   repairState: 1
   deformState: 1

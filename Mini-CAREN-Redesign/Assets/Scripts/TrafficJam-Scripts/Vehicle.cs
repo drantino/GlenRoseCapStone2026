@@ -26,11 +26,15 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] private float originalYRotation;
 	public float detourZPos;
 	public bool detourEnabled;
-	
+
+	[SerializeField] private float deformationImpulse;
 
 	public bool squished = false, detouring = false, isLong = false;
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
+
+	private RMD_Deformation deformationScript;
+
 	protected virtual void Start()
 	{
 		if (vehicleModel == null)
@@ -47,6 +51,7 @@ public class Vehicle : MonoBehaviour
 
 		originalYRotation = transform.eulerAngles.y;
 
+		deformationScript = GetComponent<RMD_Deformation>();
 	}
 
 	private void Update()
@@ -162,6 +167,9 @@ public class Vehicle : MonoBehaviour
 		squished = true;
 		vehicleModel.SetActive(false);
 		vehicleSquishedModel?.SetActive(true);
+
+		if (deformationScript != null)
+			deformationScript.DamageMesh(deformationImpulse);
 	}
 
 	private IEnumerator DetourCountdown()
