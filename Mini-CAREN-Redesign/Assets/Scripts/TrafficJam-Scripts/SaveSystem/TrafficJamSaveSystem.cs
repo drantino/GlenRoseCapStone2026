@@ -41,6 +41,19 @@ public class TrafficJamSaveSystem : MonoBehaviour
 		DateTime time = DateTime.Now;
 
 		string fileName = $"{instance.sessionData.playerName}_{time.Month}-{time.Day}-{time.Year}_{time.Hour}-{time.Minute}-{time.Second}";
+
+		if (!Directory.Exists($"{Application.dataPath}/SessionSaves"))
+		{
+			try
+			{
+				Directory.CreateDirectory($"{Application.dataPath}/SessionSaves");
+			}
+			catch { 
+				Debug.LogWarning("Failed to create path.");
+				return string.Empty;
+			}
+		}
+
 		string filePath = $"{Application.dataPath}/SessionSaves/{fileName}.txt";
 		string json = JsonUtility.ToJson(instance.sessionData, true);
 		File.WriteAllText(filePath, json);
