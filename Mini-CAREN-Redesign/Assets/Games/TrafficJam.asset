@@ -63,8 +63,8 @@ MonoBehaviour:
       units: Seconds
       LiveSetting: 1
     sliderisWholeNumber: 1
-  - cardName: Car Lengths
-    cardDescription: The size of the car
+  - cardName: Vehicle Length
+    cardDescription: The size of the vehicle that can spawn
     cardImage: {fileID: 21300000, guid: d745730b3fe6a9b4fbb758df14c83c67, type: 3}
     SettingValue:
       value: 1
@@ -84,7 +84,7 @@ MonoBehaviour:
       LiveSetting: 1
     sliderisWholeNumber: 1
   - cardName: Vehicle spawn side bias
-    cardDescription: Volume of the TrafficJam game
+    cardDescription: Which side the vehicle will likely spawn
     cardImage: {fileID: 21300000, guid: 8d0dba949ac399048800c8755618ec02, type: 3}
     SettingValue:
       value: 50
