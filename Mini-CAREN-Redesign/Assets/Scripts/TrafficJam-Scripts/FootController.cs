@@ -88,7 +88,7 @@ public class FootController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //TODO: update foot position to left and right markers
+
 		if (!debugMode)
 		{
 			if (!CalibrationLogic.NotEnoughtMarkers)
@@ -115,17 +115,17 @@ public class FootController : MonoBehaviour
 		}
         #endregion
 
-		//Set visual feet to read position of markers TODO: allow recalibrate to set the new "zero" point
+		//Set visual feet to read position of markers
 		if (leftFoot != null)
 		{
-			leftFoot.transform.position = leftFootPosition;
+			leftFoot.transform.position = new Vector3(leftFootPosition.x, leftFootPosition.y * 4, leftFootPosition.z);
 		}
 		if (rightFoot != null)
 		{
-			rightFoot.transform.position = rightFootPosition;
+			rightFoot.transform.position = new Vector3(rightFootPosition.x, rightFootPosition.y * 4, rightFootPosition.z);
 		}
 
-		//TODO: change min/max height and threshold to settings of the Game object gamesettings
+
 		if (gameManager != null)
 		{
 			//Height controller for colliders
