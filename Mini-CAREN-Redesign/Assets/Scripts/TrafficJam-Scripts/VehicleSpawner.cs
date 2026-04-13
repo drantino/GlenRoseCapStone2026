@@ -7,24 +7,16 @@ public class VehicleSpawner : MonoBehaviour
 {
 	[HideInInspector] public int currentCarsInLane = 0;
     
-	[SerializeField] protected float spawnRateVarianceSec;
-    [SerializeField] protected float minTimeBetweenVehicleSpawns;
 	[SerializeField] protected float maxCarsInLane;
-	//[SerializeField] protected float timeOffset; // subtracted from only the first timeUntilNextSpawn
     public TrafficJamGameManager gameManager;
-    // Since we only have one car type/model, we only need one game object for the prefabs.
-    
+
     [SerializeField] protected GameObject[] vehiclePrefabs;
     [SerializeField] protected GameObject[] longVehiclePrefabs;
 
-    //public bool spawnLongVehicles; changed to setting.CarLengths
     public float longVehicleSpawnProbability;
-    
-    // TODO: Not needed but turning this into an enum would prevent errors from spelling mistakes.
-    public string footTag;
 
-    [SerializeField]
-	protected float timeUntilNextSpawn;
+    public string footTag;
+    
     // Only the z axis matters for detourPos. This transform exists to easily manipulate where the z point is.
     [SerializeField] protected Transform detourPos;
     public float antiDoubleSpawnRayLength;
@@ -60,35 +52,13 @@ public class VehicleSpawner : MonoBehaviour
 			throw new System.Exception("Vehicle spawner must have at least one car prefab.");
 		}
 
-		timeUntilNextSpawn = GetNextSpawnTime();
+		//timeUntilNextSpawn = GetNextSpawnTime();
 		// Temp statement to notify of spelling mistakes.
 		if (footTag != "LeftShoe" && footTag != "RightShoe")
         {
             Debug.LogWarning("Variable 'footTag' was not given either 'LeftShoe' or 'RightShoe' as a value. Please correct before running the project again.");
         }
     }
-
-    protected virtual void Update()
-    {
-        //timeUntilNextSpawn -= Time.deltaTime;
-        //if (timeUntilNextSpawn < 0)
-        //{
-        //    timeUntilNextSpawn = GetNextSpawnTime();
-        //    if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
-        //    {
-        //        if (footTag == "LeftShoe" && Random.Range(0, 101) < gameManager.settings.CarSpawnBias
-        //            || footTag == "RightShoe" && Random.Range(0, 101) > gameManager.settings.CarSpawnBias)
-        //        {
-        //            SpawnCar();
-        //        }
-        //    }
-        //}
-    }
-
-    protected virtual float GetNextSpawnTime()
-    {
-        return Random.Range( Mathf.Clamp(gameManager.settings.CarSpawnInterval - spawnRateVarianceSec, minTimeBetweenVehicleSpawns, 100), gameManager.settings.CarSpawnInterval + spawnRateVarianceSec);
-	}
 
     /// <summary>
     /// Attempts to spawn a vehicle from this spawner
@@ -176,35 +146,14 @@ public class VehicleSpawner : MonoBehaviour
         passedVehiclesTraveling++;
         if (currentCarsInLane >= maxCarsInLane)
         {
-            //VehicleList[(int)(maxCarsInLane - 1)].detourEnabled = false;
-            //VehicleList[(int)(maxCarsInLane - 1)].StopAllCoroutines();
             VehicleList[VehicleList.Count - 1].detourEnabled = false;
             VehicleList[VehicleList.Count - 1].StopAllCoroutines();
         }
     }
-
-    //[ContextMenu("Force Vehicle Spawn")]
-    //public void ForceVehicleSpawn()
-    //{
-    //    if (currentCarsInLane < maxCarsInLane && !Physics.Raycast(transform.position, transform.forward, antiDoubleSpawnRayLength))
-    //    {
-    //        timeUntilNextSpawn = GetNextSpawnTime();
-    //        TrySpawnCar();
-    //    }
-    //}
-
+    
     // Method is currently unused due to it causing a ton of lag. Feel free to remove during final cleanup
     public bool IsLastInLine(GameObject vehicle)
     {
-        // if (VehicleList.Count > maxCarsInLane)
-        //     throw new System.Exception("There are more vehicles in the scene then the maximum.");
-
-        // bool v = false;
-        // if (VehicleList.Count == maxCarsInLane)
-        // {
-        //     v = VehicleList[(int)(maxCarsInLane - 1)] == vehicle;
-        // }
-        // return v;
         if (VehicleList.Count > maxCarsInLane)
             throw new System.Exception("There are more vehicles in the scene then the maximum.");
 

@@ -31937,8 +31937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 5
-  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 1
   gameManager: {fileID: 114059191}
   vehiclePrefabs:
@@ -31946,7 +31944,6 @@ MonoBehaviour:
   longVehiclePrefabs: []
   longVehicleSpawnProbability: 0
   footTag: LeftShoe
-  timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   antiDoubleSpawnRayLength: 0
   spawnRateSec: 30
@@ -32375,8 +32372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 3
-  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 4
   gameManager: {fileID: 114059191}
   vehiclePrefabs:
@@ -32388,7 +32383,6 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
   footTag: LeftShoe
-  timeUntilNextSpawn: 0
   detourPos: {fileID: 1486782365}
   antiDoubleSpawnRayLength: 2.5
 --- !u!114 &8996286738792908710
@@ -32404,8 +32398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 3
-  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 4
   gameManager: {fileID: 114059191}
   vehiclePrefabs:
@@ -32417,7 +32409,6 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
   footTag: RightShoe
-  timeUntilNextSpawn: 0
   detourPos: {fileID: 751160495}
   antiDoubleSpawnRayLength: 2.5
 --- !u!1660057539 &9223372036854775807

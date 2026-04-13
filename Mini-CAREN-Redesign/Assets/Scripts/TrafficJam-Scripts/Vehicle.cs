@@ -27,13 +27,9 @@ public class Vehicle : MonoBehaviour
 	public float detourZPos;
 	public bool detourEnabled;
 
-	[SerializeField] private float deformationImpulse;
-
 	public bool squished = false, detouring = false, isLong = false;
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
-
-	public RMD_Deformation deformationScript;
 
 	protected virtual void Start()
 	{
@@ -152,15 +148,6 @@ public class Vehicle : MonoBehaviour
 		squished = true;
 		vehicleModel.SetActive(false);
 		vehicleSquishedModel?.SetActive(true);
-
-
-		deformationScript.contactPointPoint = transform.position;
-		deformationScript.normal = Vector3.down;
-
-		deformationScript.repairState = RMD_Deformation.RepairState.Repaired;
-		deformationScript.deformState = RMD_Deformation.DeformState.Deforming;
-
-		deformationScript.DamageMesh(deformationImpulse);
 	}
 
 	private IEnumerator DetourCountdown()

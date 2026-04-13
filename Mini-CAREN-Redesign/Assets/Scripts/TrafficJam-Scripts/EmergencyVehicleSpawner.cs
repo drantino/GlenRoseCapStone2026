@@ -17,11 +17,8 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 	private bool spawnCarOnLeft = false;
 
-	protected override void Update()
+	private void Update()
 	{
-		
-        
-
         // if there is an emergency vehicle, stop traffic.
         if (vehiclesNotPassedIntersection > 0)
 		{
@@ -52,11 +49,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 				gate.Open();
 		}
 	}
-
-	protected override float GetNextSpawnTime()
-	{
-		return Random.Range( Mathf.Clamp(spawnRateSec - spawnRateVarianceSec, minTimeBetweenVehicleSpawns, 100), spawnRateSec + spawnRateVarianceSec);
-	}
+	
 	public override bool TrySpawnCar()
 	{
 		// if the lane is full, don't spawn
