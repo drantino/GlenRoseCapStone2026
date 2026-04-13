@@ -18,7 +18,6 @@ public class ScorePopupPool : MonoBehaviour
 		for (int i = 0; i < numberOfObjects; i++)
 		{
 			ScorePopup popup = Instantiate(scorePopupPrefab).GetComponent<ScorePopup>();
-			//popup.gameObject.SetActive(false);
 			popup.pool = this;
 			popup.transform.position = transform.position;
 
@@ -48,7 +47,6 @@ public class ScorePopupPool : MonoBehaviour
 
 	public void Return(ScorePopup popup)
 	{
-		//popup.gameObject.SetActive(false);
 		activeScorePopups.Remove(popup);
 		inactiveScorePopups.Add(popup);
 	}

@@ -10,7 +10,7 @@ public class TrafficJamGameManager : MonoBehaviour
     [SerializeField] private EmergencyVehicleSpawner emergencySpawner;
     public TrafficJamSettings settings;
     public int leftAmount, leftPassed, leftSquished, leftDetoured, rightAmount, rightPassed, rightSquished, rightDetoured;
-    //public int TEMPGameTimeStartSec;
+
     private bool isPlaying;
     
     //TEMP: Serialize to view in editor
@@ -20,9 +20,6 @@ public class TrafficJamGameManager : MonoBehaviour
 
 
     public AudioLoop[] audioToMuteOnPause;
-
-    //public int leftSquished => leftAmount - leftPassed;
-    //public int rightSquished => rightAmount - rightPassed;
 
     void Start()
     {
