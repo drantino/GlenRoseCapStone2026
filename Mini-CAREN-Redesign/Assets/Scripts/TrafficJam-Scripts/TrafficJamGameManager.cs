@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TrafficJamGameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class TrafficJamGameManager : MonoBehaviour
 
 
     public AudioLoop[] audioToMuteOnPause;
+    public AudioMixer audioMixer;
 
     //public int leftSquished => leftAmount - leftPassed;
     //public int rightSquished => rightAmount - rightPassed;
@@ -42,7 +44,12 @@ public class TrafficJamGameManager : MonoBehaviour
             }
             UIManager.UpdateTimer(endTime - Time.fixedTime);
         }
-	}
+
+        // audio
+        float dbVolume = Mathf.Clamp(80.0f * settings.MasterVolume - 80.0f, -80, 0);
+		audioMixer.SetFloat("masterVolume", dbVolume);
+
+    }
 
 	[ContextMenu("Start Game")]
     public void StartGame()

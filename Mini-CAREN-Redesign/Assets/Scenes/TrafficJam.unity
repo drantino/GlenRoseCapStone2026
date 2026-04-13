@@ -2079,6 +2079,7 @@ MonoBehaviour:
   audioToMuteOnPause:
   - {fileID: 2144512423}
   - {fileID: 31728344}
+  audioMixer: {fileID: 24100000, guid: 73b59c1a4c483a84cb792f82b07caca6, type: 2}
 --- !u!4 &114059192
 Transform:
   m_ObjectHideFlags: 0
@@ -24219,6 +24220,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5043960754580559456, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 73b59c1a4c483a84cb792f82b07caca6, type: 2}
     - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.46
@@ -28597,6 +28602,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6fa73c9555172ea4083b32d582ae574f, type: 3}
+    - target: {fileID: 5043960754580559456, guid: f06add58091fd4d4382c36177277da4b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 73b59c1a4c483a84cb792f82b07caca6, type: 2}
     - target: {fileID: 5080053769648367365, guid: f06add58091fd4d4382c36177277da4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.46
@@ -28909,7 +28918,7 @@ AudioSource:
   m_GameObject: {fileID: 252532801712576414}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 73b59c1a4c483a84cb792f82b07caca6, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -29320,9 +29329,6 @@ MonoBehaviour:
   gameManager: {fileID: 114059191}
   vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
-  - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
-  - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
-  - {fileID: 2919276103382703148, guid: 74b208748a10dea4d86d06f0461ad4e1, type: 3}
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
@@ -29349,9 +29355,6 @@ MonoBehaviour:
   gameManager: {fileID: 114059191}
   vehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
-  - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
-  - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
-  - {fileID: 2919276103382703148, guid: 74b208748a10dea4d86d06f0461ad4e1, type: 3}
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1

@@ -47,7 +47,9 @@ public class RMD_Deformation : MonoBehaviour {
     public bool recalculateNormals = true;      //  Recalculate normals while deforming / restoring the mesh.
     public bool recalculateBounds = true;       //  Recalculate bounds while deforming / restoring the mesh.
 
-    private ContactPoint contactPoint = new ContactPoint();
+    public ContactPoint contactPoint = new ContactPoint();
+    public Vector3 contactPointPoint;
+    public Vector3 normal;
 
     public float overallDeform = 0f;
     public int latestProcessedVertexCount = 0;
@@ -270,9 +272,9 @@ public class RMD_Deformation : MonoBehaviour {
             if (meshFilters[i] != null && meshFilters[i].mesh != null && meshFilters[i].gameObject.activeSelf) {
 
                 //  Getting closest point to the mesh. Distance value will be set to closest point of the mesh - contact point.
-                float distance = Vector3.Distance(NearestVertex(meshFilters[i].transform, meshFilters[i], contactPoint.point), contactPoint.point);
+                float distance = Vector3.Distance(NearestVertex(meshFilters[i].transform, meshFilters[i], contactPointPoint), contactPointPoint);
 
-                Quaternion collisionNormal = Quaternion.FromToRotation(Vector3.forward, contactPoint.normal);
+                Quaternion collisionNormal = Quaternion.FromToRotation(Vector3.forward, normal);
                 collisionDirection.rotation = collisionNormal;
 
                 //  If distance between contact point and closest point of the mesh is in range...
@@ -282,7 +284,7 @@ public class RMD_Deformation : MonoBehaviour {
                     Vector3[] vertices = damagedMeshData[i].meshVerts;
 
                     //  Contact point is a world space unit. We need to transform to the local space unit with mesh origin. Verticies are local space units.
-                    Vector3 point = meshFilters[i].transform.InverseTransformPoint(contactPoint.point);
+                    Vector3 point = meshFilters[i].transform.InverseTransformPoint(contactPointPoint);
 
                     for (int k = 0; k < vertices.Length; k += (int)res) {
 

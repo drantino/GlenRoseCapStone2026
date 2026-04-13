@@ -33,7 +33,7 @@ public class Vehicle : MonoBehaviour
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
 
-	private RMD_Deformation deformationScript;
+	public RMD_Deformation deformationScript;
 
 	protected virtual void Start()
 	{
@@ -50,8 +50,6 @@ public class Vehicle : MonoBehaviour
 		originalTimeUntilDespawnAfterSquish = timeUntilDespawnAfterSquish;
 
 		originalYRotation = transform.eulerAngles.y;
-
-		deformationScript = GetComponent<RMD_Deformation>();
 	}
 
 	private void Update()
@@ -168,8 +166,14 @@ public class Vehicle : MonoBehaviour
 		vehicleModel.SetActive(false);
 		vehicleSquishedModel?.SetActive(true);
 
-		if (deformationScript != null)
-			deformationScript.DamageMesh(deformationImpulse);
+
+		deformationScript.contactPointPoint = transform.position;
+		deformationScript.normal = Vector3.down;
+
+		deformationScript.repairState = RMD_Deformation.RepairState.Repaired;
+		deformationScript.deformState = RMD_Deformation.DeformState.Deforming;
+
+		deformationScript.DamageMesh(deformationImpulse);
 	}
 
 	private IEnumerator DetourCountdown()
