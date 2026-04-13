@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 7778604966257358580}
   - component: {fileID: 4258675955084283027}
   m_Layer: 0
-  m_Name: Wheel (1)
+  m_Name: Back Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5961008780937821844}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22089161, y: -0, z: -0, w: -0.9752984}
+  m_LocalRotation: {x: -0.6716647, y: -0, z: -0, w: 0.74085534}
   m_LocalPosition: {x: -2, y: 3.092, z: 3.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 514777264703431979}
   - component: {fileID: 5507760845803694038}
   m_Layer: 0
-  m_Name: Wheel
+  m_Name: Front Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6659600545336985088}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22089161, y: -0, z: -0, w: -0.9752984}
+  m_LocalRotation: {x: -0.6716647, y: -0, z: -0, w: 0.74085534}
   m_LocalPosition: {x: -2, y: 3.092, z: -7.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

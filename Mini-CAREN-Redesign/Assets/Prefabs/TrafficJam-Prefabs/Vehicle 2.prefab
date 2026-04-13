@@ -32,8 +32,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1272268417436794712}
   - {fileID: 1338954026215475667}
+  - {fileID: 1272268417436794712}
   - {fileID: 2255630708764547485}
   - {fileID: 9159199453286041667}
   m_Father: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   squished: 0
   detouring: 0
   isLong: 0
+  deformationScript: {fileID: 0}
 --- !u!114 &-7886409411608888727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +131,8 @@ MonoBehaviour:
   collisionDirection: {fileID: 0}
   recalculateNormals: 1
   recalculateBounds: 1
+  contactPointPoint: {x: 0, y: 0, z: 0}
+  normal: {x: 0, y: 0, z: 0}
   overallDeform: 0
   latestProcessedVertexCount: 0
 --- !u!1 &7077391735375925560
@@ -246,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0034328985
+      value: 0.0034327507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
       propertyPath: m_LocalRotation.w
@@ -254,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12bf8d201f247e44fab1435d5aec4d09, type: 3}
       propertyPath: m_LocalRotation.y
