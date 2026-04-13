@@ -9,6 +9,7 @@ TagManager:
   - RightShoe
   - Vehicle
   - VehicleStopper
+  - Camera-Test
   layers:
   - Default
   - TransparentFX
