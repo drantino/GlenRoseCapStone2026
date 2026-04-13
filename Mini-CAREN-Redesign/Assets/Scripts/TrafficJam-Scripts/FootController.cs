@@ -118,11 +118,11 @@ public class FootController : MonoBehaviour
 		//Set visual feet to read position of markers
 		if (leftFoot != null)
 		{
-			leftFoot.transform.position = new Vector3(leftFootPosition.x, leftFootPosition.y * 4, leftFootPosition.z);
+			leftFoot.transform.position = new Vector3(leftFootPosition.x, leftFootPosition.y * 3, leftFootPosition.z);
 		}
 		if (rightFoot != null)
 		{
-			rightFoot.transform.position = new Vector3(rightFootPosition.x, rightFootPosition.y * 4, rightFootPosition.z);
+			rightFoot.transform.position = new Vector3(rightFootPosition.x, rightFootPosition.y * 3, rightFootPosition.z);
 		}
 
 
