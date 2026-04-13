@@ -32,10 +32,6 @@ public class TrafficJamUIManager : MonoBehaviour
 
     private void Update()
     {
-        //LeftCarsPassed = TrafficJamScoreKeeper.leftFootVehiclesPassed;
-        //LeftCarsSquished = TrafficJamScoreKeeper.leftFootVehiclesSquished;
-        //RightCarsPassed = TrafficJamScoreKeeper.rightFootVehiclesPassed;
-        //RightCarsSquished = TrafficJamScoreKeeper.rightFootVehiclesSquished;
         LeftCarsPassed = gameManager.leftPassed;
         LeftCarsSquished = gameManager.leftSquished;
         RightCarsPassed = gameManager.rightPassed;
@@ -50,7 +46,6 @@ public class TrafficJamUIManager : MonoBehaviour
         statisticsLeftDetoured.text = gameManager.leftDetoured.ToString();
         statisticsRightDetoured.text = gameManager.rightDetoured.ToString();
 
-        //UpdateTimer(Timer.GetTime());
     }
 
     public void ResetText()

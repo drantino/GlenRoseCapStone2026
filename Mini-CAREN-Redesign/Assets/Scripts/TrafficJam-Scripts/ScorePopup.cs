@@ -15,7 +15,6 @@ public class ScorePopup : MonoBehaviour
     
     public void Enable()
 	{
-		//gameObject.SetActive(true);
 		timeUntilDespawn = despawnTime;
 		textMesh.text = text;
 		textMesh.color = color;
