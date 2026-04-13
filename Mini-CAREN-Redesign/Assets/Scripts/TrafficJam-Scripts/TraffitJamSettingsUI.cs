@@ -36,11 +36,6 @@ public class TraffitJamSettingsUI : MonoBehaviour
 
     public void OnSaveSessionButtonPressed()
     {
-        // TODO: Open save session page
-        // page should contain an text field where user can input the player name
-        // page should have a button to save the session
-        // page should also contain this disclaimer: "warning: if settings were changed mid-round, only the settings at the end of the round will be saved."
-
         saveSessionPanel.SetActive(true);
     }
 

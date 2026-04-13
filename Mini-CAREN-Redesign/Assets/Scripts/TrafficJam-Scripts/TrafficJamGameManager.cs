@@ -62,8 +62,6 @@ public class TrafficJamGameManager : MonoBehaviour
         UIManager.CountdownPanelActive = true;
         UIManager.RunTimeStatisicsPanel = true;
 
-        //leftSpawner.gameObject.SetActive(false);
-        //rightSpawner.gameObject.SetActive(false);
         vehicleSpawnController.spawningEnabled = false;
         emergencySpawner.gameObject.SetActive(false);
 
@@ -197,8 +195,6 @@ public class TrafficJamGameManager : MonoBehaviour
 
         AudioPlayer.Play(Sound.GameStart);
 
-        //leftSpawner.gameObject.SetActive(true);
-        //rightSpawner.gameObject.SetActive(true);
         vehicleSpawnController.spawningEnabled = true;
         emergencySpawner.gameObject.SetActive(true);
 
