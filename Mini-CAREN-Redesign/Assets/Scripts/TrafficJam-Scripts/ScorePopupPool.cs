@@ -46,7 +46,7 @@ public class ScorePopupPool : MonoBehaviour
 	}
 
 	public void Return(ScorePopup popup)
-	{
+	{	
 		activeScorePopups.Remove(popup);
 		inactiveScorePopups.Add(popup);
 	}
