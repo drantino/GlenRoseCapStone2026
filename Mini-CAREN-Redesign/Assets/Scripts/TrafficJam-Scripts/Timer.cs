@@ -21,8 +21,6 @@ public class Timer : MonoBehaviour
 		time = startTime;
 		paused = false;
 
-		//if (timerTextMesh == null)
-		//	throw new System.Exception($"timerTextMesh is null");
 	}
 
 	private void OnDestroy()

@@ -8,10 +8,6 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 		RightFoot
 	}
 
-	//public static int leftFootVehiclesPassed;
-	//public static int rightFootVehiclesPassed;
-	//public static int leftFootVehiclesSquished;
-	//public static int rightFootVehiclesSquished;
 
 	[SerializeField] private TrafficJamGameManager gameManager;
 	[SerializeField] private VehicleSpawner vehicleSpawner;
@@ -32,16 +28,8 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 		else
 			vehicleFootTag = "RightShoe";
 
-		//ResetValues();
 	}
 
-	//public static void ResetValues()
-	//{
-	//	leftFootVehiclesPassed = 0;
-	//	leftFootVehiclesSquished = 0;
-	//	rightFootVehiclesPassed = 0;
-	//	rightFootVehiclesSquished = 0;
-	//}
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -56,12 +44,6 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 
 			if (vehicle.squished || vehicle.detouring)
 			{
-				// the car was squished
-				//if (type == Type.LeftFoot) leftFootVehiclesSquished++;
-				//else rightFootVehiclesSquished++;
-
-				//if (type == Type.LeftFoot) gameManager.leftAmount++;
-				//else gameManager.rightAmount++;
 
 				if (type == Type.LeftFoot)
 				{
@@ -83,10 +65,6 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 				// provide player feedback
 				if (spawnPopups)
 				{
-					//ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
-					//scorePopup.color = new Color(1, 0, 0);
-					//scorePopup.text = vehicleSquishedText;
-
 					ScorePopup scorePopup = scorePopupPool.Get();
 					scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2, 0);
 					scorePopup.color = new Color(1, 0, 0);
@@ -96,9 +74,7 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 			}
 			else
 			{
-				// the car made it through
-				//if (type == Type.LeftFoot) leftFootVehiclesPassed++;
-				//else rightFootVehiclesPassed++;
+
 				if (type == Type.LeftFoot) 
 				{
 					gameManager.leftAmount++;
@@ -113,10 +89,6 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 				// provide player feedback
 				if (spawnPopups)
 				{
-					//ScorePopup scorePopup = Instantiate(scorePopupPrefab, vehicle.transform.position + new Vector3(0, 2, 0), Quaternion.identity).GetComponent<ScorePopup>();
-					//scorePopup.color = new Color(0, 1, 0);
-					//scorePopup.text = vehiclePassedText;
-
 					ScorePopup scorePopup = scorePopupPool.Get();
 					scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2, 0);
 					scorePopup.color = new Color(0, 1, 0);

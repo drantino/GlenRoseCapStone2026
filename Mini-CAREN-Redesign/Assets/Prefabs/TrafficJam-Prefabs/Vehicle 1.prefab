@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5961008780937821844}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37563148, y: -0, z: -0, w: -0.92676914}
+  m_LocalRotation: {x: 0.22089161, y: -0, z: -0, w: -0.9752984}
   m_LocalPosition: {x: -2, y: 3.092, z: 3.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -277,7 +277,6 @@ GameObject:
   - component: {fileID: 8083836922111704343}
   - component: {fileID: 5120738811957593860}
   - component: {fileID: 2169832125516911363}
-  - component: {fileID: 1388592406566359540}
   m_Layer: 0
   m_Name: Vehicle 1
   m_TagString: Vehicle
@@ -364,50 +363,11 @@ MonoBehaviour:
   originalYRotation: 0
   detourZPos: 0
   detourEnabled: 0
-  deformationImpulse: 1
+  deformationImpulse: 0.2
   squished: 0
   detouring: 0
   isLong: 0
---- !u!114 &1388592406566359540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258505706416592736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b39ab43b84eec84ea347650b4f144ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshFilters:
-  - {fileID: 3178931539489472303}
-  - {fileID: 5827558283492877902}
-  - {fileID: 5980465638450100723}
-  - {fileID: 2071622719850390664}
-  - {fileID: 4596055975163911425}
-  - {fileID: 1009770476224097185}
-  - {fileID: 7487593727691360829}
-  - {fileID: 3137041168249473275}
-  - {fileID: 648126095256858994}
-  - {fileID: 7334114737274852736}
-  deformationMode: 1
-  deformResolution: 100
-  deformFilter:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  randomizeVertices: 2.32
-  deformRadius: 50
-  deformMultiplier: 50
-  maximumDeformation: 100
-  minimumDeformationImpulse: 0.1
-  repairState: 1
-  deformState: 1
-  collisionDirection: {fileID: 0}
-  recalculateNormals: 1
-  recalculateBounds: 1
-  overallDeform: 0
-  latestProcessedVertexCount: 0
+  deformationScript: {fileID: 781188617512543693}
 --- !u!1 &6356703984159079409
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6659600545336985088}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37563148, y: -0, z: -0, w: -0.92676914}
+  m_LocalRotation: {x: 0.22089161, y: -0, z: -0, w: -0.9752984}
   m_LocalPosition: {x: -2, y: 3.092, z: -7.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -876,8 +836,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69d7b7c3432b06d47be19646344694d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 781188617512543693}
   m_SourcePrefab: {fileID: 100100000, guid: 69d7b7c3432b06d47be19646344694d1, type: 3}
+--- !u!1 &1223253267575826992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 69d7b7c3432b06d47be19646344694d1, type: 3}
+  m_PrefabInstance: {fileID: 2033577044758779745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &781188617512543693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223253267575826992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b39ab43b84eec84ea347650b4f144ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFilters:
+  - {fileID: 3178931539489472303}
+  - {fileID: 5827558283492877902}
+  - {fileID: 5980465638450100723}
+  - {fileID: 2071622719850390664}
+  - {fileID: 4596055975163911425}
+  - {fileID: 1009770476224097185}
+  - {fileID: 7487593727691360829}
+  - {fileID: 3137041168249473275}
+  - {fileID: 648126095256858994}
+  - {fileID: 7334114737274852736}
+  deformationMode: 1
+  deformResolution: 100
+  deformFilter:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  randomizeVertices: 0.42
+  deformRadius: 50
+  deformMultiplier: 50
+  maximumDeformation: 100
+  minimumDeformationImpulse: 0.001
+  repairState: 1
+  deformState: 1
+  collisionDirection: {fileID: 0}
+  recalculateNormals: 1
+  recalculateBounds: 1
+  contactPointPoint: {x: 0, y: 0, z: 0}
+  normal: {x: 0, y: 0, z: 0}
+  overallDeform: 0
+  latestProcessedVertexCount: 0
 --- !u!4 &1995674014177112202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 69d7b7c3432b06d47be19646344694d1, type: 3}

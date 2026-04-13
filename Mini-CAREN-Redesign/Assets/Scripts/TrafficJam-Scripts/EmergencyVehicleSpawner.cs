@@ -8,8 +8,6 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 	[SerializeField] private Transform rightSpawnPosition;
 	[SerializeField] private TrafficLight trafficLight1;
 	[SerializeField] private TrafficLight trafficLight2;
-	//[SerializeField] private TrafficGate trafficGate1;
-	//[SerializeField] private TrafficGate trafficGate2;
 	[SerializeField] private GameObject vehicleStopper1;
 	[SerializeField] private GameObject vehicleStopper2;
 	[SerializeField] private TrafficGate[] trafficGates;
@@ -21,18 +19,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 	protected override void Update()
 	{
-		//if (gameManager.settings.EmergencyVehicleActive)
-		//{
-  //          timeUntilNextSpawn -= Time.deltaTime;
-  //          if (timeUntilNextSpawn < 0)
-  //          {
-		//		timeUntilNextSpawn = GetNextSpawnTime();
-		//		if (currentCarsInLane < maxCarsInLane)
-  //              {
-  //                  TrySpawnCar();
-  //              }
-  //          }
-  //      }
+		
         
 
         // if there is an emergency vehicle, stop traffic.
@@ -117,11 +104,6 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 
 		return true;
 	}
-
-	//public override void RemovingVehicle(GameObject _Vehicle)
-	//{
-	//	base.RemovingVehicle(_Vehicle);
-	//}
 
 	public override void VehicleCrossedIntersection()
 	{

@@ -33,7 +33,7 @@ public class Vehicle : MonoBehaviour
 	protected float originalZPos;
 	protected float originalTimeUntilDespawnAfterSquish;
 
-	private RMD_Deformation deformationScript;
+	public RMD_Deformation deformationScript;
 
 	protected virtual void Start()
 	{
@@ -50,20 +50,12 @@ public class Vehicle : MonoBehaviour
 		originalTimeUntilDespawnAfterSquish = timeUntilDespawnAfterSquish;
 
 		originalYRotation = transform.eulerAngles.y;
-
-		deformationScript = GetComponent<RMD_Deformation>();
 	}
 
 	private void Update()
 	{
 		moveSpeed = gameManager.settings.CarSpeed;
-		// check if there is an object infront of the vehicle
-		//Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, out RaycastHit hit, Quaternion.identity, vehicleStopDistance);
-
-		//bool objectInfront = hit.transform != null && (
-		//	hit.transform.CompareTag(footTag) || hit.transform.CompareTag("Vehicle") || hit.transform.CompareTag("VehicleStopper"));
-
-		//RaycastHit[] hits = Physics.BoxCastAll(transform.position + transform.forward * raycastStartDistance, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
+		
 		RaycastHit[] hits = Physics.BoxCastAll(boxCastStartPosition.position, new Vector3(0.5f, 0.5f, 0.5f), transform.forward, Quaternion.identity, vehicleStopDistance);
 		bool objectInfront = false;
 
@@ -152,13 +144,6 @@ public class Vehicle : MonoBehaviour
 	{
 		if (other.CompareTag(footTag))
 			Squish();
-		//else if (other.CompareTag("Vehicle"))
-		//{
-		//	// this should never happen. But if it does, it is possible that the two cars will both stop, breaking the game.
-		//	// to fix this, we remove this vehicle from the scene
-		//	vehicleSpawner.RemovingVehicle(gameObject);
-		//	Destroy(gameObject);
-		//}
 	}
 
 	private void Squish()
@@ -168,8 +153,14 @@ public class Vehicle : MonoBehaviour
 		vehicleModel.SetActive(false);
 		vehicleSquishedModel?.SetActive(true);
 
-		if (deformationScript != null)
-			deformationScript.DamageMesh(deformationImpulse);
+
+		deformationScript.contactPointPoint = transform.position;
+		deformationScript.normal = Vector3.down;
+
+		deformationScript.repairState = RMD_Deformation.RepairState.Repaired;
+		deformationScript.deformState = RMD_Deformation.DeformState.Deforming;
+
+		deformationScript.DamageMesh(deformationImpulse);
 	}
 
 	private IEnumerator DetourCountdown()

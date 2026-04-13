@@ -19,10 +19,10 @@ public class TrafficJamSettings : MonoBehaviour
     [SerializeField] private float masterVolume;
     [SerializeField] private float carSpawnBias;
 
-	private void Update()
-	{
-		AudioPlayer.masterVolume = MasterVolume;
-	}
+	//private void Update()
+	//{
+	//	AudioPlayer.masterVolume = MasterVolume;
+	//}
 
 	//Properties
 	public float GameTime
