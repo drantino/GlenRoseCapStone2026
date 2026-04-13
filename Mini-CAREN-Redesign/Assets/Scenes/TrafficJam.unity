@@ -5306,7 +5306,7 @@ Transform:
   m_GameObject: {fileID: 284661513}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28, y: 0.84, z: -4.1000075}
+  m_LocalPosition: {x: 36, y: 0.84, z: -4.1000075}
   m_LocalScale: {x: 2.33, y: 2.33, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13003,7 +13003,7 @@ Transform:
   m_GameObject: {fileID: 814892808}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28, y: 0.86, z: 8.020001}
+  m_LocalPosition: {x: 36, y: 0.86, z: 8.020001}
   m_LocalScale: {x: 2.33, y: 2.33, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23495,7 +23495,7 @@ Transform:
   m_GameObject: {fileID: 1575592934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28, y: 0.86, z: 4.0999923}
+  m_LocalPosition: {x: -36, y: 0.86, z: 4.0999923}
   m_LocalScale: {x: 2.33, y: 2.33, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28813,7 +28813,7 @@ Transform:
   m_GameObject: {fileID: 1892248378}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28, y: 0.84, z: -8.130001}
+  m_LocalPosition: {x: -36, y: 0.84, z: -8.130001}
   m_LocalScale: {x: 2.33, y: 2.33, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32839,9 +32839,11 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
   - {fileID: 2919276103382703148, guid: 74b208748a10dea4d86d06f0461ad4e1, type: 3}
+  - {fileID: 6258505706416592736, guid: 660cfc70378e33540b8672ff1b06ef70, type: 3}
+  - {fileID: 6258505706416592736, guid: 25bb86eb53bf97544a302af1c18f290a, type: 3}
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
-  longVehicleSpawnProbability: 0.1
+  longVehicleSpawnProbability: 0.15
   footTag: LeftShoe
   detourPos: {fileID: 1486782365}
   antiDoubleSpawnRayLength: 2.5
@@ -32865,9 +32867,11 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 4045ef107b92fde46ad9d0e23d7cd2bf, type: 3}
   - {fileID: 6258505706416592736, guid: b31a6e1cad8bc254f99dd3eda78c6367, type: 3}
   - {fileID: 2919276103382703148, guid: 74b208748a10dea4d86d06f0461ad4e1, type: 3}
+  - {fileID: 6258505706416592736, guid: 660cfc70378e33540b8672ff1b06ef70, type: 3}
+  - {fileID: 6258505706416592736, guid: 25bb86eb53bf97544a302af1c18f290a, type: 3}
   longVehiclePrefabs:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
-  longVehicleSpawnProbability: 0.1
+  longVehicleSpawnProbability: 0.15
   footTag: RightShoe
   detourPos: {fileID: 751160495}
   antiDoubleSpawnRayLength: 2.5

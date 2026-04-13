@@ -83,9 +83,7 @@ MonoBehaviour:
   speedMultiplier: 1
   vehicleModel: {fileID: 1457058882643596404}
   vehicleSquishedModel: {fileID: 2191382652452256572}
-  wheels:
-  - {fileID: 5507760845803694038, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
-  - {fileID: 4258675955084283027, guid: 9a31969d51e3b1a4eb7933f7f430d31f, type: 3}
+  wheels: []
   boxCastStartPosition: {fileID: 2596771523128565457}
   turnSpeedMultiplier: 1.25
   vehicleStopDistance: 1
