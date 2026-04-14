@@ -116,15 +116,20 @@ public class Vehicle : MonoBehaviour
 
 
 		// squished behavior 2: move into "squished" lane
-		if (transform.forward.x > 0)
-		{
-			if (transform.position.z - originalZPos > squishedLaneDistance)
-				transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
-		}
-		else if (transform.position.z - originalZPos < -squishedLaneDistance)
-		{
-			transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
-		}
+		// if (transform.forward.x > 0)
+		// {
+		// 	if (transform.position.z - originalZPos > squishedLaneDistance)
+		// 		transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
+		// }
+		// else if (transform.position.z - originalZPos < -squishedLaneDistance)
+		// {
+		// 	transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
+		// }
+
+		if(Mathf.Abs(transform.position.z - originalZPos) < Mathf.Abs(squishedLaneDistance))
+			transform.eulerAngles = new Vector3(0, originalYRotation + 45, 0);
+		else
+			transform.eulerAngles = new Vector3(0, originalYRotation, 0);
 			
 
 		// move forward
