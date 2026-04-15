@@ -4,7 +4,7 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     public string footTag; // this determines what foot the vehicle will stop infont of, and can be stomped by
-	[HideInInspector] public VehicleSpawner vehicleSpawner;
+	[HideInInspector] public VehicleSpawner vehicleSpawner; // the vehicle spawner this car was spawned from
 	public TrafficJamGameManager gameManager;
 
 	[SerializeField] public float moveSpeed;
@@ -16,7 +16,6 @@ public class Vehicle : MonoBehaviour
 	[SerializeField] protected Transform boxCastStartPosition;
 	[SerializeField] protected float turnSpeedMultiplier;
 	[SerializeField] protected float vehicleStopDistance;
-	[SerializeField] protected float raycastStartDistance;
 	[SerializeField] protected float timeUntilDespawnAfterSquish;
 	[SerializeField] protected float squishedLaneDistance;
 
@@ -100,38 +99,12 @@ public class Vehicle : MonoBehaviour
 
 	protected virtual void PerformSquishedBehavior()
 	{
-		// squished behavior 1: despawn after a couple seconds
-		//if (timeUntilDespawnAfterSquish < originalTimeUntilDespawnAfterSquish / 2f)
-		//	vehicleSquishedModel.SetActive(Math.Sin(timeUntilDespawnAfterSquish * 40) > 0); // do flashing animation
-
-		//timeUntilDespawnAfterSquish -= Time.deltaTime;
-		//if (timeUntilDespawnAfterSquish < 0)
-		//{
-		//	// despawn vehicle
-		//	vehicleSpawner.currentCarsInLane--;
-		//	Destroy(gameObject);
-		//	return;
-		//}
-
-
-
-		// squished behavior 2: move into "squished" lane
-		// if (transform.forward.x > 0)
-		// {
-		// 	if (transform.position.z - originalZPos > squishedLaneDistance)
-		// 		transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
-		// }
-		// else if (transform.position.z - originalZPos < -squishedLaneDistance)
-		// {
-		// 	transform.Translate(Vector3.right * moveSpeed * turnSpeedMultiplier * Time.deltaTime);
-		// }
-
+		// squished behavior 2: turn into the "squished" lane
 		if(Mathf.Abs(transform.position.z - originalZPos) < Mathf.Abs(squishedLaneDistance))
 			transform.eulerAngles = new Vector3(0, originalYRotation + 45, 0);
 		else
 			transform.eulerAngles = new Vector3(0, originalYRotation, 0);
 			
-
 		// move forward
 		transform.Translate(Vector3.forward * moveSpeed * speedMultiplier * Time.deltaTime);
 

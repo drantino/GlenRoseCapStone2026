@@ -13,6 +13,9 @@ public enum Sound // don't change indexes of values to preserve scriptable objec
 	PointLost = 8,
 }
 
+/// <summary>
+/// This class is to be used with the AudioPlayer. Its purpose is to tie together each Sound enum value with a corresponding audio clip.
+/// </summary>
 [CreateAssetMenu(fileName = "AudioSO", menuName = "Scriptable Objects/AudioSO")]
 public class AudioSO : ScriptableObject
 {

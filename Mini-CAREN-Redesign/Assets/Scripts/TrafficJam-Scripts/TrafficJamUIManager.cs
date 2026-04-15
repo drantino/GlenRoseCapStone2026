@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.SettingsManagement;
 using UnityEngine;
 
 public class TrafficJamUIManager : MonoBehaviour

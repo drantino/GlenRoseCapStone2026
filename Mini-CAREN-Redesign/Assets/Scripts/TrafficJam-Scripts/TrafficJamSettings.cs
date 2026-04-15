@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// The purpose of this class is to act as an interface between the various objects in the scene, and the settings page, and to make debugging and playtesting easier. 
+/// 
+/// if any class wants to get a settings value, it should do so through this class. The reason being is that if there is an error with the settings page, or if the settings page fails to load for whatever reason, the game won't break, and settings values will instead be grabbed from this class
+/// </summary>
 public class TrafficJamSettings : MonoBehaviour
 {
     public Game staticTrafficJamSettings;
@@ -18,11 +23,6 @@ public class TrafficJamSettings : MonoBehaviour
     [SerializeField] private bool emergencyVehicleActive;
     [SerializeField] private float masterVolume;
     [SerializeField] private float carSpawnBias;
-
-	//private void Update()
-	//{
-	//	AudioPlayer.masterVolume = MasterVolume;
-	//}
 
 	//Properties
 	public float GameTime

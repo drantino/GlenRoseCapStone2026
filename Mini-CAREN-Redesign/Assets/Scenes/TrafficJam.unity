@@ -2993,6 +2993,7 @@ MonoBehaviour:
   rightSquished: 0
   rightDetoured: 0
   startTime: 0
+  countdownTime: 0
   audioToMuteOnPause:
   - {fileID: 2144512423}
   - {fileID: 31728344}
@@ -51017,14 +51018,12 @@ MonoBehaviour:
   footTag: LeftShoe
   detourPos: {fileID: 0}
   antiDoubleSpawnRayLength: 0
-  spawnRateSec: 30
   leftSpawnPosition: {fileID: 2083898788}
   rightSpawnPosition: {fileID: 2097718207}
   trafficLight1: {fileID: 7538785142685780548}
   trafficLight2: {fileID: 6932131904184969484}
   vehicleStopper1: {fileID: 516150349}
   vehicleStopper2: {fileID: 401396457}
-  trafficGates: []
   sirenLoop: {fileID: 2144512423}
   sirenFadeTime: 1.5
 --- !u!33 &2785613049640547990

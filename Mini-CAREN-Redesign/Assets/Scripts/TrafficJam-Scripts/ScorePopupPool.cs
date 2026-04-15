@@ -25,6 +25,10 @@ public class ScorePopupPool : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Get an inactive popup from the pool
+	/// </summary>
+	/// <returns>the popup</returns>
 	public ScorePopup Get()
 	{
 		ScorePopup popup = null;
@@ -45,6 +49,10 @@ public class ScorePopupPool : MonoBehaviour
 		return popup;
 	}
 
+	/// <summary>
+	/// Return a popup to the pool
+	/// </summary>
+	/// <param name="popup">the popup to return</param>
 	public void Return(ScorePopup popup)
 	{	
 		activeScorePopups.Remove(popup);

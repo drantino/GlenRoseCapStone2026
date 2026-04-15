@@ -1,8 +1,11 @@
-using NUnit.Framework.Constraints;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// A class to easily control a looping audio clip in the scene
+/// To use: drag the AudioLoop prefab into the scene, and place your desired audio clip in the audio source component. Then use this classes methods to Play, Stop, Fade in, or Fade out the audio loop.
+/// Please be careful when modifying this class as to not break other games.
+/// </summary>
 public class AudioLoop : MonoBehaviour
 {
     private float originalVolume;

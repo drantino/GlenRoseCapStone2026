@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TrafficJamScoreKeeper : MonoBehaviour
 {
+    // Type determines which foot the score keeper is scoring. The score keeper will only score vehicles that have the same corresponing foot tag
     public enum Type
     {
         LeftFoot,
@@ -39,11 +40,12 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 
         if (vehicle.footTag == vehicleFootTag)
         {
-            //vehicleSpawner.RemovingVehicle(other.transform.parent.gameObject);
             vehicleSpawner.VehicleCrossedIntersection();
 
             if (vehicle.squished || vehicle.detouring)
             {
+                // a squished or detouring vehicle has entered the score keeper
+                // update score and provide negative feedback
 
                 if (type == Type.LeftFoot)
                 {
@@ -88,8 +90,10 @@ public class TrafficJamScoreKeeper : MonoBehaviour
 			}
             else
             {
+				// a non squished vehicle has entered the score keeper
+				// update score and provide positive feedback
 
-                if (type == Type.LeftFoot)
+				if (type == Type.LeftFoot)
                 {
                     gameManager.leftAmount++;
                     gameManager.leftPassed++;

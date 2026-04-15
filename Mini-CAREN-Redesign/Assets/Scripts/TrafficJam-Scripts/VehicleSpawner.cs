@@ -3,6 +3,10 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Spawns vehicles from this position, and keeps track of necessary variables
+/// Note that the vehicle spawner does not spawn vehicles on its own. The TrySpawnVehicle method must be called from some other class
+/// </summary>
 public class VehicleSpawner : MonoBehaviour
 {
 	[HideInInspector] public int currentCarsInLane = 0;

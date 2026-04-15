@@ -17,6 +17,9 @@ public class TrafficJamGameManager : MonoBehaviour
     //TEMP: Serialize to view in editor
     [SerializeField]
     private float startTime;
+
+    //TEMP: Serialize to view in editor
+    [SerializeField]
     private int countdownTime;
 
 
@@ -27,7 +30,6 @@ public class TrafficJamGameManager : MonoBehaviour
 
     void Start()
     {
-        //SetUpTimer(TEMPGameTimeStartSec);
         SetUpTimer(Mathf.RoundToInt(settings.GameTime * 60));
         StartGame(); // TEMP CODE: game should be started manually in final build
     }
@@ -50,6 +52,7 @@ public class TrafficJamGameManager : MonoBehaviour
 
     }
 
+    // this function is called when the start game button is pressed
 	[ContextMenu("Start Game")]
     public void StartGame()
     {
@@ -83,6 +86,7 @@ public class TrafficJamGameManager : MonoBehaviour
         pausible = true;
     }
 
+    // this function is called when the pause button on the settings page is pressed
     [ContextMenu("PauseGame")]
     public void PauseGame()
     {
@@ -122,6 +126,7 @@ public class TrafficJamGameManager : MonoBehaviour
 		}
 	}
 
+    // this function is called once the timer reaches 0
     [ContextMenu("EndGame")]
     public void EndGame()
     {
@@ -136,7 +141,7 @@ public class TrafficJamGameManager : MonoBehaviour
 
         isPlaying = false;
 
-        // TODO: Save Round
+        // Save Round
         TrafficJamRoundData roundData = new TrafficJamRoundData
         {
             roundLength = settings.GameTime,

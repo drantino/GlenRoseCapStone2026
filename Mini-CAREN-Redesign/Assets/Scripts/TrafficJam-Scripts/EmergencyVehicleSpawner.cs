@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class EmergencyVehicleSpawner : VehicleSpawner
 {
-	[SerializeField] protected float spawnRateSec;
-
 	[SerializeField] private Transform leftSpawnPosition;
 	[SerializeField] private Transform rightSpawnPosition;
 	[SerializeField] private TrafficLight trafficLight1;
 	[SerializeField] private TrafficLight trafficLight2;
-	[SerializeField] private GameObject vehicleStopper1;
-	[SerializeField] private GameObject vehicleStopper2;
-	[SerializeField] private TrafficGate[] trafficGates;
+	[SerializeField] private GameObject vehicleStopper1; // stop the vehicles from crossing the center lanes (like a stop light)
+	[SerializeField] private GameObject vehicleStopper2; // stop the vehicles from crossing the center lanes (like a stop light)
 
 	public AudioLoop sirenLoop;
 	public float sirenFadeTime;
@@ -29,10 +26,6 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 			// update traffic lights
 			if (trafficLight1 != null && !trafficLight1.redLightOn) trafficLight1.TurnOnRedLight();
 			if (trafficLight2 != null && !trafficLight2.redLightOn) trafficLight2.TurnOnRedLight();
-
-			// update gates
-			foreach (TrafficGate gate in trafficGates)
-				gate.Close();
 		}
 		else
 		{
@@ -43,13 +36,13 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 			// update traffic lights
 			if (trafficLight1 != null && trafficLight1.redLightOn) trafficLight1.TurnOnGreenLight();
 			if (trafficLight2 != null && trafficLight2.redLightOn) trafficLight2.TurnOnGreenLight();
-
-			// update gates
-			foreach (TrafficGate gate in trafficGates)
-				gate.Open();
 		}
 	}
 	
+	/// <summary>
+	/// Attempts to spawn a vehicle
+	/// </summary>
+	/// <returns>if the car spawned or not</returns>
 	public override bool TrySpawnCar()
 	{
 		// if the lane is full, don't spawn
@@ -63,6 +56,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		// choose randomly wether to spawn this vehicle on the left lane, or right lane.
 		spawnCarOnLeft = Random.value > gameManager.settings.EmergencyVehicleBias/100;
 
+		// set the vehicles foot tag depending on the lane it spawns in
 		string tag = string.Empty;
 		Vector3 spawnPos = Vector3.zero;
 		if (spawnCarOnLeft)
@@ -89,8 +83,7 @@ public class EmergencyVehicleSpawner : VehicleSpawner
 		instantiatedVehicleScript.gameManager = gameManager;
 		
 		currentCarsInLane++;
-
-		//gameManager.AddToVechicleList(instantiatedVehicle);
+		
 		VehicleList.Add(instantiatedVehicleScript);
 
 		sirenLoop.FadeIn(sirenFadeTime);

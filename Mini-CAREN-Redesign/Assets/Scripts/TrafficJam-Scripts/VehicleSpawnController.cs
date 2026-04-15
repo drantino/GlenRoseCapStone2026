@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the time between vehicle spawns, and which spawner to spawn from.
+/// </summary>
 public class VehicleSpawnController : MonoBehaviour
 {
 	public TrafficJamGameManager gameManager;

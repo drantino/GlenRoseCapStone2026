@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class allows any class to play sounds from a single audio source.
+/// To use it: Place a single instance of the audioPlayer prefab in the scene, and place the sounds that you plan to use in the audioSOList
+/// Please be careful when modifying this class as to not break other games.
+/// </summary>
 public class AudioPlayer : MonoBehaviour
 {
 	private static AudioPlayer instance;
@@ -9,7 +14,7 @@ public class AudioPlayer : MonoBehaviour
 
 	public float masterVol; // Temp debugging
 
-	[SerializeField] private AudioSO[] audioSOList;
+	[SerializeField] private AudioSO[] audioSOList; // list of audioSO's that will be used in the current scene (for optimization, only include audio that will be played in this scene)
 	private Dictionary<Sound, AudioSO> audioSODict = new Dictionary<Sound, AudioSO>();
 
 	// components
@@ -41,6 +46,13 @@ public class AudioPlayer : MonoBehaviour
 		instance = null;
 	}
 
+	/// <summary>
+	/// Play a sound.
+	/// Note that an audioPlayer must be in the scene, and it must contain the sound your trying to play
+	/// </summary>
+	/// <param name="sound">The sound to play</param>
+	/// <param name="volume">the volume multiplier of the sound</param>
+	/// <exception cref="System.Exception"></exception>
 	public static void Play(Sound sound, float volume = 1)
 	{
 		if (instance == null)
