@@ -9,6 +9,8 @@ public enum Sound // don't change indexes of values to preserve scriptable objec
 	Two = 4,
 	One = 5,
 	RoundEnd = 6,
+	PointGained = 7,
+	PointLost = 8,
 }
 
 [CreateAssetMenu(fileName = "AudioSO", menuName = "Scriptable Objects/AudioSO")]

@@ -23,6 +23,8 @@ public class TrafficJamGameManager : MonoBehaviour
     public AudioLoop[] audioToMuteOnPause;
     public AudioMixer audioMixer;
 
+    public bool pausible = true;
+
     void Start()
     {
         //SetUpTimer(TEMPGameTimeStartSec);
@@ -78,11 +80,14 @@ public class TrafficJamGameManager : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(StartingCountdown());
 
+        pausible = true;
     }
 
     [ContextMenu("PauseGame")]
     public void PauseGame()
     {
+        if (!pausible) return;
+
         if (Time.timeScale == 0)
         {
             // unpause
@@ -158,6 +163,7 @@ public class TrafficJamGameManager : MonoBehaviour
 
         AudioPlayer.Play(Sound.RoundEnd);
 
+        pausible = false;
 	}
 
     // The timer raises or lowers when the operator/therapist adjusts the time, instead of completely resetting

@@ -1020,8 +1020,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   moveSpeed: 4
   speedMultiplier: 1
-  vehicleModel: {fileID: 1382787915274894139}
-  vehicleSquishedModel: {fileID: 8699030552442017145}
+  vehicleModel: {fileID: 5997896459757222039}
+  vehicleSquishedModel: {fileID: 3777881621859544663}
   wheels:
   - {fileID: 3614729347713945224}
   - {fileID: 5571057185962942162}
@@ -2614,10 +2614,5 @@ PrefabInstance:
 --- !u!4 &8699030552442017031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3547188460827250373, guid: f72266263fecefe48819da89265ea98e, type: 3}
-  m_PrefabInstance: {fileID: 5297094280423840706}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8699030552442017145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3547188460827250363, guid: f72266263fecefe48819da89265ea98e, type: 3}
   m_PrefabInstance: {fileID: 5297094280423840706}
   m_PrefabAsset: {fileID: 0}

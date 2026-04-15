@@ -23,9 +23,6 @@ public class VehicleSpawnController : MonoBehaviour
 	[SerializeField]
 	private float timeUntilNextEmergencyVehicleSpawn;
 
-	private int numRightSpawns = 0;
-	private int numLeftSpawns = 0;
-
 	private void Awake()
 	{
 		if (gameManager == null)
@@ -40,9 +37,6 @@ public class VehicleSpawnController : MonoBehaviour
 
 	public void ResetValues()
 	{
-		numRightSpawns = 0;
-		numLeftSpawns = 0;
-
 		timeUntilNextVehicleSpawn = GetNextSpawnTime();
 		timeUntilNextEmergencyVehicleSpawn = GetNextEmergencySpawnTime();
 	}

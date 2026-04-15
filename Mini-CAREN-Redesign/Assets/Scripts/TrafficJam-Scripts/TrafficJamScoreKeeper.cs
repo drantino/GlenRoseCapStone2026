@@ -77,14 +77,15 @@ public class TrafficJamScoreKeeper : MonoBehaviour
                     }
                     else
                     {
-                        scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2, 0);
+                        scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2.5f, 0);
                     }
 
-                    scorePopup.color = new Color(1, 0, 0);
-                    scorePopup.text = vehicleSquishedText;
-                    scorePopup.Enable();
+					scorePopup.SetType(ScorePopup.FeedbackType.Negative);
+					scorePopup.Enable();
                 }
-            }
+
+				AudioPlayer.Play(Sound.PointLost);
+			}
             else
             {
 
@@ -103,11 +104,12 @@ public class TrafficJamScoreKeeper : MonoBehaviour
                 if (spawnPopups)
                 {
                     ScorePopup scorePopup = scorePopupPool.Get();
-                    scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2, 0);
-                    scorePopup.color = new Color(0, 1, 0);
-                    scorePopup.text = vehiclePassedText;
+                    scorePopup.transform.position = vehicle.transform.position + new Vector3(0, 2.5f, 0);
+                    scorePopup.SetType(ScorePopup.FeedbackType.Positive);
                     scorePopup.Enable();
                 }
+
+                AudioPlayer.Play(Sound.PointGained);
             }
         }
     }

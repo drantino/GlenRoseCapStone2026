@@ -1,23 +1,34 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScorePopup : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textMesh;
-    public string text;
-    public Color color;
     public float despawnTime;
     [SerializeField] private float moveUpSpeed;
 
-    private float timeUntilDespawn;
+    public enum FeedbackType
+    {
+        Positive,
+        Negative
+    }
+    
+	public Image positiveImage;
+    public Image negativeImage;
+
+	private float timeUntilDespawn;
     private bool active;
     [HideInInspector] public ScorePopupPool pool;
-    
-    public void Enable()
+
+	private void Start()
+	{
+		positiveImage.gameObject.SetActive(false);
+        negativeImage.gameObject.SetActive(false);
+	}
+
+	public void Enable()
 	{
 		timeUntilDespawn = despawnTime;
-		textMesh.text = text;
-		textMesh.color = color;
         active = true;
 	}
 
@@ -26,18 +37,32 @@ public class ScorePopup : MonoBehaviour
         if (!active) return;
 
         transform.position += Vector3.up * moveUpSpeed * Time.deltaTime;
-        textMesh.color = new Color(
-            textMesh.color.r,
-            textMesh.color.g,
-            textMesh.color.b,
-            timeUntilDespawn / despawnTime
-            );
 
-        timeUntilDespawn -= Time.deltaTime;
+		positiveImage.color = new Color(
+			1,
+            1,
+            1,
+			despawnTime != 0 ? timeUntilDespawn / despawnTime : 0
+			);
+
+		negativeImage.color = new Color(
+			1,
+			1,
+			1,
+			despawnTime != 0 ? timeUntilDespawn / despawnTime : 0
+			);
+
+		timeUntilDespawn -= Time.deltaTime;
         if (timeUntilDespawn < 0 )
         {
             active = false;
             pool.Return(this);
         }
+	}
+
+    public void SetType(FeedbackType type)
+    {
+        positiveImage.gameObject.SetActive(type == FeedbackType.Positive);
+        negativeImage.gameObject.SetActive(type == FeedbackType.Negative);
     }
 }
