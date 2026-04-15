@@ -124,7 +124,6 @@ public class VehicleSpawner : MonoBehaviour
                 currentCarsInLane -= 2;
             else
                 currentCarsInLane--;
-			Debug.Log($"Removed vehicle '{_Vehicle.name}'");
         }
     }
 

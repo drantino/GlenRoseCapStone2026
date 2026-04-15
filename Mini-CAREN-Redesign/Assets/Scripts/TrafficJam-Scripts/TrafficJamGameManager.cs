@@ -60,8 +60,11 @@ public class TrafficJamGameManager : MonoBehaviour
 
         // reset score
         ResetValues();
-            
-        UIManager.PausePanelActive = false;
+
+		// reset objects in scene
+		vehicleSpawnController.ResetValues();
+
+		UIManager.PausePanelActive = false;
         UIManager.EndPanelActive = false;
         UIManager.CountdownPanelActive = true;
         UIManager.RunTimeStatisicsPanel = true;

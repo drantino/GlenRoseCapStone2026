@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class VehicleSpawnController : MonoBehaviour
@@ -22,6 +23,9 @@ public class VehicleSpawnController : MonoBehaviour
 	[SerializeField]
 	private float timeUntilNextEmergencyVehicleSpawn;
 
+	private int numRightSpawns = 0;
+	private int numLeftSpawns = 0;
+
 	private void Awake()
 	{
 		if (gameManager == null)
@@ -32,6 +36,15 @@ public class VehicleSpawnController : MonoBehaviour
 			throw new System.Exception("Right Spawner is null");
 		if (emergencySpawner == null)
 			throw new System.Exception("Emergency Spawner is null");
+	}
+
+	public void ResetValues()
+	{
+		numRightSpawns = 0;
+		numLeftSpawns = 0;
+
+		timeUntilNextVehicleSpawn = GetNextSpawnTime();
+		timeUntilNextEmergencyVehicleSpawn = GetNextEmergencySpawnTime();
 	}
 
 	private void Start()
