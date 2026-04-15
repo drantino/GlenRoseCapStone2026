@@ -56,6 +56,8 @@ public class ScorePopup : MonoBehaviour
         if (timeUntilDespawn < 0 )
         {
             active = false;
+            positiveImage.gameObject.SetActive(false);
+            negativeImage.gameObject.SetActive(false);
             pool.Return(this);
         }
 	}
