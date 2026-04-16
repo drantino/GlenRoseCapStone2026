@@ -408,8 +408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 5
-  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 1
   gameManager: {fileID: 904674787}
   vehiclePrefabs:
@@ -417,19 +415,14 @@ MonoBehaviour:
   longVehiclePrefabs: []
   longVehicleSpawnProbability: 0
   footTag: LeftShoe
-  timeUntilNextSpawn: 0
   detourPos: {fileID: 0}
   antiDoubleSpawnRayLength: 0
-  spawnRateSec: 30
   leftSpawnPosition: {fileID: 644883068}
   rightSpawnPosition: {fileID: 1813927745}
   trafficLight1: {fileID: 238076406}
   trafficLight2: {fileID: 1796658975}
   vehicleStopper1: {fileID: 399090514}
   vehicleStopper2: {fileID: 798533462}
-  trafficGates:
-  - {fileID: 538341650}
-  - {fileID: 506692666}
   sirenLoop: {fileID: 499230326}
   sirenFadeTime: 1.5
 --- !u!1 &5740850
@@ -3736,7 +3729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Round Over
+  m_text: ROUND OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
   m_sharedMaterial: {fileID: 7597110922936624669, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
@@ -4929,8 +4922,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 3
-  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 4
   gameManager: {fileID: 904674787}
   vehiclePrefabs:
@@ -4942,7 +4933,6 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
   footTag: LeftShoe
-  timeUntilNextSpawn: 0
   detourPos: {fileID: 1088747851}
   antiDoubleSpawnRayLength: 2.5
 --- !u!1 &270122019
@@ -8119,17 +8109,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 903fd972fce38bb40b939223b0e56288, type: 3}
---- !u!114 &506692666 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8216446230171169574, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
-  m_PrefabInstance: {fileID: 395189820}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebe999f55b3f0149a59399c81063d9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &530530593
 Mesh:
   m_ObjectHideFlags: 0
@@ -8295,17 +8274,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &538341650 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8216446230171169574, guid: cc34fb5f188a5564db2d38d5f485c6e6, type: 3}
-  m_PrefabInstance: {fileID: 1414534984}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebe999f55b3f0149a59399c81063d9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &545912726
 GameObject:
   m_ObjectHideFlags: 0
@@ -11510,7 +11478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65d70e83173261d41be71869477b174d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c6e54699250ea84d9254103fbbbaf18, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12684,9 +12652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:
-
-'
+  m_text: 'SCORES:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
   m_sharedMaterial: {fileID: 7597110922936624669, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
@@ -14002,10 +13968,12 @@ MonoBehaviour:
   rightSquished: 0
   rightDetoured: 0
   startTime: 0
+  countdownTime: 0
   audioToMuteOnPause:
   - {fileID: 499230326}
   - {fileID: 647257460}
   audioMixer: {fileID: 0}
+  pausible: 1
 --- !u!114 &904674788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14696,7 +14664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Right
+  m_text: RIGHT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
   m_sharedMaterial: {fileID: 7597110922936624669, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
@@ -18909,7 +18877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Left
+  m_text: LEFT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
   m_sharedMaterial: {fileID: 7597110922936624669, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
@@ -21760,7 +21728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1442578337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24899,7 +24867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1661636722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28631,8 +28599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCarsInLane: 0
-  spawnRateVarianceSec: 3
-  minTimeBetweenVehicleSpawns: 2
   maxCarsInLane: 4
   gameManager: {fileID: 904674787}
   vehiclePrefabs:
@@ -28644,7 +28610,6 @@ MonoBehaviour:
   - {fileID: 6258505706416592736, guid: 66143bccd08da33478b3c464763f2a12, type: 3}
   longVehicleSpawnProbability: 0.1
   footTag: RightShoe
-  timeUntilNextSpawn: 0
   detourPos: {fileID: 549341493}
   antiDoubleSpawnRayLength: 2.5
 --- !u!43 &1900147253
@@ -29034,7 +28999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Round Time:'
+  m_text: 'ROUND TIME:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
   m_sharedMaterial: {fileID: 7597110922936624669, guid: 90d2ff2eb8b7a49c9bea24368578627d, type: 2}
