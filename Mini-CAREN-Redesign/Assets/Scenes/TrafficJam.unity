@@ -2636,7 +2636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staticTrafficJamSettings: {fileID: 0}
   hasSettings: 0
-  useDebugSettings: 1
+  useDebugSettings: 0
   gameTime: 2
   heightThreshold: 0.5
   carSpeed: 3

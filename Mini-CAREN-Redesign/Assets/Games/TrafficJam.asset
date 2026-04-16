@@ -37,7 +37,7 @@ MonoBehaviour:
     cardDescription: The height needed to allow cars to pass.
     cardImage: {fileID: 21300000, guid: 497fb58278a976a4b80f4e41f55c797a, type: 3}
     SettingValue:
-      value: 0.12
+      value: 0.6
       min: 0
       max: 0.6
       units: Meters
@@ -47,7 +47,7 @@ MonoBehaviour:
     cardDescription: Car speed not under the feet
     cardImage: {fileID: 2022485508, guid: 03ab593a8a4c4864b93e5bb22fbc6f7b, type: 3}
     SettingValue:
-      value: 3
+      value: 10
       min: 1
       max: 10
       units: 
@@ -55,9 +55,9 @@ MonoBehaviour:
     sliderisWholeNumber: 1
   - cardName: Car Spawn Inverval
     cardDescription: How often the car spawns
-    cardImage: {fileID: 21300000, guid: d1f6d64acb1864bd6a02b62f93e9d19b, type: 3}
+    cardImage: {fileID: 21300000, guid: 17450def5c16e614dadba5ba04607a37, type: 3}
     SettingValue:
-      value: 10
+      value: 5
       min: 2
       max: 12
       units: Seconds
@@ -67,7 +67,7 @@ MonoBehaviour:
     cardDescription: The size of the vehicle that can spawn
     cardImage: {fileID: 21300000, guid: d745730b3fe6a9b4fbb758df14c83c67, type: 3}
     SettingValue:
-      value: 1
+      value: 2
       min: 1
       max: 2
       units: 
@@ -77,7 +77,7 @@ MonoBehaviour:
     cardDescription: Volume of the TrafficJam game
     cardImage: {fileID: 21300000, guid: 8d0dba949ac399048800c8755618ec02, type: 3}
     SettingValue:
-      value: 100
+      value: 54
       min: 0
       max: 100
       units: '%'
@@ -85,9 +85,9 @@ MonoBehaviour:
     sliderisWholeNumber: 1
   - cardName: Vehicle spawn side bias
     cardDescription: Which side the vehicle will likely spawn
-    cardImage: {fileID: 21300000, guid: 8d0dba949ac399048800c8755618ec02, type: 3}
+    cardImage: {fileID: 21300000, guid: 51b117f940deea44990813fb9695e04d, type: 3}
     SettingValue:
-      value: 50
+      value: 100
       min: 0
       max: 100
       units: '%'
@@ -99,7 +99,7 @@ MonoBehaviour:
     cardName: Car detour
     cardDescription: If the cars can detour
     cardImage: {fileID: 21300000, guid: 0fc210b90df95334ca4fd3d6fdd9d6c1, type: 3}
-    isActive: 0
+    isActive: 1
     cardPrefab: {fileID: 7291998014160336035, guid: 57b7f621df2d9b8409c11bc0660f7ced, type: 3}
   SpecialCardEmergencyVehicle:
     cardName: Emergency vehical bias
@@ -107,7 +107,7 @@ MonoBehaviour:
     cardImage: {fileID: 21300000, guid: d63ad515f5076644bb57e10e38d749c1, type: 3}
     isActive: 0
     SettingValue:
-      value: 0
+      value: 100
       min: 0
       max: 100
       units: '%'

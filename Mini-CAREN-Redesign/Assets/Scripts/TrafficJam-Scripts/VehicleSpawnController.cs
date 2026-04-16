@@ -63,7 +63,7 @@ public class VehicleSpawnController : MonoBehaviour
 			TrySpawnLeftOrRightCar();
 		}
 
-		if (timeUntilNextEmergencyVehicleSpawn < 0)
+		if (gameManager.settings.EmergencyVehicleActive && timeUntilNextEmergencyVehicleSpawn < 0)
 		{
 			timeUntilNextEmergencyVehicleSpawn = GetNextEmergencySpawnTime();
 			emergencySpawner.TrySpawnCar();
@@ -84,9 +84,9 @@ public class VehicleSpawnController : MonoBehaviour
 	{
 		float randomValue = Random.Range(1.0f, 100.00f);
 		if (randomValue < gameManager.settings.CarSpawnBias)
-			leftSpawner.TrySpawnCar();
-		else
 			rightSpawner.TrySpawnCar();
+		else
+			leftSpawner.TrySpawnCar();
 	}
 
 	public void ForceVehicleSpawn()

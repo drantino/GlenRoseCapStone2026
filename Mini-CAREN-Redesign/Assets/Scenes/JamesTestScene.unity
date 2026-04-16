@@ -3053,7 +3053,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftFootPrefab: {fileID: 2034797467422312065, guid: 81e05119407fd7b4291bfa4cc4782406, type: 3}
   rightFootPrefab: {fileID: 4215600076581392608, guid: 76b249a799508bf499bb0cfb04fef563, type: 3}
-  shoeRenderImage: {fileID: 0}
+  shoeRenderImageLeft: {fileID: 0}
+  shoeRenderImageRight: {fileID: 0}
   gameManager: {fileID: 0}
   calibrationLogic: {fileID: 0}
   leftFootPosition: {x: 0, y: 0, z: 1}
@@ -6184,63 +6185,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157067938}
   m_CullTransparentMesh: 1
---- !u!1001 &1161170849
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.6197877
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.4116533
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.481885
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
-      propertyPath: m_Name
-      value: 1950sClassicCar#6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 984a774e27ffd7e4d941efa8f5f88a72, type: 3}
 --- !u!1 &1161649793
 GameObject:
   m_ObjectHideFlags: 0
@@ -9947,6 +9891,7 @@ MonoBehaviour:
   emergencyVehicleSideBias: 0
   emergencyVehicleActive: 0
   masterVolume: 0
+  carSpawnBias: 0
 --- !u!4 &1949477894
 Transform:
   m_ObjectHideFlags: 0
@@ -10679,4 +10624,3 @@ SceneRoots:
   - {fileID: 1406327753}
   - {fileID: 1930893749}
   - {fileID: 1949477894}
-  - {fileID: 1161170849}
