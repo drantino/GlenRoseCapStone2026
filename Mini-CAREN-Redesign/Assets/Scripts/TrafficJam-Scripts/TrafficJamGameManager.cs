@@ -47,9 +47,7 @@ public class TrafficJamGameManager : MonoBehaviour
         }
 
         // audio
-        float dbVolume = Mathf.Clamp(80.0f * settings.MasterVolume - 80.0f, -80, 0);
-		audioMixer.SetFloat("masterVolume", dbVolume);
-
+        AudioListener.volume = Mathf.Clamp(settings.MasterVolume, 0f, 1f); // for safety, volume is clamped to 100%
     }
 
     // this function is called when the start game button is pressed
